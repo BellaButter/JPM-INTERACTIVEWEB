@@ -68,7 +68,7 @@ export function button(href, label, secondary = false) {
   return `<a class="button ${secondary ? 'button-outline' : 'button-primary'}" href="${href}">${label} ${icon}</a>`;
 }
 // The keyword kicker sits inside the H1 so search engines read it with the headline; it keeps the eyebrow look.
-export function pageHero(kicker, title, intro, { kickerInTitle = true } = {}) { const kick = `<span class="status-dot"></span>${kicker}`; return `<section class="page-hero wrap">${kickerInTitle ? `<h1><span class="eyebrow hero-kicker"><span class="status-dot"></span><span class="hero-kicker-text">${kicker}</span></span>${title}</h1>` : `<p class="eyebrow">${kick}</p><h1>${title}</h1>`}${intro ? `<p class="page-intro">${intro}</p>` : ''}</section>`; }
+export function pageHero(kicker, title, intro, { kickerInTitle = true } = {}) { const kick = `<span class="status-dot"></span>${kicker}`; return `<section class="page-hero wrap">${kickerInTitle ? `<h1>${kicker ? `<span class="eyebrow hero-kicker"><span class="status-dot"></span><span class="hero-kicker-text">${kicker}</span></span>` : ''}${title}</h1>` : `<p class="eyebrow">${kick}</p><h1>${title}</h1>`}${intro ? `<p class="page-intro">${intro}</p>` : ''}</section>`; }
 export const boxIconMarkup = readFileSync(new URL('../assets/icons/tabler-box.svg', import.meta.url), 'utf8').replace(/<!--[\s\S]*?-->/g, '').trim().replace('<svg', '<svg class="hero-box-icon" aria-hidden="true" focusable="false"');
 const boxIcon = readFileSync(new URL('../assets/icons/tabler-box.svg', import.meta.url), 'utf8')
   .replace(/<!--[\s\S]*?-->/g, '').trim()

@@ -95,15 +95,19 @@ export const articles = [
   ] }
 ];
 
-// Home FAQ (2026-10-26). Answers stay within owner-approved facts: package prices, on-site support,
-// screens not included, usage summary. Prices follow the Events package records above.
+// Home FAQ (2026-10-26, expanded 2026-10-27). Answers stay within owner-approved facts: package prices,
+// on-site support, screens not included, usage summary, at least one week to build, PDPA consent,
+// 1-year warranty on permanent installations. Prices follow the Events package records above.
 const eventPrice = index => packages[0].items[index].startingPrice.toLocaleString('en-US') + '.-';
 export const faqs = [
-  ['What does JPM Media Space do?', 'JPM Media Space is a creative technology studio in Thailand. We design and build interactive games, touchscreen applications, and interactive content for LED walls, projectors, and sensors, mainly for event booths and brand activations, as well as permanent installations.'],
+  ['What does JPM Media Space offer?', 'JPM Media Space is a creative technology studio in Thailand. We design and build interactive games, touchscreen applications, and interactive content for LED walls, projectors, and sensors, mainly for event booths and brand activations, as well as permanent installations.'],
   ['How much does an interactive game for an event booth cost?', `Event packages start at ${eventPrice(0)} for touchscreen experiences and ${eventPrice(1)} for interactive LED and projection content. The final price depends on the game, content, and scope, and is confirmed in your quotation.`],
+  ['What kinds of booth games can you make?', 'Popular formats include catch games, memory match, lucky draw games, quiz games, Guitar Hero– and Fruit Ninja–style games, and motion games that use sensors. Short, timed rounds keep the queue moving and give people watching a reason to join. You can try some of these formats in our Playground.'],
+  ['Can the game use our logo, products, and brand colours?', 'Yes. Every game is built around your brand: your logo and colours, your products as in-game items, and your campaign message. The Playground demos let you try this with your own image.'],
+  ['How long does it take to build a booth game?', 'A booth game typically takes at least one week to build, depending on the game and content. Share your event date when you request a quote, and we will plan the schedule and build a prototype for you to test before it goes live.'],
   ['Can you use the screen we already have?', 'Yes. Our content and software run on your touchscreen, LED wall, or projector. Screens and projectors are not included in our packages, so share the size and resolution and we will design for them.'],
   ['What if something goes wrong during the event?', 'We test the full system on site before the event opens, and our technical team stays on site from start to finish to fix issues on the spot.'],
-  ['Can the game collect player information?', 'Yes. We can add a sign-up form or QR scan before play, with a consent step you approve. After the event, you receive a summary of players and engagement to plan your next activation.'],
-  ['How long does it take to build a booth game?', 'It depends on the game and content. Share your event date when you request a quote, and we will confirm a schedule that leaves time for prototypes and testing before show day.'],
+  ['Can the game collect player information under PDPA?', 'Yes. We can add a sign-up form or QR scan before play, with a PDPA consent step you approve before any data is collected. After the event, you receive a summary of players and engagement to plan your next activation.'],
+  ['Do permanent installations come with a warranty?', 'Yes. Permanent installations come with a 1-year warranty, and our team provides after-sales support and maintenance. The coverage is confirmed in your quotation.'],
   ['Do you work with event agencies and organizers?', 'Yes. We work directly with brands and as the interactive team for event agencies, production houses, and LED providers.']
 ];

@@ -84,7 +84,7 @@ const topicCopy={
 articleTopics.forEach(topic=>{const [name,intro]=topicCopy[topic.slug];add(topic.name,name);add(topic.intro,intro);add(topic.name+': Articles and Guides','บทความและคู่มือเรื่อง'+name);});
 export const articleDate=(iso,lang='en')=>new Date(iso+'T00:00:00Z').toLocaleDateString(lang==='th'?'th-TH':'en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'});
 articles.forEach(article=>[article.published,article.updated].filter(Boolean).forEach(iso=>add(articleDate(iso),articleDate(iso,'th'))));
-Object.entries({'ARTICLE TOPIC':'หัวข้อบทความ','Article topics':'หัวข้อบทความ','Browse by topic':'เลือกอ่านตามหัวข้อ','Articles on this topic are coming soon.':'บทความในหัวข้อนี้กำลังจะมาเร็ว ๆ นี้','In the meantime, see how we work on this.':'ระหว่างนี้ ลองดูบริการและผลงานที่เกี่ยวข้องของเราได้เลย','RELATED SERVICES & WORK':'บริการและผลงานที่เกี่ยวข้อง','See it in practice':'ดูจากงานจริง','Published':'เผยแพร่','Updated':'อัปเดต','MORE ON THIS TOPIC':'อ่านต่อในหัวข้อนี้','View topic':'ดูหัวข้อนี้','Coming soon':'เร็ว ๆ นี้'}).forEach(([en,th])=>add(en,th));
+Object.entries({'Articles worth reading':'บทความที่น่าสนใจ','ARTICLE TOPIC':'หัวข้อบทความ','Article topics':'หัวข้อบทความ','Browse by topic':'เลือกอ่านตามหัวข้อ','Articles on this topic are coming soon.':'บทความในหัวข้อนี้กำลังจะมาเร็ว ๆ นี้','In the meantime, see how we work on this.':'ระหว่างนี้ ลองดูบริการและผลงานที่เกี่ยวข้องของเราได้เลย','RELATED SERVICES & WORK':'บริการและผลงานที่เกี่ยวข้อง','See it in practice':'ดูจากงานจริง','Published':'เผยแพร่','Updated':'อัปเดต','MORE ON THIS TOPIC':'อ่านต่อในหัวข้อนี้','View topic':'ดูหัวข้อนี้','Coming soon':'เร็ว ๆ นี้'}).forEach(([en,th])=>add(en,th));
 // Image alt text and captions: articleCopy[i].cover and the third item of a section ({ alt, caption }).
 const addMedia=(media,th)=>{if(!media||!th)return;if(media.alt&&th.alt)add(media.alt,th.alt);if(media.caption&&th.caption)add(media.caption,th.caption);};
 articles.forEach((article,i)=>{add(article.title,articleCopy[i].title);add(article.summary,articleCopy[i].summary);addMedia(article.cover,articleCopy[i].cover);article.sections.forEach((pair,j)=>pair.forEach((item,k)=>{const th=articleCopy[i].sections[j]?.[k];if(typeof item==='string')add(item,th);else addMedia(item,th);}));});
@@ -229,12 +229,15 @@ Object.entries({
 // Positioning: event booth games (owner-approved 2026-10-26). Queue first, no surprises on show day, leads after.
 const thaiEventPrice = index => packages[0].items[index].startingPrice.toLocaleString('en-US') + '.-';
 const thaiFaqs = [
- ['JPM Media Space ทำอะไร?','JPM Media Space คือสตูดิโอครีเอทีฟเทคโนโลยีในประเทศไทย เราออกแบบและพัฒนาเกมอินเทอร์แอคทีฟ แอปพลิเคชันทัชสกรีน และคอนเทนต์อินเทอร์แอคทีฟสำหรับจอ LED โปรเจกเตอร์ และเซนเซอร์ โดยเน้นงานบูธอีเวนต์และกิจกรรมแบรนด์ รวมถึงงานติดตั้งถาวร'],
+ ['JPM Media Space รับทำอะไรบ้าง?','JPM Media Space คือสตูดิโอครีเอทีฟเทคโนโลยีในประเทศไทย เราออกแบบและพัฒนาเกมอินเทอร์แอคทีฟ แอปพลิเคชันทัชสกรีน และคอนเทนต์อินเทอร์แอคทีฟสำหรับจอ LED โปรเจกเตอร์ และเซนเซอร์ โดยเน้นงานบูธอีเวนต์และกิจกรรมแบรนด์ รวมถึงงานติดตั้งถาวร'],
  ['ทำเกมอินเทอร์แอคทีฟสำหรับบูธงานอีเวนต์ ราคาเท่าไหร่?',`แพ็กเกจงานอีเวนต์เริ่มต้นที่ ${thaiEventPrice(0)} สำหรับงานทัชสกรีน และ ${thaiEventPrice(1)} สำหรับคอนเทนต์อินเทอร์แอคทีฟบนจอ LED และโปรเจกชัน ราคาสุดท้ายขึ้นกับรูปแบบเกม เนื้อหา และขอบเขตงาน โดยจะระบุชัดในใบเสนอราคา`],
+ ['เกมบูธมีแบบไหนบ้าง?','รูปแบบที่นิยม เช่น เกมรับไอเทม เกมจับคู่ภาพ เกมสุ่ม เกมตอบคำถาม เกมแนว Guitar Hero/Fruit Ninja และเกมที่ใช้เซนเซอร์จับการเคลื่อนไหว เกมแบบจับเวลารอบสั้น ๆ ช่วยให้คิวเดินเร็ว และคนที่ยืนดูก็อยากเข้ามาเล่นต่อ คุณลองเล่นบางรูปแบบได้ในพื้นที่ทดลองของเรา'],
+ ['ใส่โลโก้ สินค้า และสีของแบรนด์ในเกมได้ไหม?','ได้ ทุกเกมออกแบบรอบแบรนด์ของคุณ ทั้งโลโก้ สีแบรนด์ สินค้าที่กลายเป็นไอเทมในเกม และข้อความแคมเปญ ลองอัปโหลดภาพของคุณเองในเดโมที่พื้นที่ทดลองได้เลย'],
+ ['ทำเกมบูธใช้เวลานานแค่ไหน?','โดยทั่วไปใช้เวลาอย่างน้อย 1 สัปดาห์ ขึ้นอยู่กับรูปแบบเกมและเนื้อหา แจ้งวันงานมาพร้อมกับการขอใบเสนอราคา แล้วเราจะวางตารางงานแล้วลองทำ prototype ให้ทดสอบดูก่อนใช้งานจริง'],
  ['ใช้จอที่มีอยู่แล้วได้ไหม?','ได้ คอนเทนต์และโปรแกรมของเราใช้กับทัชสกรีน จอ LED หรือโปรเจกเตอร์ของคุณได้เลย แพ็กเกจของเราไม่รวมจอและโปรเจกเตอร์ แค่แจ้งขนาดและความละเอียดจอมา แล้วเราจะออกแบบให้พอดี'],
  ['ถ้าระบบมีปัญหาระหว่างงาน ทำอย่างไร?','เราทดสอบระบบทั้งหมดที่หน้างานก่อนเปิดงาน และทีมเทคนิคอยู่หน้างานตั้งแต่ต้นจนจบ พร้อมแก้ปัญหาได้ทันที'],
- ['เกมเก็บข้อมูลผู้เล่นได้ไหม?','ได้ เราเพิ่มแบบฟอร์มลงทะเบียนหรือการสแกน QR ก่อนเล่นได้ พร้อมขั้นตอนขอความยินยอมที่คุณอนุมัติ หลังจบงานคุณจะได้รับสรุปจำนวนผู้เล่นและการมีส่วนร่วม เพื่อใช้วางแผนกิจกรรมครั้งต่อไป'],
- ['ทำเกมบูธใช้เวลานานแค่ไหน?','ขึ้นอยู่กับรูปแบบเกมและเนื้อหา แจ้งวันงานมาพร้อมกับการขอใบเสนอราคา แล้วเราจะวางตารางงานที่มีเวลาทำ prototype และทดสอบระบบก่อนวันงาน'],
+ ['เกมเก็บข้อมูลผู้เล่นตาม PDPA ได้ไหม?','ได้ เราเพิ่มแบบฟอร์มลงทะเบียนหรือการสแกน QR ก่อนเล่นได้ พร้อมขั้นตอนขอความยินยอมตาม PDPA ที่คุณอนุมัติก่อนเก็บข้อมูล หลังจบงานคุณจะได้รับสรุปจำนวนผู้เล่นและการมีส่วนร่วม เพื่อใช้วางแผนกิจกรรมครั้งต่อไป'],
+ ['งานติดตั้งถาวรมีรับประกันไหม?','มี งานติดตั้งถาวรรับประกัน 1 ปี และทีมของเราดูแลหลังการขายและบำรุงรักษาให้ ขอบเขตการรับประกันจะระบุไว้ในใบเสนอราคา'],
  ['รับงานร่วมกับเอเจนซีและผู้จัดงานไหม?','รับ เราทำงานทั้งกับแบรนด์โดยตรง และเป็นทีมอินเทอร์แอคทีฟให้เอเจนซีอีเวนต์ โปรดักชันเฮาส์ และผู้ให้บริการจอ LED']
 ];
 if (thaiFaqs.length !== faqs.length) throw new Error('Thai FAQ count must match English FAQ count.');
