@@ -58,13 +58,7 @@ document.querySelectorAll('[data-filter]').forEach(button => button.addEventList
   document.querySelectorAll('.work-gallery .project-card').forEach(card => { const visible = value === 'all' || value === card.dataset.category || value === 'employer' && card.dataset.employer === 'true'; card.hidden = !visible; if (visible) { card.classList.add('visible'); count++; } });
   document.querySelector('.filter-count').textContent = siteText(`${count} projects shown.`);
 }));
-document.querySelectorAll('[data-article-filter]').forEach(button => button.addEventListener('click', () => {
-  document.querySelectorAll('[data-article-filter]').forEach(item => { item.classList.toggle('active',item===button); item.setAttribute('aria-pressed',String(item===button)); });
-  let count = 0;
-  document.querySelectorAll('[data-article-category]').forEach(card => { card.hidden = button.dataset.articleFilter !== 'All' && card.dataset.articleCategory !== button.dataset.articleFilter; if (!card.hidden) { card.classList.add('visible'); count++; } });
-  const empty = document.querySelector('.article-empty');
-  if (empty) empty.hidden = count > 0;
-}));
+// Article topics are plain links to topic hub pages (insights/<topic>.html), so no filtering script is needed.
 const form = document.querySelector('#quote-form');
 document.querySelectorAll('.catalog').forEach(catalog => {
   catalog.querySelectorAll('[data-library-filter]').forEach(button => button.addEventListener('click', () => {
@@ -109,6 +103,32 @@ document.querySelector('[data-article-back]')?.addEventListener('click', event =
 
 // Real links also work without JavaScript; preserve the current section and enquiry context.
 document.querySelectorAll('.language-option').forEach(link=>{const target=new URL(link.href);target.search=location.search;target.hash=location.hash;link.href=target.href;});
+
+// FAQ: answers slide open and closed smoothly. Native <details> still works without JavaScript or with reduced motion.
+document.querySelectorAll('.faq-item').forEach(item => {
+  const summary = item.querySelector('summary');
+  const answer = item.querySelector('summary ~ *');
+  if (!summary || !answer || !item.animate) return;
+  let running = null;
+  summary.addEventListener('click', event => {
+    if (reducedMotion.matches) return;
+    event.preventDefault();
+    const opening = !item.open || item.classList.contains('is-closing');
+    const start = item.offsetHeight;
+    running?.cancel();
+    if (opening) { item.classList.remove('is-closing'); item.open = true; }
+    else item.classList.add('is-closing');
+    const end = opening ? item.offsetHeight : summary.offsetHeight + item.offsetHeight - item.clientHeight; // closed height includes the border
+    item.style.overflow = 'hidden';
+    running = item.animate({ height: [`${start}px`, `${end}px`] }, { duration: opening ? 420 : 320, easing: 'cubic-bezier(.22,.8,.24,1)' });
+    if (opening) answer.animate({ opacity: [0, 1], transform: ['translateY(-6px)', 'none'] }, { duration: 380, delay: 80, easing: 'ease-out', fill: 'backwards' });
+    // finished rejects when a newer click cancels this run, so only the latest animation settles the state.
+    running.finished.then(() => {
+      if (!opening) { item.open = false; item.classList.remove('is-closing'); }
+      item.style.overflow = ''; running = null;
+    }, () => {});
+  });
+});
 
 // About stats: the divider draws down, the number counts up, then the suffix settles in.
 (() => {

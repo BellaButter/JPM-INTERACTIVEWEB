@@ -935,8 +935,9 @@ html[lang="th"] .promise-text { line-height: 1.6; }
 .faq-item summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; }
 .faq-item summary::-webkit-details-marker { display: none; }
 .faq-item summary h3 { margin: 0; font-size: 18px; line-height: 1.45; }
-.faq-item summary::after { content: '+'; flex: none; font-size: 24px; line-height: 1; color: #4e5169; transition: transform .25s ease; }
+.faq-item summary::after { content: '+'; flex: none; font-size: 24px; line-height: 1; color: #4e5169; transition: transform .35s cubic-bezier(.22,.8,.24,1); }
 .faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-item.is-closing summary::after { transform: none; } /* the + turns back as soon as an answer starts closing */
 .faq-item summary:focus-visible { outline: 2px solid #131c41; outline-offset: 4px; border-radius: 8px; }
 .faq-item p { margin: 0 0 20px; max-width: 720px; color: #3d3f4e; font-size: 15px; }
 @media (max-width: 600px) { .faq-item { padding: 0 16px; } .faq-item summary { padding: 16px 0; } .faq-item summary h3 { font-size: 16px; } }
@@ -1211,3 +1212,98 @@ html[lang="th"] .footer-wordmark { font-family: 'Manrope', sans-serif; }
    than Latin, so small Thai labels, captions and controls never drop below 14px. */
 html[lang="th"] :is(.eyebrow, .hero-kicker-text, .cube-card-label, .cube-hint, .article-meta, .article-meta span, .company-stats > div > span, .form-grid label, .quote-form label, .project-facts dd, .price small, .service-photo-caption, .catalog-card-tagline, .immersive-touch-hint, .photo-caption, .demo-preview-label, .match-hud span) { font-size: 15px !important; }
 html[lang="th"] :is(.filter-button, .pill, .upload-help, .upload-status, .projection-badge, .footer-contact-link span, .promise-head span, .quote-service-tags span, .project-facts dt, .game-hud span) { font-size: 14px !important; }
+
+/* English letter spacing (owner request 2026-10-27): a little more air between letters.
+   Headings keep a slight tightening; body copy opens up a touch. Thai pages are unchanged. */
+html[lang="en"] body { letter-spacing: .012em; }
+html[lang="en"] body :is(h1, h2, .hero-line, h2 .gradient-text, .company-stats strong, .process-num) { letter-spacing: -.02em; }
+html[lang="en"] body h3 { letter-spacing: -.005em; }
+/* With the wider tracking, phones need a slightly smaller hero headline to keep each line on one row. */
+@media (max-width: 600px) { html[lang="en"] .hero3d-copy h1 { font-size: clamp(28px, 9vw, 46px); } }
+
+/* Package prices (owner request 2026-10-27): much larger and darker so the starting price reads at a glance.
+   The readability scale forces paragraphs to 18px with !important, so this needs the same weight. */
+html body main .package-item p.price { flex-wrap: wrap; align-items: baseline; gap: 4px 14px; font-size: clamp(30px, 2.8vw, 42px) !important; line-height: 1.1; letter-spacing: -.02em; margin-block: 18px 22px; }
+html body main .package-item p.price strong { color: var(--brand-dark); }
+html body main .package-item p.price small { font-size: 15px !important; font-weight: 700; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+@media (max-width: 600px) { html body main .package-item p.price { font-size: 30px !important; } }
+
+/* Playground contrast (owner request 2026-10-27). The light conversion left some text pale on white
+   and some dark on the dark game stages; these restore readable pairs (WCAG AA). */
+/* Text on white surfaces */
+.game-customization > summary { color: var(--ink); }
+.game-customization > summary:hover { color: var(--brand-dark); }
+.rfid-step { color: var(--ink); }
+.catalog-tap-hint { color: var(--muted); }
+.game-legend strong { color: var(--ink); }
+.legend-spark, .rfid-connect { color: var(--brand); }
+.game-hud, .game-hud > span:first-child { color: var(--muted); }
+.game-hud > span:first-child { font-size: 11px; }
+.game-hud strong { color: var(--brand-dark); }
+.rfid-reader-pad:not(.has-product):not(.drop-ready) { background: radial-gradient(ellipse, #2b3a50, #101821); } /* the pad was see-through and turned pale on white */
+.pill { color: var(--ink); border-color: #16161c26; background: #fff; }
+.pill:hover { background: #f1f1f6; }
+.pill.active { background: var(--ink); border-color: var(--ink); color: #fff; }
+.match-card { color: var(--brand-dark); }
+/* Text on the dark game stages */
+:is(.game-overlay, .custom-game-overlay, .rfid-display) h3 { color: #fff; }
+:is(.game-overlay, .custom-game-overlay, .rfid-display) p { color: #c9cbe0; }
+.game-overlay .eyebrow { color: #b9bce8; }
+.match-hud span { color: #d9dbef; }
+.arcade-signature { color: #4f5168; }
+/* Tap the Right Item stage goes back to dark like the other game stages, so its light text reads again. */
+.builder-preview { background: radial-gradient(ellipse at top, var(--builder-color), #141923 80%); border-color: #ffffff25; }
+:is(.builder-preview, .matching-preview) h3 { color: #fff; }
+#builder-instruction, .custom-game-hud span { color: #d9dbef; }
+.custom-game-hud strong { color: #fff; }
+.rfid-tag-read strong { color: var(--brand-dark); }
+.custom-item-pop { color: #c8f7a8; }
+.custom-item-pop.wrong { color: #ffd27a; }
+
+/* Article reading panel (owner request 2026-10-27): long-form articles sit on a white sheet for easier reading. */
+.article-layout { max-width: 920px; margin-top: 28px; margin-bottom: 72px; padding: 8px 64px 64px; border: 1px solid var(--line); border-radius: 28px; background: #fff; box-shadow: 0 30px 70px -50px #2b2d4566; }
+.article-layout .article-header { padding-top: 48px; }
+.article-layout .article-body p { color: #33364a; }
+.article-layout .article-body a { color: var(--brand-dark); }
+@media (max-width: 850px) { .article-layout { padding: 4px 32px 44px; } }
+@media (max-width: 600px) { .article-layout { width: auto; margin: 12px 12px 48px; padding: 0 20px 36px; border-radius: 20px; } .article-layout .article-header { padding-top: 28px; } }
+/* Product details panel: the see-through gradient faded to grey on white; make it a solid dark panel like the carousel. */
+.product-catalog .catalog-details { background: linear-gradient(135deg, #2c2f44, #191b24); border-color: #ffffff1f; }
+.product-catalog .catalog-details h3 { color: #fff; }
+.product-catalog .catalog-details p { color: #c9cbe0; }
+
+/* Article topics (2026-10-27): crawlable topic links, topic cards and hub pages. */
+.topic-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+.topic-nav .filter-button { text-decoration: none; }
+.topic-nav .filter-button[aria-current="page"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.topic-grid, .topic-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+.topic-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.topic-grid > :first-child { grid-column: span 2; } /* the lead topic (event booth games) is wider; 5 cards fill two rows */
+@media (max-width: 1000px) { .topic-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .topic-grid { grid-template-columns: 1fr; } .topic-grid > :first-child { grid-column: auto; } }
+.topic-links { margin-bottom: 28px; }
+.topic-card { display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit; transition: border-color .3s, transform .3s; }
+.topic-card:hover { border-color: #6d709966; transform: translateY(-3px); }
+.topic-card h3 { margin: 0; }
+.topic-card p { margin: 0; color: var(--muted); }
+.topic-card .text-link { margin-top: auto; align-self: flex-start; }
+.topic-empty { padding: 32px; }
+.topic-empty p { margin: 0; color: var(--muted); }
+.topic-empty p:first-child { color: var(--ink); font-weight: 700; margin-bottom: 6px; }
+.article-meta-info { gap: 8px; }
+.article-byline { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.article-header .eyebrow a { color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; }
+
+/* Article images (2026-10-27): cover under the byline, inline figures after a section, thumbnails on cards. */
+.article-cover, .article-figure { margin: 0; }
+.article-cover { margin: 8px 0 8px; }
+.article-cover img, .article-figure img { display: block; width: 100%; height: auto; border-radius: 18px; background: #eef0f6; }
+.article-cover img { aspect-ratio: 16 / 9; object-fit: cover; }
+.article-figure { margin-top: 26px; }
+.article-cover figcaption, .article-figure figcaption { margin-top: 10px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.article-card-image { display: block; margin: -4px -4px 18px; overflow: hidden; border-radius: 14px; aspect-ratio: 16 / 9; background: #eef0f6; }
+.article-card-image img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.article-card:hover .article-card-image img { transform: scale(1.03); }
+@media (prefers-reduced-motion: reduce) { .article-card-image img { transition: none; } }
+@media (max-width: 600px) { .article-cover img, .article-figure img { border-radius: 12px; } }
+html[lang="th"] :is(.article-cover, .article-figure) figcaption { font-size: 15px; }

@@ -1,6 +1,6 @@
 import { demoCopy } from './demos.mjs';
 // Thai editorial copy keyed to the shared English source. Brand/project names remain unchanged.
-import { studio, services, coreValues, companyStats, industries, workflow, packages, projects, articles, faqs } from '../en/site.mjs';
+import { studio, services, coreValues, companyStats, industries, workflow, packages, projects, articles, articleTopics, faqs } from '../en/site.mjs';
 export const thaiCopy = new Map();
 const add=(en,th)=>thaiCopy.set(en.replace(/\s+/g,' ').trim(),th);
 const fields=(source,thai)=>Object.entries(thai).forEach(([key,value])=>add(source[key],value));
@@ -73,7 +73,21 @@ const articleCopy=[
  ['เตรียมข้อมูลก่อนคุยกับทีม','เล่าให้เราฟังเรื่องกลุ่มผู้ชม สถานที่ ระยะเวลา จอที่ต้องการ และเนื้อหาที่มีอยู่ แล้วเราจะคุยกันต่อเรื่องเซนเซอร์ ขอบเขตการพัฒนา การติดตั้ง และการดูแล ราคาเริ่มต้นช่วยให้เห็นภาพคร่าว ๆ ส่วนใบเสนอราคาจริงจะคิดตามเนื้อหา ฮาร์ดแวร์ และขอบเขตการติดตั้งที่ตกลงกัน']
  ]}
 ];
-articles.forEach((article,i)=>{add(article.title,articleCopy[i].title);add(article.summary,articleCopy[i].summary);article.sections.forEach((pair,j)=>pair.forEach((text,k)=>add(text,articleCopy[i].sections[j][k])));});
+// Article topics (2026-10-27): hub names, intros and page titles. Dates read in Thai with the Buddhist year.
+const topicCopy={
+ 'event-booth-games':['เกมบูธอีเวนต์','เกมที่ทำให้คนต่อคิวในงานแสดงสินค้า งานเปิดตัว และกิจกรรมของแบรนด์ เล่าให้ฟังว่าเกมทำงานอย่างไร งบประมาณเริ่มที่เท่าไร และวางแผนอย่างไรให้วันงานราบรื่น'],
+ 'touchscreens-kiosks':['ทัชสกรีนและคีออสก์','แอปทัชสกรีน แคตตาล็อกดิจิทัล และคีออสก์ สำหรับบูธ โชว์รูม พิพิธภัณฑ์ และล็อบบี้ ที่ผู้ชมแตะสำรวจได้ด้วยตัวเอง'],
+ 'led-projection-immersive':['LED โปรเจกชัน และห้องอิมเมอร์ซีฟ','คอนเทนต์อินเทอร์แอคทีฟสำหรับจอ LED โปรเจกชัน พื้น และห้องอิมเมอร์ซีฟ ใช้กับจอและโปรเจกเตอร์ที่คุณมีอยู่แล้วได้'],
+ 'sensors-technology':['เซนเซอร์และเทคโนโลยี','LiDAR กล้องวัดความลึก RFID และ NFC เซนเซอร์แบบไหนเหมาะกับพื้นที่แบบไหน และการเคลื่อนไหวหรือสิ่งของกลายเป็นคอนเทนต์ได้อย่างไร'],
+ 'planning-leads':['วางแผนงานและเก็บ lead','วางแผนงานอินเทอร์แอคทีฟตั้งแต่บรีฟจนถึงวันงาน ทั้งแพ็กเกจ สิ่งที่ควรเตรียม และวิธีเก็บ lead กับสรุปข้อมูลผู้เล่น']
+};
+articleTopics.forEach(topic=>{const [name,intro]=topicCopy[topic.slug];add(topic.name,name);add(topic.intro,intro);add(topic.name+': Articles and Guides','บทความและคู่มือเรื่อง'+name);});
+export const articleDate=(iso,lang='en')=>new Date(iso+'T00:00:00Z').toLocaleDateString(lang==='th'?'th-TH':'en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'UTC'});
+articles.forEach(article=>[article.published,article.updated].filter(Boolean).forEach(iso=>add(articleDate(iso),articleDate(iso,'th'))));
+Object.entries({'ARTICLE TOPIC':'หัวข้อบทความ','Article topics':'หัวข้อบทความ','Browse by topic':'เลือกอ่านตามหัวข้อ','Articles on this topic are coming soon.':'บทความในหัวข้อนี้กำลังจะมาเร็ว ๆ นี้','In the meantime, see how we work on this.':'ระหว่างนี้ ลองดูบริการและผลงานที่เกี่ยวข้องของเราได้เลย','RELATED SERVICES & WORK':'บริการและผลงานที่เกี่ยวข้อง','See it in practice':'ดูจากงานจริง','Published':'เผยแพร่','Updated':'อัปเดต','MORE ON THIS TOPIC':'อ่านต่อในหัวข้อนี้','View topic':'ดูหัวข้อนี้','Coming soon':'เร็ว ๆ นี้'}).forEach(([en,th])=>add(en,th));
+// Image alt text and captions: articleCopy[i].cover and the third item of a section ({ alt, caption }).
+const addMedia=(media,th)=>{if(!media||!th)return;if(media.alt&&th.alt)add(media.alt,th.alt);if(media.caption&&th.caption)add(media.caption,th.caption);};
+articles.forEach((article,i)=>{add(article.title,articleCopy[i].title);add(article.summary,articleCopy[i].summary);addMedia(article.cover,articleCopy[i].cover);article.sections.forEach((pair,j)=>pair.forEach((item,k)=>{const th=articleCopy[i].sections[j]?.[k];if(typeof item==='string')add(item,th);else addMedia(item,th);}));});
 
 export const uiCopy = {
  'Skip to content':'ข้ามไปยังเนื้อหา','Explore':'สำรวจ','Our Work':'ผลงานของเรา','Playground':'พื้นที่ทดลอง','Articles':'บทความ','Partner With Us':'ร่วมงานกับเรา','Let’s talk':'คุยกับเรา','Menu':'เมนู',

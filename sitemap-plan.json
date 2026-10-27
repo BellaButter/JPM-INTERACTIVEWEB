@@ -24,6 +24,8 @@
     "case-studies/muaythai.html",
     "playground.html",
     "insights.html",
+    "insights/event-booth-games.html",
+    "insights/planning-leads.html",
     "insights/designing-for-participation.html",
     "insights/events-and-permanent-spaces.html",
     "partner-with-us.html",
@@ -53,13 +55,21 @@
     "th/case-studies/muaythai.html",
     "th/playground.html",
     "th/insights.html",
+    "th/insights/event-booth-games.html",
+    "th/insights/planning-leads.html",
     "th/insights/designing-for-participation.html",
     "th/insights/events-and-permanent-spaces.html",
     "th/partner-with-us.html",
     "th/contact.html"
   ],
   "noindexRoutes": [
+    "insights/touchscreens-kiosks.html",
+    "insights/led-projection-immersive.html",
+    "insights/sensors-technology.html",
     "thank-you.html",
+    "th/insights/touchscreens-kiosks.html",
+    "th/insights/led-projection-immersive.html",
+    "th/insights/sensors-technology.html",
     "th/thank-you.html"
   ]
 }

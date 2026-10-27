@@ -68,14 +68,27 @@ export const projects = [
   { slug: 'pttep', title: '[PTTEP @IPTC] Guitar Hero Game', category: 'Touchscreen', image: 'pttep logo.jpg', alt: 'PTTEP logo', video: 'Guitar Hero ในงาน IPTC จัดโดย PTTEP compressed.mp4', employer: true },
   { slug: 'muaythai', title: '[World Grand Prix Sport Weekend] MuayThai Exhibition', category: 'Touchscreen', image: 'muaythai.png', alt: 'Discover Muaythai exhibition poster for World Grand Prix Sport Weekend', video: 'MuayThai compressed.mp4', employer: true }
 ];
-export const articleCategories = ['Inspiration', 'Behind the Experience', 'Practical Guides'];
+// Articles (2026-10-27): grouped by topic for search and answer engines; each topic has a hub page at
+// insights/<slug>.html. "Format" (Inspiration, Behind the Experience, Practical Guides) is a secondary label.
+// A hub stays noindex until it has a published article.
+// Images: cover: { image, alt, caption? } and an optional third item on a section: [title, text, { image, alt, caption? }].
+// Put new photos in assets/articles/ (an existing photo in assets/ can be reused by name); Thai alt/caption go in articleCopy. services: service ids on services.html; projects: case-study slugs.
+export const articleTopics = [
+  { slug: 'event-booth-games', name: 'Event Booth Games', intro: 'Games that draw a queue at trade shows, launches, and brand activations: how they work, what they cost, and how to plan one that runs smoothly on show day.', services: ['games'], projects: ['lazada-run', 'pttep'] },
+  { slug: 'touchscreens-kiosks', name: 'Touchscreens & Kiosks', intro: 'Touchscreen applications, digital catalogs, and kiosks for event booths, showrooms, museums, and lobbies.', services: ['touch'], projects: ['dynasty', 'cafe-amazon'] },
+  { slug: 'led-projection-immersive', name: 'LED, Projection & Immersive Rooms', intro: 'Interactive content for LED walls, projection, floors, and immersive rooms, using screens and projectors you already have.', services: ['projection', 'immersive'], projects: ['crowne-plaza', 'nicholas-shrine'] },
+  { slug: 'sensors-technology', name: 'Sensors & Technology', intro: 'LiDAR, depth cameras, RFID, and NFC: which sensor fits which space, and how movement and objects become content.', services: ['sensors'], projects: ['punthai-coffee', 'oishi'] },
+  { slug: 'planning-leads', name: 'Planning & Lead Capture', intro: 'Planning an interactive project from brief to show day: packages, what to prepare, and how to collect leads and player summaries.', services: ['custom'], projects: ['kia', 'bangchak'] }
+];
+export const articleFormats = ['Inspiration', 'Behind the Experience', 'Practical Guides'];
+export const articleCategories = articleFormats;
 export const articles = [
-  { slug: 'designing-for-participation', title: 'Designing for participation, not just presentation', category: 'Inspiration', summary: 'A studio perspective on connecting people, brands, and physical spaces.', status: 'published', readTime: '3 min', sections: [
+  { slug: 'designing-for-participation', title: 'Designing for participation, not just presentation', topic: 'event-booth-games', category: 'Inspiration', published: '2026-10-27', updated: '2026-10-27', cover: { image: 'hero_installation.jpg', alt: 'Blue and violet immersive LED walls with an interactive illuminated floor' }, summary: 'A studio perspective on connecting people, brands, and physical spaces.', status: 'published', readTime: '3 min', sections: [
     ['Start with the person in the space', 'At JPM Media Space, we believe technology should be more than a display tool. An interactive experience invites a visitor to do something: touch a screen, move through a space, or explore a story. The first question is what we want that person to experience.'],
     ['Choose an interaction with a purpose', 'Touchscreen catalogs invite visitors to explore information. Games create an opportunity to participate. Gesture-driven displays connect motion to a digital response. Each format serves a different idea; the interaction should make the story easier to explore.'],
     ['Design the whole experience', 'Visual content, custom software, displays, and sensors need to work together. Our workflow begins with strategy and system planning, then moves through development, testing, installation, and support. The physical space is part of the design from the beginning.']
   ] },
-  { slug: 'events-and-permanent-spaces', title: 'One moment or a lasting destination?', category: 'Practical Guides', summary: 'How the original event and permanent installation packages frame a project conversation.', status: 'published', readTime: '3 min', sections: [
+  { slug: 'events-and-permanent-spaces', title: 'One moment or a lasting destination?', topic: 'planning-leads', category: 'Practical Guides', published: '2026-10-27', updated: '2026-10-27', cover: { image: 'events_package.jpg', alt: 'Visitors using an interactive touchscreen kiosk at a corporate event' }, summary: 'How the original event and permanent installation packages frame a project conversation.', status: 'published', readTime: '3 min', sections: [
     ['Begin with the setting', 'Our event packages are designed for short-term activations, trade shows, festivals, and launches. Permanent packages are intended for museums, corporate lobbies, retail flagships, and long-term public spaces. Start by describing where the experience will live and who will use it.'],
     ['Think about what visitors need to explore', 'An event may call for a quick game or digital guestbook. A permanent space may need wayfinding, an archive, or a custom content management system. Touchscreen applications, interactive LED, and projection can be adapted around the content and setting.'],
     ['Plan the next conversation', 'Share your audience, venue, timeline, display requirements, and available content with the studio. Sensor selection, development scope, installation, and support can then be discussed together. Starting prices are a useful reference; the final quotation should reflect the agreed content, hardware, and installation scope.']
