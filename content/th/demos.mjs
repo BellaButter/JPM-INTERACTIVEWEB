@@ -300,5 +300,10 @@ export const demoCopy = {
  "Zzz… press any key to wake me.":"คร่อก… กดปุ่มไหนก็ได้เพื่อปลุก",
  "I’m awake! What’s next?":"ตื่นแล้ว! ต่อไปทำอะไรดี?",
  "BOOM! System overload. Rebooting…":"ตูม! ระบบล่ม กำลังรีบูต…",
- "Rebooted and ready. Press a key!":"รีบูตเสร็จแล้ว กดปุ่มต่อได้เลย!"
+ "Rebooted and ready. Press a key!":"รีบูตเสร็จแล้ว กดปุ่มต่อได้เลย!",
+ // Game kit (2026-10-27)
+ "Combo":"คอมโบ",
+ "Match!":"จับคู่ได้!",
+ "Sound on":"เสียง: เปิด",
+ "Sound off":"เสียง: ปิด"
 };

@@ -1,3 +1,4 @@
+import { sound } from './game-kit.js';
 // Playground player (2026-10-27): shows one demo at a time with previous/next controls instead of ten stacked sections.
 // Without JavaScript every demo stays visible. Links to #<demo-id> (cards, other pages, FAQ) open that demo.
 const t=text=>window.JPMI18n?.t(text)??text;
@@ -8,6 +9,10 @@ if(sections.length>1){
  const pauses=[...document.querySelectorAll('#game-pause,#builder-pause,#match-pause')];pauses.forEach(button=>button.dataset.pauseLabel=button.textContent);
  const bar=document.createElement('nav');bar.className='demo-player-bar';bar.setAttribute('aria-label',t('Choose a demo'));
  bar.innerHTML='<button type="button" class="pill demo-player-prev"></button><p class="demo-player-now"><span class="demo-player-count"></span><strong></strong></p><button type="button" class="pill demo-player-next"></button><a class="demo-player-all" href="#demo-library"></a>';
+ // Sound effects for the games: off until the visitor turns them on (game-kit.js remembers the choice).
+ const soundButton=document.createElement('button');soundButton.type='button';soundButton.className='pill demo-sound';bar.append(soundButton);
+ sound.onChange(on=>{soundButton.textContent=t(on?'Sound on':'Sound off');soundButton.setAttribute('aria-pressed',String(on));});
+ soundButton.addEventListener('click',()=>sound.set(!sound.on));
  const prev=bar.querySelector('.demo-player-prev'),next=bar.querySelector('.demo-player-next');
  bar.querySelector('.demo-player-all').textContent=t('All demos');
  let current=-1;

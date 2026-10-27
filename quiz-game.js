@@ -1,3 +1,4 @@
+import {overlayMascot,pop,shake,confetti,lowTime,sound} from './game-kit.js';
 // Quick Quiz demo: four timed questions, 100 points per correct answer plus 10 per second left,
 // and a leaderboard kept in memory for this visit only. The timer pauses while the tab is hidden.
 const DEFAULT_QUESTIONS=[
@@ -13,12 +14,13 @@ export function setupQuizGame(t){
  const prompt=$('#quiz-prompt'),choices=$('#quiz-answers'),overlay=$('#quiz-overlay'),start=$('#quiz-start'),stop=$('#quiz-stop'),save=$('#quiz-save'),board=$('#quiz-leaderboard'),status=$('#quiz-status'),bar=$('#quiz-timer-bar');
  const settings=[brand,color,duration,edit,question,...answers,correct,$('#quiz-reset-settings')];
  const fill=(text,values)=>Object.entries(values).reduce((out,[key,value])=>out.replace('{'+key+'}',value),t(text));
+ const setMood=overlayMascot(overlay);
  let questions=[],state='ready',current=0,score=0,right=0,remaining=15,deadline=0,timer=0,next=0,leaders=[],saved=false;
  function defaults(){questions=DEFAULT_QUESTIONS.map(([q,a,c])=>({q:t(q),a:a.map(t),c}));brand.value='';color.value='violet';duration.value='15';edit.value='0';load();}
  function load(){const item=questions[Number(edit.value)];question.value=item.q;answers.forEach((input,i)=>input.value=item.a[i]);correct.value=String(item.c);}
  function store(){const item=questions[Number(edit.value)];item.q=question.value.trim()||item.q;answers.forEach((input,i)=>item.a[i]=input.value.trim()||item.a[i]);item.c=Number(correct.value);}
  function preview(){$('#quiz-brand-preview').textContent=brand.value.trim()||t('Your brand');stage.dataset.color=color.value;}
- function hud(){$('#quiz-index').textContent=Math.min(current+1,questions.length);$('#quiz-total').textContent=questions.length;$('#quiz-score').textContent=score;$('#quiz-time').textContent=Math.ceil(remaining);bar.style.transform=`scaleX(${Math.max(0,remaining/Number(duration.value))})`;}
+ function hud(){$('#quiz-index').textContent=Math.min(current+1,questions.length);$('#quiz-total').textContent=questions.length;$('#quiz-score').textContent=score;$('#quiz-time').textContent=Math.ceil(remaining);lowTime($('#quiz-time'),state==='playing'?Math.ceil(remaining):0);bar.style.transform=`scaleX(${Math.max(0,remaining/Number(duration.value))})`;}
  function setState(next){state=next;stage.dataset.state=next;const busy=next==='playing'||next==='feedback';settings.forEach(control=>control.disabled=busy);stop.disabled=!busy;}
  function render(){
   const item=questions[current];prompt.textContent=item.q;choices.replaceChildren();
@@ -30,12 +32,14 @@ export function setupQuizGame(t){
   if(state!=='playing')return;clearInterval(timer);setState('feedback');
   const item=questions[current],ok=index===item.c,gained=ok?100+Math.ceil(remaining)*10:0;score+=gained;if(ok)right++;
   choices.querySelectorAll('.quiz-answer').forEach(option=>{const i=Number(option.dataset.index);option.disabled=true;option.classList.toggle('is-correct',i===item.c);option.classList.toggle('is-wrong',i===index&&!ok);});
+  {const button=choices.querySelector(`[data-index="${ok?index:item.c}"]`),a=button?.getBoundingClientRect(),b=choices.getBoundingClientRect();if(ok&&a)pop(choices,a.right-b.left-50,a.top-b.top+a.height/2,'+'+gained);if(!ok)shake(choices);sound.play(ok?'good':'bad');}
   status.textContent=ok?fill('Correct! +{points} points.',{points:gained}):index<0?fill('Time’s up. The answer was {answer}.',{answer:item.a[item.c]}):fill('Not quite. The answer was {answer}.',{answer:item.a[item.c]});
   hud();next=setTimeout(()=>{current++;if(current<questions.length){setState('playing');render();}else finish();},1100);
  }
  function leaderboard(){board.replaceChildren(...leaders.slice(0,5).map(entry=>{const row=document.createElement('li');const name=document.createElement('span');name.textContent=entry.name;const points=document.createElement('strong');points.textContent=entry.score;row.append(name,points);return row;}));board.hidden=!leaders.length;}
  function finish(){
   clearInterval(timer);setState('result');overlay.hidden=false;saved=false;
+  const good=right>=Math.ceil(questions.length/2);setMood(good?'happy':'sad');if(good){confetti(stage);sound.play('win');}else sound.play('lose');
   $('#quiz-result').textContent=fill('{score} points',{score});$('#quiz-result-copy').textContent=fill('{right} of {total} correct.',{right,total:questions.length});
   save.hidden=false;save.reset();leaderboard();start.textContent=t('Play again');status.textContent=fill('Round over: {score} points.',{score});
  }
@@ -43,7 +47,7 @@ export function setupQuizGame(t){
   store();clearTimeout(next);current=0;score=0;right=0;overlay.hidden=true;save.hidden=true;board.hidden=true;setState('playing');status.textContent=t('Choose an answer before the timer runs out.');render();
   choices.querySelector('.quiz-answer')?.focus({preventScroll:true});
  }
- function reset(message){clearInterval(timer);clearTimeout(next);current=0;score=0;remaining=Number(duration.value);setState('ready');overlay.hidden=false;save.hidden=true;leaderboard();$('#quiz-result').textContent=t('Ready to play?');$('#quiz-result-copy').textContent=t('Answer 4 questions. Faster answers score more points.');start.textContent=t('Start quiz');prompt.textContent='';choices.replaceChildren();hud();if(message)status.textContent=message;}
+ function reset(message){clearInterval(timer);clearTimeout(next);current=0;score=0;remaining=Number(duration.value);setState('ready');overlay.hidden=false;setMood('ready');save.hidden=true;leaderboard();$('#quiz-result').textContent=t('Ready to play?');$('#quiz-result-copy').textContent=t('Answer 4 questions. Faster answers score more points.');start.textContent=t('Start quiz');prompt.textContent='';choices.replaceChildren();hud();if(message)status.textContent=message;}
  save.addEventListener('submit',event=>{event.preventDefault();if(saved)return;saved=true;const name=$('#quiz-player').value.trim()||fill('Player {n}',{n:leaders.length+1});leaders.push({name,score});leaders.sort((a,b)=>b.score-a.score);save.hidden=true;leaderboard();status.textContent=fill('{name} saved with {score} points.',{name,score});});
  start.addEventListener('click',begin);
  stop.addEventListener('click',()=>reset(t('Round ended. You can edit the quiz now.')));

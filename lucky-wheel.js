@@ -1,3 +1,4 @@
+import {overlayMascot,confetti,sound} from './game-kit.js';
 // Lucky Wheel demo: weighted prizes, optional sign-up with PDPA consent, and a running player summary.
 // Player details stay in memory only; nothing is stored or sent.
 export const DEFAULT_PRIZES=[['Tote bag',1],['10% discount',3],['Sticker set',5],['Free drink',3],['Keychain',3],['Try again',5]];
@@ -15,7 +16,9 @@ export function drawWheel(svg,list,palette){
   label.setAttribute('transform',`rotate(${mid}) translate(0 -64) rotate(90)`);label.setAttribute('text-anchor','middle');label.setAttribute('dominant-baseline','middle');label.setAttribute('class','wheel-label');
   label.textContent=Array.from(prize.name).length>14?Array.from(prize.name).slice(0,13).join('')+'…':prize.name;svg.append(label);
  });
- const rim=document.createElementNS(ns,'circle');rim.setAttribute('r','101');rim.setAttribute('fill','none');rim.setAttribute('stroke',palette[2]);rim.setAttribute('stroke-width','4');svg.append(rim);
+ const rim=document.createElementNS(ns,'circle');rim.setAttribute('r','103');rim.setAttribute('fill','none');rim.setAttribute('stroke',palette[1]);rim.setAttribute('stroke-width','9');svg.append(rim);
+ // Bulbs around the rim, like a fairground wheel; CSS makes alternate bulbs blink.
+ for(let i=0;i<16;i++){const a=i*Math.PI/8,bulb=document.createElementNS(ns,'circle');bulb.setAttribute('cx',(103*Math.cos(a)).toFixed(1));bulb.setAttribute('cy',(103*Math.sin(a)).toFixed(1));bulb.setAttribute('r','3.4');bulb.setAttribute('class','wheel-bulb'+(i%2?' is-alt':''));svg.append(bulb);}
 }
 // Picks an index by weight, then returns the rotation (from `angle`) that lands that segment under the top pointer after five turns.
 export function spinTo(list,angle){
@@ -30,6 +33,7 @@ export function setupLuckyWheel(t){
  const brand=$('#wheel-brand'),color=$('#wheel-color'),signup=$('#wheel-signup'),stage=$('.wheel-stage'),spin=$('#wheel-spin'),overlay=$('#wheel-overlay'),form=$('#wheel-form'),result=$('#wheel-result'),status=$('#wheel-status'),error=$('#wheel-form-error');
  const rows=[1,2,3,4,5,6].map(i=>({name:$('#wheel-prize-'+i),weight:$('#wheel-weight-'+i)}));
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ const setMood=overlayMascot(result);
  let angle=0,state='ready',player=null,players=0;const tally=new Map();
  const prizes=()=>rows.map((row,i)=>({name:row.name.value.trim()||t(DEFAULT_PRIZES[i][0]),weight:Number(row.weight.value)||1}));
  const fill=(text,values)=>Object.entries(values).reduce((out,[key,value])=>out.replace('{'+key+'}',value),t(text));
@@ -47,14 +51,15 @@ export function setupLuckyWheel(t){
   if(state!=='ready')return;
   if(signup.checked&&!player){show('form',true);return;}
   const list=prizes(),spun=spinTo(list,angle),index=spun.index;angle=spun.angle;
-  setState('spinning');status.textContent=t('Spinning…');
+  setState('spinning');status.textContent=t('Spinning…');sound.play('spin');
   const duration=reduced.matches?0:4200;svg.style.transition=duration?`transform ${duration}ms cubic-bezier(.12,.8,.18,1)`:'none';svg.style.transform=`rotate(${angle}deg)`;
   setTimeout(()=>finish(list[index].name),duration+60);
  }
  function finish(prize){
   players++;tally.set(prize,(tally.get(prize)||0)+1);const top=[...tally].sort((a,b)=>b[1]-a[1])[0];
   $('#wheel-players').textContent=players;$('#wheel-top').textContent=top?top[0]:'—';
-  $('#wheel-result-title').textContent=prize;
+  // "Try again" is a miss, so the mascot is sad and there is no confetti.
+  const miss=prize===t('Try again');$('#wheel-result-title').textContent=prize;setMood(miss?'sad':'happy');if(miss)sound.play('lose');else{confetti(stage);sound.play('win');}
   $('#wheel-result-copy').textContent=player?fill('{name}, this is your prize.',{name:player}):t('This is your prize.');
   status.textContent=player?fill('{name} won {prize}.',{name:player,prize}):fill('The wheel landed on {prize}.',{prize});
   setState('result');show('result');$('#wheel-again').focus({preventScroll:true});

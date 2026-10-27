@@ -1372,7 +1372,7 @@ html[lang="th"] :is(.article-cover, .article-figure) figcaption { font-size: 15p
 
 /* Playground player: one demo at a time (playground-player.js). Without JavaScript all demos stay visible. */
 .demo-section[hidden] { display: none !important; }
-.demo-player-bar { position: relative; display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: 12px; margin-top: 40px; padding: 10px; border: 1px solid var(--line); border-radius: 999px; background: #fff; box-shadow: 0 18px 40px -32px #2b2d4566; scroll-margin-top: 96px; }
+.demo-player-bar { position: relative; display: grid; grid-template-columns: auto 1fr auto auto auto; align-items: center; gap: 12px; margin-top: 40px; padding: 10px; border: 1px solid var(--line); border-radius: 999px; background: #fff; box-shadow: 0 18px 40px -32px #2b2d4566; scroll-margin-top: 96px; }
 .demo-player-now { margin: 0; display: grid; justify-items: center; line-height: 1.3; text-align: center; }
 .demo-player-count { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--brand-dark); }
 .demo-player-now strong { font-size: 18px; color: var(--ink); }
@@ -1444,3 +1444,108 @@ html[lang="th"] .keycap-label { font-size: 14px; }
   .robot-stage .feed-stage { width: min(100%, 320px); margin-bottom: -30px; }
 }
 @media (prefers-reduced-motion: reduce) { .keycap { transition: none; } }
+
+/* Game kit (2026-10-27): one look for every Playground game. See game-kit.js. */
+.builder-preview { --stage-color: var(--builder-color); }
+.matching-preview { --stage-color: var(--match-color); }
+/* Each stage takes its colour theme from --stage-color (Catch uses the default violet). */
+.game-view { --stage-color: #655c91; }
+:is(.game-view, .builder-preview, .matching-preview, .game-stage-dark) {
+  border: 1px solid #ffffff22; border-radius: 22px;
+  background: radial-gradient(circle, #ffffff0f 1px, transparent 1.6px) 0 0 / 22px 22px, radial-gradient(120% 70% at 50% -5%, color-mix(in srgb, var(--stage-color) 80%, transparent), transparent 62%), radial-gradient(90% 55% at 50% 115%, #3b3f7a66, transparent 70%), linear-gradient(#1b1e35, #0f1220);
+  box-shadow: inset 0 1px 0 #ffffff1c, inset 0 0 60px #00000040, 0 26px 50px -32px #10131fcc;
+}
+:is(.custom-game-hud, .match-hud, .stage-hud) > span { padding: 4px 12px; border-radius: 999px; background: #ffffff14; border: 1px solid #ffffff1f; }
+.game-hud > span:not(:first-child) { padding: 4px 12px; border-radius: 999px; background: #f1f1f6; border: 1px solid var(--line); }
+:is(.game-hud, .custom-game-hud, .match-hud, .stage-hud) > span.is-low { border-color: #ff6b81; background: #ff6b8126; color: #ff6b81; animation: kit-pulse .5s ease-in-out infinite alternate; }
+.game-hud > span.is-low strong { color: #e8334f; }
+@keyframes kit-pulse { to { transform: scale(1.08); } }
+.kit-mascot { width: 96px; height: 96px; margin: 0 auto 4px; animation: kit-float 3s ease-in-out infinite; }
+.kit-mascot svg { display: block; width: 100%; height: 100%; overflow: visible; }
+@keyframes kit-float { 50% { transform: translateY(-6px); } }
+.kit-icon { display: block; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 4px 6px #0006); }
+.kit-pop { position: absolute; z-index: 6; transform: translate(-50%, -50%); pointer-events: none; font: 800 22px/1 Manrope, Prompt, sans-serif; color: #7be0b0; text-shadow: 0 2px 0 #0f1220, 0 0 14px #7be0b080; white-space: nowrap; animation: kit-pop .9s ease-out forwards; }
+.kit-pop-bad { color: #ff6b81; text-shadow: 0 2px 0 #0f1220, 0 0 14px #ff6b8180; }
+.kit-pop-combo { color: #ffd166; font-size: 18px; text-shadow: 0 2px 0 #0f1220, 0 0 14px #ffd16680; }
+@keyframes kit-pop { 0% { opacity: 0; transform: translate(-50%, -30%) scale(.6); } 20% { opacity: 1; transform: translate(-50%, -60%) scale(1.15); } 100% { opacity: 0; transform: translate(-50%, -160%) scale(1); } }
+.kit-shake { animation: kit-shake .35s ease-in-out; }
+@keyframes kit-shake { 20% { transform: translateX(-6px); } 40% { transform: translateX(5px); } 60% { transform: translateX(-3px); } 80% { transform: translateX(2px); } }
+.kit-confetti { position: absolute; inset: 0; z-index: 7; overflow: hidden; pointer-events: none; border-radius: inherit; }
+.kit-confetti i { position: absolute; top: -12px; width: 8px; height: 12px; border-radius: 2px; animation: kit-fall linear forwards; }
+@keyframes kit-fall { to { top: 105%; transform: translateX(var(--x)) rotate(var(--r)); opacity: .9; } }
+.demo-sound { justify-self: end; }
+.demo-sound[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+@media (prefers-reduced-motion: reduce) { .kit-mascot, .kit-pop, :is(.game-hud, .custom-game-hud, .match-hud, .stage-hud) > span.is-low { animation: none; } }
+
+/* Catch Game upgrade (2026-10-27): booth scene, drawn items, the mascot catches. */
+.catch-scene { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; border-radius: inherit; }
+.catch-floor { position: absolute; left: -10%; right: -10%; bottom: 0; height: 26%; background: linear-gradient(#2a2e55, #151831); border-top: 1px solid #ffffff22; transform: perspective(300px) rotateX(38deg); transform-origin: bottom; box-shadow: 0 -18px 40px -10px color-mix(in srgb, var(--stage-color) 60%, transparent); }
+.catch-floor::after { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, #ffffff10 0 1px, transparent 1px 48px); }
+.catch-light { position: absolute; top: -20%; width: 46%; height: 120%; background: linear-gradient(#ffffff1f, #ffffff00 80%); clip-path: polygon(45% 0, 55% 0, 100% 100%, 0 100%); transform-origin: top center; animation: catch-sweep 7s ease-in-out infinite alternate; }
+.catch-light-l { left: 4%; }
+.catch-light-r { right: 4%; animation-delay: -3.5s; }
+@keyframes catch-sweep { from { transform: rotate(-14deg); } to { transform: rotate(14deg); } }
+#game-objects, #game-basket, .game-overlay, .game-feedback { z-index: 2; }
+.game-overlay { z-index: 5; background: radial-gradient(80% 60% at 50% 30%, #2a2e55cc, #0f1220ee); backdrop-filter: blur(3px); }
+.game-overlay h3 { color: #fff; }
+.falling-object { width: 38px; height: 38px; line-height: 38px; font-size: 30px; filter: none; }
+.falling-object .kit-icon { width: 38px; height: 38px; animation: catch-spin 2.4s linear infinite; }
+.falling-object.falling-hazard { width: 38px; height: 38px; background: none; border: 0; filter: none; }
+.falling-object.falling-hazard .kit-icon { animation: catch-wobble .6s ease-in-out infinite alternate; }
+@keyframes catch-spin { to { transform: rotate(360deg); } }
+@keyframes catch-wobble { from { transform: rotate(-12deg); } to { transform: rotate(12deg); } }
+#game-basket { width: 76px; height: 76px; bottom: 2px; background: none; border: 0; box-shadow: none; border-radius: 0; transition: left .03s linear; }
+#game-basket .catch-bot { display: block; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 6px 10px #0008); }
+.legend-spark, .legend-hazard { background: none; border: 0; filter: none; }
+.legend-spark .kit-icon, .legend-hazard .kit-icon { width: 24px; height: 24px; }
+@media (prefers-reduced-motion: reduce) { .catch-light, .falling-object .kit-icon { animation: none; } }
+.falling-object.falling-hazard .kit-icon { filter: drop-shadow(0 0 8px #ff6b81aa); }
+/* Primary buttons on the dark game overlays are white so they stand out. */
+:is(.game-overlay, .custom-game-overlay, .wheel-result, .wheel-form) .button-primary { background: #fff; border-color: #fff; color: var(--ink); }
+:is(.game-overlay, .custom-game-overlay, .wheel-result, .wheel-form) .button-primary:hover { background: #e9eaf2; }
+
+/* Tap the Right Item upgrade (2026-10-27): arcade holes with glowing rims, drawn items that spring up. */
+.custom-game-board { background: radial-gradient(80% 70% at 50% 100%, #3b3f7a55, transparent 70%), #0e1224cc; border: 1px solid #ffffff1a; }
+.custom-game-items { gap: 14px; }
+.custom-game-item { height: 104px; border: 0; background: transparent; box-shadow: none; }
+.custom-game-item::before { left: 6%; right: 6%; bottom: 4%; height: 34%; border-radius: 50%; background: radial-gradient(ellipse at 50% 40%, #05060d, #1a1d35 70%); box-shadow: inset 0 6px 12px #000c, 0 0 0 3px color-mix(in srgb, var(--stage-color) 70%, #fff 0%), 0 0 18px color-mix(in srgb, var(--stage-color) 60%, transparent); }
+.custom-game-item .pop-character { position: absolute; left: 50%; right: auto; bottom: 20%; width: 66px; height: 66px; margin-left: -33px; border: 0; border-radius: 0; background: none; }
+.custom-game-item .pop-character img { width: 100%; height: 100%; object-fit: contain; }
+.custom-game-item.is-up .pop-character { animation: tap-spring .28s cubic-bezier(.3,1.6,.5,1) both; }
+@keyframes tap-spring { from { transform: translateY(60%) scale(.6); opacity: 0; } to { transform: none; opacity: 1; } }
+.inline-icon { display: inline-block; width: 22px; height: 22px; vertical-align: -5px; margin: 0 2px; }
+@media (max-width: 600px) { .custom-game-item { height: 92px; } .custom-game-item .pop-character { width: 52px; height: 52px; margin-left: -26px; } }
+@media (prefers-reduced-motion: reduce) { .custom-game-item.is-up .pop-character { animation: none; } }
+
+/* Memory Match upgrade (2026-10-27): 3D flip, brand pattern backs, drawn icon fronts, cards dealt in. */
+.match-cards { position: relative; perspective: 900px; background: radial-gradient(80% 70% at 50% 100%, #3b3f7a55, transparent 70%), #0e1224cc; border: 1px solid #ffffff1a; }
+.match-card { position: relative; padding: 0; border: 0; background: none; box-shadow: none; transform-style: preserve-3d; animation: mc-deal .35s cubic-bezier(.2,.8,.3,1.2) both; animation-delay: var(--deal, 0ms); }
+@keyframes mc-deal { from { opacity: 0; transform: translateY(18px) scale(.85); } }
+.mc-inner { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .45s cubic-bezier(.3,1.3,.5,1); }
+.match-card.is-open .mc-inner, .match-card.is-matched .mc-inner { transform: rotateY(180deg); }
+.mc-face { position: absolute; inset: 0; display: grid; place-items: center; border-radius: 12px; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.mc-back { color: #fff; font: 800 15px/1 Manrope, Prompt, sans-serif; letter-spacing: .06em; border: 1px solid #ffffff33; background: radial-gradient(circle at 30% 25%, #ffffff33, transparent 45%), repeating-linear-gradient(45deg, #ffffff12 0 6px, transparent 6px 12px), linear-gradient(150deg, color-mix(in srgb, var(--stage-color) 85%, #fff 15%), color-mix(in srgb, var(--stage-color) 70%, #000 30%)); box-shadow: inset 0 1px 0 #ffffff40, 0 8px 16px -8px #000a; }
+.mc-front { transform: rotateY(180deg); background: linear-gradient(160deg, #ffffff, #e6e8f2); border: 1px solid #fff; box-shadow: 0 8px 16px -8px #000a; }
+.mc-front .kit-icon { width: 62%; height: 62%; }
+.match-card.is-matched .mc-front { box-shadow: 0 0 0 3px #7be0b0, 0 0 18px #7be0b088; animation: mc-glow .6s ease-out; }
+@keyframes mc-glow { 50% { transform: rotateY(180deg) scale(1.08); } }
+.match-card:focus-visible { outline: 3px solid #fff; outline-offset: 3px; border-radius: 12px; }
+@media (prefers-reduced-motion: reduce) { .match-card, .match-card.is-matched .mc-front { animation: none; } .mc-inner { transition: none; } }
+
+/* Lucky Wheel and Quick Quiz upgrade (2026-10-27). */
+.wheel-bulb { fill: #ffe7a3; filter: drop-shadow(0 0 3px #ffd166); animation: wheel-bulb 1s steps(1) infinite; }
+.wheel-bulb.is-alt { animation-delay: -.5s; }
+.wheel-stage[data-state="spinning"] .wheel-bulb { animation-duration: .25s; }
+@keyframes wheel-bulb { 50% { fill: #6b5b2a; filter: none; } }
+.wheel-result .kit-mascot { width: 72px; height: 72px; }
+.quiz-answers { position: relative; }
+.quiz-board .custom-game-overlay .kit-mascot { width: 80px; height: 80px; }
+@media (prefers-reduced-motion: reduce) { .wheel-bulb { animation: none; } }
+
+/* Other demos (2026-10-27): same frame as the game stages, a softer LED dot matrix and branded sliders. */
+:is(.scratch-stage, .light-stage, .atmosphere-scene, .rfid-display, .rfid-reader-pad, #product-explorer .catalog-carousel) { border-radius: 22px; box-shadow: inset 0 1px 0 #ffffff1c, 0 26px 50px -32px #10131fcc; }
+.light-stage { border-color: #ffffff22; background: radial-gradient(120% 70% at 50% -5%, #655c91aa, transparent 62%), linear-gradient(#1b1e35, #0f1220); }
+.light-grid { background: radial-gradient(circle, #ffffff1f 1.1px, transparent 1.7px) 0 0 / 8px 8px; mix-blend-mode: screen; }
+.simple-demo input[type="range"], .game-customization input[type="range"] { accent-color: var(--brand); }
+.rfid-display { border: 1px solid #ffffff22; background: radial-gradient(120% 70% at 50% -5%, #3f4a7aaa, transparent 62%), linear-gradient(#1b1e35, #0f1220); }
+.match-board { background: transparent; border-radius: 14px; }
