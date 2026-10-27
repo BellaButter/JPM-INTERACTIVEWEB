@@ -120,8 +120,10 @@ document.querySelectorAll('.language-option').forEach(link=>{const target=new UR
     if (!match) return null;
     const target = Number(match[1]);
     value.setAttribute('aria-label', value.textContent.trim());
-    value.textContent = '0';
-    const number = value.firstChild;
+    value.textContent = '';
+    // The figure gets its own element so styles (such as the Home gradient) never bleed into the suffix.
+    const figure = document.createElement('span'); figure.className = 'stat-number'; figure.textContent = '0'; value.append(figure);
+    const number = figure.firstChild;
     if (match[2]) { const suffix = document.createElement('small'); suffix.className = 'stat-suffix'; suffix.setAttribute('aria-hidden', 'true'); suffix.textContent = match[2]; value.append(suffix); }
     card.style.setProperty('--stat-delay', `${index * 180}ms`);
     return { card, number, target, delay: index * 180 };

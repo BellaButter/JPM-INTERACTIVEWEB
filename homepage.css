@@ -242,13 +242,13 @@ footer { border-top: 1px solid var(--line); }
 .company-stats { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; margin-top: 42px; }
 .company-stats > div { border-left: 1px solid #4e516966; padding-left: 18px; }
 .company-stats strong { display: block; font-size: 38px; line-height: 1.2; letter-spacing: -.04em; }
-.company-stats span { display: block; margin-top: 9px; color: #363b57; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
+.company-stats > div > span { display: block; margin-top: 9px; color: #363b57; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
 .about-values h2 { font-size: 26px; margin-bottom: 28px; }
 .about-values > div + div { margin-top: 25px; }
 .about-values h3 { font-size: 19px; letter-spacing: -.02em; }
 .about-values p { margin-top: 9px; font-size: 13px; }
 @media(max-width:850px) { .about-overview { grid-template-columns: 1fr; gap: 36px; } }
-@media(max-width:600px) { .company-stats { gap: 12px; margin-top: 30px; } .company-stats > div { padding-left: 11px; } .company-stats strong { font-size: 30px; } .company-stats span { font-size: 11px; } .about-story p { font-size: 13px; } }
+@media(max-width:600px) { .company-stats { gap: 12px; margin-top: 30px; } .company-stats > div { padding-left: 11px; } .company-stats strong { font-size: 30px; } .company-stats > div > span { font-size: 11px; } .about-story p { font-size: 13px; } }
 .industry-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
 .industry-detail-grid h2 { margin-top: 22px; }
 .review-note { padding: 20px 25px; border: 1px solid #47495d30; border-radius: 16px; background: #64667e10; font-size: 12px; }
@@ -648,8 +648,8 @@ input::placeholder, textarea::placeholder { color: #6f6f78; }
 .language-option:disabled { opacity: .5; cursor: not-allowed; }
 .language-option { text-decoration: none; }
 /* Thai typography: natural word spacing, compact headings, comfortable paragraphs. */
-/* Manrope first: it has no Thai glyphs, so Latin letters and numbers use Manrope and Thai text falls back to Noto Sans Thai Looped (owner choice 2026-10-26). */
-html[lang="th"] { --font: 'Manrope', 'Noto Sans Thai Looped', sans-serif; }
+/* Manrope first: it has no Thai glyphs, so Latin letters and numbers use Manrope and Thai text falls back to Prompt (owner choice 2026-10-27, replaces Noto Sans Thai Looped). */
+html[lang="th"] { --font: 'Manrope', 'Prompt', sans-serif; }
 html[lang="th"] body { line-height: 1.85; letter-spacing: normal; word-spacing: normal; }
 html[lang="th"] :is(h1,h2,h3) { font-family: var(--font); letter-spacing: 0; word-spacing: normal; line-height: 1.35; text-wrap: balance; overflow-wrap: normal; word-break: normal; }
 /* Thai display sizes track the English ones (about 92%) so switching language keeps the same hierarchy.
@@ -666,7 +666,7 @@ html[lang="th"] .thai-phrase { white-space: nowrap; }
 html[lang="th"] :is(.page-hero h1,h2) > .gradient-text { display: block; }
 html[lang="th"] .arcade-hero h1 { text-transform: none; font-size: clamp(34px,3.95vw,57px); line-height: 1.35; }
 html[lang="th"] .arcade-highlight { display: block; }
-html[lang="th"] :is(.eyebrow,.arcade-chip,.photo-caption,.demo-preview-label,.article-meta,.company-stats span,.footer-bottom) { letter-spacing: 0; line-height: 1.6; }
+html[lang="th"] :is(.eyebrow,.arcade-chip,.photo-caption,.demo-preview-label,.article-meta,.company-stats > div > span,.footer-bottom) { letter-spacing: 0; line-height: 1.6; }
 html[lang="th"] :is(p,li,dd,label) { word-spacing: normal; letter-spacing: 0; text-wrap: pretty; }
 html[lang="th"] :is(.about-story p,.surface p:not(.eyebrow):not(.price),.bento-content p:not(.eyebrow),.library-content p,.demo-description > p:not(.eyebrow),.article-card p:not(.eyebrow)) { font-size: 15px; line-height: 1.85; }
 html[lang="th"] .eyebrow { font-size: 12px; line-height: 1.7; }
@@ -950,7 +950,7 @@ html body .arcade-intro { font-size: 19px !important; }
 html body main .eyebrow, html body .arcade-chip { font-size: 13px !important; }
 html body #navigation a, html body #navigation summary { font-size: 16px !important; }
 html body :is(.why-item, .process-step, .bento-content, .library-card) h3, html body .faq-item summary h3 { font-size: 22px !important; }
-html body .company-stats span { font-size: 13px !important; }
+html body .company-stats > div > span { font-size: 13px !important; }
 html body main :is(.button-row a, a.button, button.button) { font-size: 15px !important; }
 html body footer :is(a, span):not(.eyebrow) { font-size: 15px; }
 @media (max-width: 600px) {
@@ -1042,34 +1042,42 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 html[lang="th"] .hero3d-copy h1 { font-size: clamp(38px, 4.6vw, 66px); line-height: 1.25; text-transform: none; }
 
 .cube-stage { position: relative; aspect-ratio: 760 / 700; width: 100%; max-width: 680px; justify-self: center; touch-action: pan-y; }
-.cube-poster, .cube-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+/* The character sits in the upper-left of the stage so the mode card beside it never covers the face. */
+.cube-poster, .cube-canvas { position: absolute; top: -2%; left: -10%; width: 90%; height: auto; aspect-ratio: 1140 / 1050; }
 .cube-poster { object-fit: contain; transition: opacity .5s ease; }
 .cube-canvas { opacity: 0; transition: opacity .5s ease; }
 .cube-stage.is-live .cube-canvas { opacity: 1; }
 .cube-stage.is-live .cube-poster { opacity: 0; }
-.cube-orbit { position: absolute; inset: 9% 12% 16%; border: 1px dashed #6d709940; border-radius: 50%; pointer-events: none; animation: cube-orbit 26s linear infinite; }
+.cube-orbit { position: absolute; inset: 7% 22% 26% 4%; border: 1px dashed #6d709940; border-radius: 50%; pointer-events: none; animation: cube-orbit 26s linear infinite; }
 .cube-orbit span { position: absolute; top: -7px; left: 50%; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--brand-light); background: #fff; }
 @keyframes cube-orbit { to { transform: rotate(360deg); } }
-.cube-chip { position: absolute; display: inline-flex; align-items: center; gap: 9px; padding: 9px 14px; border-radius: 999px; background: #ffffffe6; border: 1px solid var(--line); box-shadow: 0 14px 30px -18px #2b2d4580; backdrop-filter: blur(8px); color: var(--ink); font-size: 13px !important; font-weight: 600; line-height: 1.3; white-space: nowrap; animation: chip-float 6s ease-in-out infinite; }
-.cube-chip-status { top: 8%; left: 2%; }
-.cube-chip-queue { top: 62%; left: -2%; animation-delay: -3s; }
+.cube-chip { position: absolute; display: inline-flex; align-items: center; gap: 9px; padding: 9px 14px; border-radius: 999px; background: #ffffffe6; border: 1px solid var(--line); box-shadow: 0 14px 30px -18px #2b2d4580; backdrop-filter: blur(8px); color: var(--ink); font-size: 14px !important; font-weight: 600; line-height: 1.3; white-space: nowrap; animation: chip-float 6s ease-in-out infinite; }
+.cube-chips { position: absolute; inset: 0; margin: 0; padding: 0; list-style: none; pointer-events: none; }
+/* Positions marked by the owner (2026-10-27), all kept off the face: one above the head, one upper right,
+   one upper left, one on the right and one low on the left. */
+.cube-chip-1 { top: 6%; right: 7%; }
+.cube-chip-2 { top: 15%; left: -10%; animation-delay: -1.2s; }
+.cube-chip-3 { top: 31%; right: -4%; animation-delay: -2.4s; }
+.cube-chip-4 { top: -3%; left: 12%; animation-delay: -3.6s; }
+.cube-chip-5 { top: 68%; left: -4%; animation-delay: -4.8s; }
 .queue-dots { display: inline-flex; }
 .queue-dots i { width: 16px; height: 16px; margin-left: -5px; border-radius: 50%; border: 2px solid #fff; background: linear-gradient(135deg, #9a9dd0, #6d7099); }
 .queue-dots i:first-child { margin-left: 0; background: linear-gradient(135deg, #c9ccea, #9a9dd0); }
 .queue-dots i:last-child { background: linear-gradient(135deg, #6d7099, #3f4268); }
 @keyframes chip-float { 50% { transform: translateY(-8px); } }
-.cube-card { position: absolute; right: -3%; bottom: -5%; width: min(250px, 60%); padding: 16px; border-radius: 20px; background: #ffffffeb; border: 1px solid var(--line); box-shadow: 0 24px 50px -26px #2b2d4580; backdrop-filter: blur(10px); }
-.cube-card-label { font-size: 11px !important; font-weight: 700; letter-spacing: .14em; color: var(--brand-dark) !important; margin: 0 0 10px; }
-.cube-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
-.cube-tabs button { padding: 6px 11px; border-radius: 999px; border: 1px solid var(--line); background: #f4f4f8; font-size: 12px; font-weight: 600; color: var(--muted); transition: background .2s, color .2s; }
+.cube-card { position: absolute; right: -6%; bottom: -12%; width: min(410px, 70%); padding: 24px 26px; border-radius: 26px; background: #ffffffeb; border: 1px solid var(--line); box-shadow: 0 24px 50px -26px #2b2d4580; backdrop-filter: blur(10px); }
+.cube-card-label { font-size: 12px !important; font-weight: 700; letter-spacing: .14em; color: var(--brand-dark) !important; margin: 0 0 14px; }
+.cube-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.cube-tabs button { padding: 8px 15px; border-radius: 999px; border: 1px solid var(--line); background: #f4f4f8; font-size: 14px; font-weight: 600; color: var(--muted); transition: background .2s, color .2s; }
 .cube-tabs button[aria-selected="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
-.cube-card-title { color: var(--ink) !important; font-size: 16px !important; font-weight: 700; line-height: 1.4 !important; margin: 0 0 4px; }
-.cube-panel p:not(.cube-card-title) { font-size: 14px !important; line-height: 1.6 !important; margin: 0; }
-.cube-hint { margin: 12px 0 0 !important; font-size: 12px !important; color: #8a8ea8 !important; }
+.cube-card-title { color: var(--ink) !important; font-size: 21px !important; font-weight: 700; line-height: 1.35 !important; margin: 0 0 8px; }
+.cube-panel p:not(.cube-card-title) { font-size: 16px !important; line-height: 1.65 !important; margin: 0; }
+.cube-hint { margin: 16px 0 0 !important; font-size: 13px !important; color: #8a8ea8 !important; }
 
 .marquee { position: relative; overflow: hidden; border-block: 1px solid var(--line); background: #ffffffb3; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-.marquee-track { display: flex; width: max-content; animation: marquee 38s linear infinite; }
-.marquee-track span { display: inline-flex; align-items: center; gap: 22px; padding: 16px 0 16px 22px; font-size: 15px; font-weight: 600; color: var(--muted); white-space: nowrap; }
+.marquee-track { display: flex; width: max-content; animation: marquee 90s linear infinite; will-change: transform; }
+.marquee-group { display: flex; flex: none; }
+.marquee-track span { display: inline-flex; align-items: center; gap: 48px; padding: 18px 0 18px 48px; font-size: 16px; font-weight: 600; color: var(--muted); white-space: nowrap; }
 .marquee-track span::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--brand-light); }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
@@ -1078,8 +1086,11 @@ html[lang="th"] .hero3d-copy h1 { font-size: clamp(38px, 4.6vw, 66px); line-heig
 .home-stats .company-stats { max-width: none; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .company-stats > div { border-left-color: #6d709940; }
 .company-stats strong { color: var(--ink); }
-.company-stats span { color: var(--muted); }
+.company-stats > div > span { color: var(--muted); }
 .company-stats .stat-suffix { color: var(--brand); }
+/* Home stats: original strip design with larger figures (owner request 2026-10-27). */
+.home-stats .company-stats strong { font-size: clamp(46px, 4.4vw, 62px); line-height: 1.1; }
+@media (max-width: 600px) { .home-stats .company-stats strong { font-size: 36px; } }
 
 /* Section headings and cards. */
 .catalog-heading { align-items: end; }
@@ -1107,11 +1118,12 @@ html[lang="th"] .hero3d-copy h1 { font-size: clamp(38px, 4.6vw, 66px); line-heig
 /* Process tabs. */
 .process-tabs { position: relative; display: grid; gap: 18px; }
 .process-panel { display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: start; padding: 36px; border-radius: var(--radius); background: #fff; border: 1px solid var(--line); box-shadow: 0 18px 40px -32px #2b2d4566; }
-.process-num { font-size: clamp(56px, 7vw, 104px); font-weight: 800; line-height: .9; letter-spacing: -.06em; color: transparent; -webkit-text-stroke: 1.5px #6d709966; }
+/* Solid brand gradient figure (the outlined version read oddly, owner feedback 2026-10-27). */
+.process-num { font-size: clamp(52px, 5.6vw, 84px); font-weight: 800; line-height: .9; letter-spacing: -.05em; color: transparent; background: linear-gradient(160deg, var(--brand-light), var(--brand-dark)); -webkit-background-clip: text; background-clip: text; }
 .process-panel h3 { font-size: clamp(24px, 2.4vw, 34px) !important; margin-bottom: 12px; }
-.process-panel p { max-width: 640px; }
+.process-panel p { max-width: none; } /* one line on desktop (owner request 2026-10-27) */
 .process-tabs.is-enhanced .process-panel { display: none; }
-.process-tabs.is-enhanced .process-panel.is-active { display: grid; animation: panel-in .45s ease both; min-height: 230px; }
+.process-tabs.is-enhanced .process-panel.is-active { display: grid; animation: panel-in .45s ease both; min-height: 0; }
 @keyframes panel-in { from { opacity: 0; transform: translateY(10px); } }
 .process-bar { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; padding: 8px; border-radius: 22px; background: #fff; border: 1px solid var(--line); }
 .process-bar button { position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 12px 14px 16px; border: 0; border-radius: 16px; background: transparent; text-align: left; color: var(--muted); }
@@ -1170,20 +1182,21 @@ html[lang="th"] .footer-wordmark { font-family: 'Manrope', sans-serif; }
 @media (max-width: 850px) {
   .process-bar { grid-template-columns: repeat(5, minmax(120px, 1fr)); overflow-x: auto; scrollbar-width: none; }
   .process-panel { grid-template-columns: 1fr; gap: 12px; padding: 26px; }
+  .process-tabs.is-enhanced .process-panel.is-active { min-height: 230px; } /* text wraps here, so keep the bar from jumping */
   .request-quote { padding: 26px; }
 }
 @media (max-width: 600px) {
   .hero3d { padding-top: 12px; }
   .hero3d-copy h1 { font-size: clamp(34px, 10vw, 46px); }
   html[lang="th"] .hero3d-copy h1 { font-size: clamp(32px, 9.4vw, 42px); }
-  .cube-chip { font-size: 12px !important; padding: 7px 11px; }
-  .cube-chip-status { left: 0; top: 2%; }
-  .cube-chip-queue { top: 22%; }
-  .cube-card { position: relative; right: auto; bottom: auto; width: 100%; margin-top: -8%; }
+  /* Phones: the chips sit as a wrapped row between the character and the mode card. */
+  .cube-chips { position: relative; inset: auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: -4% 0 18px; }
+  .cube-chip { position: static; font-size: 13px !important; padding: 7px 12px; animation: none; }
+  .cube-card { position: relative; right: auto; bottom: auto; width: 100%; margin-top: 0; }
   .cube-stage { aspect-ratio: auto; display: flex; flex-direction: column; }
-  .cube-stage::before { content: ''; display: block; aspect-ratio: 760 / 640; }
-  .cube-poster, .cube-canvas { height: auto; aspect-ratio: 760 / 640; bottom: auto; }
-  .home-stats .company-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cube-stage::before { content: ''; display: block; aspect-ratio: 1140 / 1050; }
+  .cube-poster, .cube-canvas { left: 0; width: 100%; }
+  .cube-orbit { display: none; }
   .partner-banner { padding: 32px 24px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1193,3 +1206,8 @@ html[lang="th"] .footer-wordmark { font-family: 'Manrope', sans-serif; }
 .text-link:hover, .text-link:focus-visible { border-color: var(--ink); color: var(--ink); }
 .footer-wordmark { --mx: -999px; --my: -999px; }
 @media (min-width: 851px) { .site-header nav > a:last-child[aria-current="page"] { color: #fff; } }
+
+/* Thai minimum sizes (owner request 2026-10-27, with the switch to Prompt): Thai glyphs need more room
+   than Latin, so small Thai labels, captions and controls never drop below 14px. */
+html[lang="th"] :is(.eyebrow, .hero-kicker-text, .cube-card-label, .cube-hint, .article-meta, .article-meta span, .company-stats > div > span, .form-grid label, .quote-form label, .project-facts dd, .price small, .service-photo-caption, .catalog-card-tagline, .immersive-touch-hint, .photo-caption, .demo-preview-label, .match-hud span) { font-size: 15px !important; }
+html[lang="th"] :is(.filter-button, .pill, .upload-help, .upload-status, .projection-badge, .footer-contact-link span, .promise-head span, .quote-service-tags span, .project-facts dt, .game-hud span) { font-size: 14px !important; }

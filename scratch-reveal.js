@@ -48,8 +48,8 @@ export function setupFogReveal(t) {
   ctx.globalAlpha=1;
   if(!touched){
    ctx.shadowColor='#102030';ctx.shadowBlur=8;
-   ctx.fillStyle='#f0f0fb';ctx.font='500 18px Manrope, "Noto Sans Thai Looped", sans-serif';ctx.textAlign='center';ctx.fillText(t('A possibility awaits.'),width/2,height/2);
-   ctx.font='12px Manrope, "Noto Sans Thai Looped", sans-serif';ctx.fillStyle='#e0e2f0';ctx.fillText(t('SWIPE THROUGH THE MIST'),width/2,height/2+30);
+   ctx.fillStyle='#f0f0fb';ctx.font='500 18px Manrope, Prompt, sans-serif';ctx.textAlign='center';ctx.fillText(t('A possibility awaits.'),width/2,height/2);
+   ctx.font='12px Manrope, Prompt, sans-serif';ctx.fillStyle='#e0e2f0';ctx.fillText(t('SWIPE THROUGH THE MIST'),width/2,height/2+30);
    ctx.shadowBlur=0;
   }
   ctx.globalCompositeOperation='destination-out';ctx.drawImage(mask,0,0,width,height);ctx.globalCompositeOperation='source-over';

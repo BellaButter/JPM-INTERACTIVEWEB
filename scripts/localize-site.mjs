@@ -49,7 +49,7 @@ export function localizeThai(html, pagePath) {
   html=html.replace(/(<h[1-3]\b[^>]*>)([\s\S]*?)(<\/h[1-3]>)/g,(_,open,copy,close)=>open+copy.replace(/มีส่วนร่วม|อินเทอร์แอคทีฟ|อิมเมอร์ซีฟ|ครีเอทีฟเทคโนโลยี|ต่อยอด/g,phrase=>'<span class="thai-phrase">'+phrase+'</span>')+close);
   // Kickers left in English (e.g. the JPM slogan) keep English tracking on Thai pages.
   html=html.replace(/<span class="hero-kicker-text">([^<\u0E00-\u0E7F]*)<\/span>/g,'<span class="hero-kicker-text" lang="en">$1</span>');
-  html=html.replace('family=Manrope:wght@400;500;600;700;800&display=swap','family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Thai+Looped:wght@400;500;600;700;800&display=swap');
+  html=html.replace('family=Manrope:wght@400;500;600;700;800&display=swap','family=Manrope:wght@400;500;600;700;800&family=Prompt:wght@400;500;600;700;800&display=swap');
   return html;
 }
 export function languageAlternates(pagePath) {
