@@ -1,0 +1,12 @@
+{
+  "brandName": "JPM Media Space",
+  "durationSeconds": 30,
+  "spawnIntervalMs": 700,
+  "fallSpeed": 0.23,
+  "pointsPerCatch": 10,
+  "hazardChance": 0.25,
+  "hazardPenalty": 10,
+  "accentColor": "#9498B3",
+  "objectImage": "",
+  "objectSymbol": "✦"
+}

@@ -1,0 +1,122 @@
+{
+  "Amazon.png": {
+    "file": "web/amazon.webp",
+    "width": 594,
+    "height": 1061
+  },
+  "BCC Power.png": {
+    "file": "web/bcc-power.webp",
+    "width": 460,
+    "height": 821
+  },
+  "Bangchak.png": {
+    "file": "web/bangchak.webp",
+    "width": 1557,
+    "height": 873
+  },
+  "Crowne Plaza Bangkok Lumpini Park.png": {
+    "file": "web/crowne-plaza-bangkok-lumpini-park.webp",
+    "width": 1219,
+    "height": 625
+  },
+  "Dynasty preview.png": {
+    "file": "web/dynasty-preview.webp",
+    "width": 1275,
+    "height": 719
+  },
+  "Kepler preview.png": {
+    "file": "web/kepler-preview.webp",
+    "width": 486,
+    "height": 870
+  },
+  "Kepler.png": {
+    "file": "web/kepler.webp",
+    "width": 1200,
+    "height": 900
+  },
+  "Nicolas.jpg": {
+    "file": "web/nicolas.webp",
+    "width": 1474,
+    "height": 1110
+  },
+  "Nicolas.png": {
+    "file": "web/nicolas-2.webp",
+    "width": 1556,
+    "height": 874
+  },
+  "Punthai.png": {
+    "file": "web/punthai.webp",
+    "width": 1559,
+    "height": 874
+  },
+  "XSpring Digital logo.png": {
+    "file": "web/xspring-digital-logo.webp",
+    "width": 1600,
+    "height": 900
+  },
+  "crowne plaza logo.jpg": {
+    "file": "web/crowne-plaza-logo.webp",
+    "width": 1600,
+    "height": 900
+  },
+  "events_package.jpg": {
+    "file": "web/events-package.webp",
+    "width": 1200,
+    "height": 896
+  },
+  "hero_installation.jpg": {
+    "file": "web/hero-installation.webp",
+    "width": 1376,
+    "height": 768
+  },
+  "immersive.jpg": {
+    "file": "web/immersive.webp",
+    "width": 1600,
+    "height": 897
+  },
+  "jpm-brand-logo.png": {
+    "file": "web/jpm-brand-logo.webp",
+    "width": 480,
+    "height": 480
+  },
+  "lazada run TH.jpg": {
+    "file": "web/lazada-run-th.webp",
+    "width": 1600,
+    "height": 900
+  },
+  "muaythai.png": {
+    "file": "web/muaythai.webp",
+    "width": 1557,
+    "height": 873
+  },
+  "oishi logo.jpg": {
+    "file": "web/oishi-logo.webp",
+    "width": 1600,
+    "height": 900
+  },
+  "permanent_package.jpg": {
+    "file": "web/permanent-package.webp",
+    "width": 1200,
+    "height": 896
+  },
+  "pttep logo.jpg": {
+    "file": "web/pttep-logo.webp",
+    "width": 1600,
+    "height": 900
+  },
+  "touch screen.jpg": {
+    "file": "web/touch-screen.webp",
+    "width": 1600,
+    "height": 1067
+  },
+  "พิพิธภัณฑ์มหาวิทยาลัยวลัยลักษณ์.png": {
+    "file": "web/walailak-museum.webp",
+    "width": 1499,
+    "height": 846
+  },
+  "jpm-brand-logo-dark.png": {
+    "file": "web/jpm-brand-logo-dark.webp",
+    "width": 480,
+    "height": 480
+  }
+}

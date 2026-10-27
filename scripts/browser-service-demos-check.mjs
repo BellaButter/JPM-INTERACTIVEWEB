@@ -1,0 +1,82 @@
+import assert from 'node:assert/strict';
+const {chromium}=await import(process.env.PLAYWRIGHT_MODULE||'playwright');
+const browser=await chromium.launch({headless:true,...(process.env.BROWSER_CHANNEL?{channel:process.env.BROWSER_CHANNEL}:{})});
+const base=process.env.PREVIEW_URL||'http://127.0.0.1:4173';
+const errors=[];
+try {
+ for(const locale of ['', 'th/']) {
+  const page=await browser.newPage();
+  page.on('pageerror',e=>errors.push(e.message));
+  page.on('response',r=>{if(r.url().startsWith(base)&&r.status()>=400)errors.push(r.status()+' '+r.url());});
+  for(const width of [1440,768,390,320]) {
+   await page.setViewportSize({width,height:1000});
+   await page.goto(base+'/'+locale+'playground.html',{waitUntil:'networkidle'});
+   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),locale+width+' overflow');
+   assert.equal(await page.locator('.demo-service-nav a').count(),6);
+   assert.equal(await page.locator('.library-card').count(),8);
+   assert.equal(await page.locator('.library-image, .library-card img, .library-card .illustration').count(),0);
+   const columns=await page.locator('.demo-library-grid').evaluate(node=>getComputedStyle(node).gridTemplateColumns.split(' ').length);assert.equal(columns,width>1050?4:width>600?2:1);
+   for(const action of await page.locator('.library-action').all()){assert((await action.textContent()).includes(locale?'ลองเดโม':'Try demo'));const target=await action.getAttribute('href');assert.equal(await page.locator(target).count(),1);}
+   await page.locator('[data-mood-choice=forest]').click();
+   assert.equal(await page.locator('.atmosphere-scene').getAttribute('data-mood'),'forest');
+   await page.locator('[data-mood-choice=cosmic]').focus();await page.keyboard.press('Enter');
+   assert.equal(await page.locator('.atmosphere-scene').getAttribute('data-mood'),'cosmic');
+   await page.locator('[data-rfid-product=grove]').click();
+   await page.locator('#rfid-reader').click();
+   assert.equal(await page.locator('#rfid-display').getAttribute('data-product'),'grove');
+   assert.equal(await page.locator('#rfid-tag-id').textContent(),'RFID-002');
+   await page.locator('#rfid-remove').click();
+   assert.equal(await page.locator('#rfid-display').getAttribute('data-product'),null);
+   await page.locator('#tap-customization > summary').click();
+   await page.locator('#builder-brand').fill('<img src=x>');
+   assert.equal(await page.locator('#builder-brand').inputValue(),'<img src=x>');
+   await page.locator('#builder-item').selectOption('heart');
+   await page.locator('#builder-color').selectOption('mint');
+   assert.equal(await page.locator('#builder-preview-brand').textContent(),'<img src=x>');
+   assert.equal(await page.locator('#builder-preview-brand img').count(),0);
+   assert.equal(await page.locator('.builder-preview').getAttribute('data-color'),'mint');
+   assert.match(await page.locator('#builder-instruction').textContent(),/♥/);
+   await page.locator('#builder-activate').click();
+   await page.locator('.custom-game-item[data-item=heart]').first().click();
+   assert.equal(await page.locator('#builder-count').textContent(),'1');
+   await page.locator('#builder-reset').click();
+   assert.equal(await page.locator('#builder-count').textContent(),'0');
+   assert.equal(await page.locator('#builder-brand').inputValue(),'');
+   assert.equal(await page.locator('#builder-preview-brand').textContent(),locale?'แบรนด์ของคุณ':'Your brand');
+   assert.equal(await page.locator('#light-pattern, #immersive-interact, #immersive-pause, #game-customization').count(),0);
+   const hasInk=()=>page.locator('#light-drawing').evaluate(c=>c.getContext('2d').getImageData(0,0,c.width,c.height).data.some((v,i)=>i%4===3&&v>0));
+   assert.equal(await hasInk(),false);
+   await page.locator('[data-light-display=projection]').click();
+   assert.equal(await page.locator('.light-grid').isVisible(),false);
+   await page.locator('#light-clear').click();
+   assert.equal(await hasInk(),false);
+   await page.locator('#light-drawing').scrollIntoViewIfNeeded();
+   const box=await page.locator('#light-drawing').boundingBox();
+   await page.mouse.move(box.x+30,box.y+80);await page.mouse.down();await page.mouse.move(box.x+120,box.y+120,{steps:8});await page.mouse.up();
+   assert(await hasInk());
+   await page.locator('[data-library-filter=immersive]').click();
+   assert.equal(await page.locator('.library-card:visible').count(),2);
+   await page.locator('[data-library-filter=technology]').click();
+   assert.equal(await page.locator('.library-card:visible').count(),1);
+   await page.locator('[data-library-filter=all]').click();
+   console.log('PASS: '+(locale||'en/')+width+'px — all service demos, filters, drawing, safe brand text, stable localized controls');
+  }
+  await page.setViewportSize({width:1440,height:1000});
+  await page.locator('#demo-library').screenshot({animations:'disabled',path:'.preview/demo-library-'+(locale?'th':'en')+'.png'});
+  await page.locator('#atmosphere-room').screenshot({path:'.preview/service-demos-'+(locale?'th':'en')+'.png'});
+  await page.goto(base+'/'+locale+'services.html');
+  assert.equal(await page.locator('.service-demo-link').count(),6);
+  await page.close();
+ }
+ const mobile=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true,reducedMotion:'reduce'});
+ const touch=await mobile.newPage();await touch.goto(base+'/th/playground.html');
+ await touch.locator('[data-mood-choice=cosmic]').tap();
+ assert.equal(await touch.locator('.atmosphere-scene').getAttribute('data-mood'),'cosmic');
+ await touch.locator('#light-drawing').tap();
+ assert(await touch.locator('#light-drawing').evaluate(c=>c.getContext('2d').getImageData(0,0,c.width,c.height).data.some((v,i)=>i%4===3&&v>0)));
+ await mobile.close();
+ const noJS=await browser.newContext({javaScriptEnabled:false});const plain=await noJS.newPage();
+ await plain.goto(base+'/th/playground.html');assert.equal(await plain.locator('.simple-demo:visible').count(),0);assert.equal(await plain.locator('.demo-service-nav a').count(),6);await noJS.close();
+ assert.deepEqual(errors,[]);
+ console.log('PASS: touch input, reduced motion, no-JavaScript fallback, no local errors');
+} finally {await browser.close();}

@@ -1,0 +1,96 @@
+// Editable English content. Keep supplied project credit and package review status.
+export const studio = {
+  name: 'JPM Media Space', email: 'jpmmediaspace@gmail.com', phone: '096-282-6224',
+  line: 'https://line.me/R/ti/p/@328opglx?oat_content=qr',
+  heroIntroduction: 'Interactive games and content for touchscreens, LED walls, projectors, and sensors, designed for event booths. We test every system before show day, and the team that built it stays on site until the event ends.',
+  introduction: 'We are a creative technology studio that takes your experience from first idea to after-sales care. Concept, content, software, installation, and support are handled by one team.',
+  overview: 'Our work spans across Exhibition spaces, Corporate Showrooms, Event Activation, Brand Experience Centers, reception areas (Lobbies), and permanent exhibition installations.',
+  aboutBelief: 'We were founded on the belief that technology should not merely be a display tool, but a medium that creates "experiences" between people and brands. We believe that modern corporate communication must prioritize engagement and lasting impressions over one-way information presentation.',
+  belief: 'Technology should be more than a display tool. It is a medium for creating experiences between people and brands. We bring design, software, and hardware together to invite participation and create lasting impressions.'
+};
+export const coreValues = [
+  ['Creativity', 'We push boundaries with bold ideas and memorable visuals.'],
+  ['Experience', 'Every project is crafted to engage and inspire audiences.'],
+  ['Technology', 'Integrate design and technology to work seamlessly together.'],
+  ['Partner', 'We work with clients from beginning until the end and get through all problems together.']
+];
+export const companyStats = [
+  ['50+', 'Projects Delivered'],
+  ['5+', 'Years Experience'],
+  ['24/7', 'Support']
+];
+export const services = [
+  { id: 'games', title: 'Interactive Games', label: 'A little play. A lasting connection.', description: 'Multiplayer trivia, branded games, and playful activations that turn your audience into participants.', detail: 'Custom interactive games for trade shows, festivals, launches, and brand engagement. Start with a browser prototype, then discuss the display and input that fit your installation.', examples: ['Brand engagement games', 'Multiplayer trivia', 'Event activations'], art: 'game' },
+  { id: 'touch', title: 'Touchscreen Applications', label: 'Your story, at their fingertips.', description: 'Product catalogs, digital guestbooks, wayfinding, and museum archives made to be explored.', detail: 'Interactive product configurators, sales galleries, collaborative tables, and custom content management systems for events and permanent spaces.', examples: ['Interactive product catalogs', 'Digital guestbooks', 'Wayfinding & museum archives'], art: 'touch' },
+  { id: 'immersive', title: 'Immersive Experiences', label: 'Step inside the story.', description: 'Connect light, motion, and content to transform ordinary rooms into responsive environments.', detail: 'Immersive experiences for exhibitions, corporate showrooms, experience centers, reception areas, and permanent installations. Design and technology work together around the audience and the space.', examples: ['Immersive rooms', 'Corporate lobbies', 'Spatial storytelling'], art: 'room' },
+  { id: 'sensors', title: 'Sensor Technologies', label: 'Spaces that sense you.', description: 'LiDAR, depth cameras, RFID, and NFC connect physical actions with digital responses.', detail: 'LiDAR enables spatial tracking; depth cameras support body and gesture interaction; RFID and NFC allow physical cards, badges, and tokens to trigger display content. Hardware selection follows the interaction and installation conditions.', examples: ['LiDAR spatial tracking', 'Depth-camera gestures', 'RFID & NFC activation'], art: 'radar' },
+  { id: 'custom', title: 'Custom Interactive Development', label: 'Built around your idea.', description: 'Purpose-built software and connected multimedia systems, from concept to installation.', detail: 'We integrate custom programs with displays, sensors, and hardware. Our process brings strategy, system planning, visual development, testing, installation, and ongoing support together.', examples: ['Custom software', 'Hardware integration', 'Multimedia systems'], art: 'code' },
+  { id: 'projection', title: 'Interactive LED & Projection Content', label: 'Light becomes a language.', description: 'Interactive content and software for LED and projection: motion-tracking walls, reactive floors, and projection mapping that run on your screens.', detail: 'We create the interactive content and software that bring LED walls, LED floors, and projectors to life: digital graffiti walls, architectural lighting, sensor-triggered ambient art, and projection tunnel mapping. We do not rent or sell screens or projectors. Our work runs on the screens and projectors you already have.', examples: ['Interactive LED wall content', 'Step-reactive floor content', 'Projection mapping'], art: 'projection' }
+];
+export const industries = [
+  { id: 'events', title: 'Events & Exhibitions', text: 'High-energy popup stands, product launches, VIP events, and trade shows.', ideas: 'Branded games, interactive LED walls, digital guestbooks, and short visitor interactions.' },
+  { id: 'showrooms', title: 'Showrooms', text: 'Interactive product configurators, sales galleries, and showroom displays.', ideas: 'Explore specifications and product stories through touch and gesture.' },
+  { id: 'museums', title: 'Museums', text: 'Educational interactive history walls, digitized archive tables, and historical projection displays.', ideas: 'Connect exhibits, archives, and room layouts through interactive storytelling.' },
+  { id: 'malls', title: 'Shopping Malls', text: 'Gamified advertising, interactive wayfinding, and motion-tracking floor projections.', ideas: 'Responsive seasonal displays and participatory experiences for public spaces.' },
+  { id: 'permanent', title: 'Permanent Installations', text: 'Immersive corporate lobbies, retail flagships, and long-term public spaces.', ideas: 'Architectural media displays, content management, and integrated sensor systems.' }
+];
+export const workflow = [
+  ['Strategy & Experience Planning', 'We analyze your business goals and design experience concepts that align with your vision.'],
+  ['Concept Design & System Planning', 'Visual concepts, storytelling, interaction design, and hardware selection suited to local conditions.'],
+  ['Visual & Program Development', 'Custom interactive programs and visual content bring the idea into the real-world space.'],
+  ['Testing, Optimization & Installation', 'On-site installation, spatial tracking, projector calibration, and testing for real-world performance.'],
+  ['After Sale Services', 'Installation help, maintenance, warranty enquiries, and support for permanent installations.']
+];
+export const packages = [
+  { id: 'events', title: 'Events Package', description: 'Designed for short-term activations, trade shows, festivals, and launch events.', image: 'events_package.jpg', alt: 'Visitors using an interactive touchscreen kiosk at a corporate event', reviewRequired: false, items: [
+    { title: 'Touch Screen Experiences', startingPrice: 30000, text: 'Digital guestbooks, interactive product catalogs, multiplayer trivia games, and brand engagement apps tailored for quick visitor interactions.' },
+    { title: 'Interactive LED & Projection Content', startingPrice: 56000, text: 'Content and software for motion-tracking projection walls, step-reactive LED floors, digital graffiti walls, and gesture-activated stage backdrops. Screens and projectors are not included; our work runs on yours.' }
+  ] },
+  { id: 'permanent', title: 'Permanent Package', description: 'For museums, corporate lobbies, retail flagships, and long-term public spaces.', image: 'permanent_package.jpg', alt: 'Large interactive LED wall in a corporate lobby', reviewRequired: false, items: [
+    { title: 'Touch Screen Experiences', startingPrice: 39000, text: 'Large-scale wayfinding kiosks, smart collaborative tables, interactive museum archives, and custom content management systems (CMS) for easy updates.' },
+    { title: 'Interactive LED & Projection Content', startingPrice: 160000, text: 'Content and software for architectural lighting, immersive projection tunnel mapping, sensor-triggered ambient art walls, and interactive digital branding columns. Screens and projectors are not included; our work runs on yours.' }
+  ] }
+];
+export const projects = [
+  { slug: 'punthai-coffee', title: 'Punthai Coffee', category: 'Immersive', image: 'Punthai.png', alt: 'Visitor interacting with the large Punthai Coffee interactive wall', video: 'Punthai 1.mp4', story: { overview: 'A large-format brand experience brings Punthai’s visual world into an exhibition setting. The installation places visitors in front of an animated display, making movement part of the encounter with the brand.', interaction: 'The supplied project footage shows a visitor facing the display and reaching toward the animated scene. The screen gives the surrounding booth an active focal point and invites people to take part.', approach: 'Brand illustration, animation, and a full-scale display come together as one experience. The result shown in the footage is a visual interaction designed for a shared physical space.' } },
+  { slug: 'nicholas-shrine', title: 'Shrine of Blessed Nicholas Bunkerd', category: 'Immersive', image: 'Nicholas.webp', alt: 'Exterior of the Shrine of Blessed Nicholas Bunkerd church', video: 'สักการสถาน นักบุญ Nicolas 1.mp4' },
+  { slug: 'bcc-power', title: 'BCC Power Technologies', category: 'Touchscreen', image: 'BPT logo.png', alt: 'BCC Power Technologies (BPT) logo', video: 'BCC_Power.mp4' },
+  { slug: 'dynasty', title: 'Dynasty’s information', category: 'Touchscreen', image: 'Dynasty preview.png', alt: 'Dynasty touchscreen archive with three framed historic photographs', video: 'Dynasty Preview [NetMode_ Standalone]  (64-bit_Windows)  2026-02-13 20-09-10 (1).mp4', story: { overview: 'An interactive history application presents archival imagery through a visual browsing interface. Rather than following one fixed sequence, visitors can choose the subjects they want to explore.', interaction: 'The supplied application preview shows image-led categories for places, royal history, and people, with a Thai–English language option. These entry points let visitors begin with a subject that interests them.', approach: 'Large visual choices, historical imagery, and a consistent interface turn a collection of material into an explorable digital experience. This reference demonstrates a format suited to touchscreen storytelling and exhibitions.' } },
+  { slug: 'kepler', title: 'Kepler’s information', category: 'Touchscreen', image: 'Kepler.png', alt: 'Portrait of Johannes Kepler from the Kepler touchscreen application', video: 'Kepler Preview [NetMode_ Standalone 0]  (64-bit_PC D3D SM6) 2026-02-13 20-21-52 (1).mp4' },
+  { slug: 'walailak-museum', title: 'Walailak University’s museum', category: 'Touchscreen', image: 'พิพิธภัณฑ์มหาวิทยาลัยวลัยลักษณ์.png', alt: 'Jungle Story touchscreen game for the Walailak University museum', video: 'Research Preview [NetMode_ Standalone 0].mp4' },
+  { slug: 'oishi', title: '[Oishi x One Piece] Cards Random', category: 'Immersive', image: 'oishi logo.jpg', alt: 'Oishi Green Tea and One Piece logos', video: 'OishiCard(RFID).mp4', employer: true },
+  { slug: 'kia', title: '[KIA] Immersive Wall', category: 'Immersive', image: 'KIA logo.jpg', alt: 'KIA logo', video: 'KIA.mp4', employer: true },
+  { slug: 'lazada-run', title: '[LAZADA Run Thailand] Interactive Running Game', category: 'Immersive', image: 'lazada run TH.jpg', alt: 'LAZADA Run Thailand logo', video: 'lazada run compressed.mp4', employer: true },
+  { slug: 'crowne-plaza', title: '[Crowne Plaza Bangkok Lumpini Park] Interactive Floor', category: 'Immersive', image: 'crowne plaza logo.jpg', alt: 'Crowne Plaza Bangkok Lumpini Park logo', video: 'interactive wall crown plaza (1).mp4', employer: true },
+  { slug: 'cafe-amazon', title: '[Cafe Amazon] Tea Machine', category: 'Touchscreen', image: 'Amazon.png', alt: 'Café Amazon bottled coffee touchscreen menu', video: 'TeaMachine [Cafe Amazon] compressed.mp4', employer: true },
+  { slug: 'bangchak', title: '[Bangchak] Fortune Wheel', category: 'Touchscreen', image: 'Bangchak.png', alt: 'Bangchak 38th anniversary fortune wheel graphic', video: 'Roulette [Bangchak] compressed.mp4', employer: true },
+  { slug: 'xspring', title: '[XSpring Digital] Object Dropping Game', category: 'Touchscreen', image: 'XSpring Digital logo.png', alt: 'XSpring Digital logo', video: 'sapce x (1).mp4', employer: true },
+  { slug: 'pttep', title: '[PTTEP @IPTC] Guitar Hero Game', category: 'Touchscreen', image: 'pttep logo.jpg', alt: 'PTTEP logo', video: 'Guitar Hero ในงาน IPTC จัดโดย PTTEP compressed.mp4', employer: true },
+  { slug: 'muaythai', title: '[World Grand Prix Sport Weekend] MuayThai Exhibition', category: 'Touchscreen', image: 'muaythai.png', alt: 'Discover Muaythai exhibition poster for World Grand Prix Sport Weekend', video: 'MuayThai compressed.mp4', employer: true }
+];
+export const articleCategories = ['Inspiration', 'Behind the Experience', 'Practical Guides'];
+export const articles = [
+  { slug: 'designing-for-participation', title: 'Designing for participation, not just presentation', category: 'Inspiration', summary: 'A studio perspective on connecting people, brands, and physical spaces.', status: 'published', readTime: '3 min', sections: [
+    ['Start with the person in the space', 'At JPM Media Space, we believe technology should be more than a display tool. An interactive experience invites a visitor to do something: touch a screen, move through a space, or explore a story. The first question is what we want that person to experience.'],
+    ['Choose an interaction with a purpose', 'Touchscreen catalogs invite visitors to explore information. Games create an opportunity to participate. Gesture-driven displays connect motion to a digital response. Each format serves a different idea; the interaction should make the story easier to explore.'],
+    ['Design the whole experience', 'Visual content, custom software, displays, and sensors need to work together. Our workflow begins with strategy and system planning, then moves through development, testing, installation, and support. The physical space is part of the design from the beginning.']
+  ] },
+  { slug: 'events-and-permanent-spaces', title: 'One moment or a lasting destination?', category: 'Practical Guides', summary: 'How the original event and permanent installation packages frame a project conversation.', status: 'published', readTime: '3 min', sections: [
+    ['Begin with the setting', 'Our event packages are designed for short-term activations, trade shows, festivals, and launches. Permanent packages are intended for museums, corporate lobbies, retail flagships, and long-term public spaces. Start by describing where the experience will live and who will use it.'],
+    ['Think about what visitors need to explore', 'An event may call for a quick game or digital guestbook. A permanent space may need wayfinding, an archive, or a custom content management system. Touchscreen applications, interactive LED, and projection can be adapted around the content and setting.'],
+    ['Plan the next conversation', 'Share your audience, venue, timeline, display requirements, and available content with the studio. Sensor selection, development scope, installation, and support can then be discussed together. Starting prices are a useful reference; the final quotation should reflect the agreed content, hardware, and installation scope.']
+  ] }
+];
+
+// Home FAQ (2026-10-26). Answers stay within owner-approved facts: package prices, on-site support,
+// screens not included, usage summary. Prices follow the Events package records above.
+const eventPrice = index => packages[0].items[index].startingPrice.toLocaleString('en-US') + '.-';
+export const faqs = [
+  ['What does JPM Media Space do?', 'JPM Media Space is a creative technology studio in Thailand. We design and build interactive games, touchscreen applications, and interactive content for LED walls, projectors, and sensors, mainly for event booths and brand activations, as well as permanent installations.'],
+  ['How much does an interactive game for an event booth cost?', `Event packages start at ${eventPrice(0)} for touchscreen experiences and ${eventPrice(1)} for interactive LED and projection content. The final price depends on the game, content, and scope, and is confirmed in your quotation.`],
+  ['Can you use the screen we already have?', 'Yes. Our content and software run on your touchscreen, LED wall, or projector. Screens and projectors are not included in our packages, so share the size and resolution and we will design for them.'],
+  ['What if something goes wrong during the event?', 'We test the full system on site before the event opens, and our technical team stays on site from start to finish to fix issues on the spot.'],
+  ['Can the game collect player information?', 'Yes. We can add a sign-up form or QR scan before play, with a consent step you approve. After the event, you receive a summary of players and engagement to plan your next activation.'],
+  ['How long does it take to build a booth game?', 'It depends on the game and content. Share your event date when you request a quote, and we will confirm a schedule that leaves time for prototypes and testing before show day.'],
+  ['Do you work with event agencies and organizers?', 'Yes. We work directly with brands and as the interactive team for event agencies, production houses, and LED providers.']
+];
