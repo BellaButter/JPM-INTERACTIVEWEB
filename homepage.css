@@ -1307,3 +1307,140 @@ html body main .package-item p.price small { font-size: 15px !important; font-we
 @media (prefers-reduced-motion: reduce) { .article-card-image img { transition: none; } }
 @media (max-width: 600px) { .article-cover img, .article-figure img { border-radius: 12px; } }
 html[lang="th"] :is(.article-cover, .article-figure) figcaption { font-size: 15px; }
+
+/* Lucky Wheel and Quick Quiz demos (2026-10-27). Their stages stay dark like the other game stages. */
+.game-stage-dark { --stage-color: #655c91; position: relative; border: 1px solid #ffffff25; border-radius: 18px; padding: 20px 16px; text-align: center; color: #fff; background: radial-gradient(ellipse at top, var(--stage-color), #141923 80%); }
+.game-stage-dark[data-color="blue"] { --stage-color: #315d86; }
+.game-stage-dark[data-color="mint"] { --stage-color: #356b5c; }
+.game-stage-dark h3 { margin: 0 0 8px; font-size: 26px; color: #fff; overflow-wrap: anywhere; }
+.stage-hud { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; margin-bottom: 14px; font-size: 13px; color: #d9dbef; }
+.stage-hud strong { margin-left: 5px; font-size: 17px; color: #fff; }
+.builder-check { display: flex; align-items: flex-start; gap: 10px; margin-top: 16px; font-size: 14px; line-height: 1.5; text-align: left; }
+.builder-check input { width: 18px; height: 18px; margin: 2px 0 0; flex: none; accent-color: var(--brand-dark); }
+.wheel-prizes { margin: 18px 0 0; padding: 14px; border: 1px solid var(--line); border-radius: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.wheel-prizes legend { padding: 0 6px; font-size: 14px; font-weight: 600; }
+.wheel-prize-row { display: grid; grid-template-columns: minmax(0, 1fr) 96px; gap: 6px; }
+.wheel-wrap { position: relative; width: min(100%, 340px); aspect-ratio: 1; margin: 6px auto 4px; }
+#wheel-svg { display: block; width: 100%; height: 100%; filter: drop-shadow(0 18px 30px #0008); }
+.wheel-label { fill: #fff; font: 700 9px Manrope, Prompt, sans-serif; }
+.wheel-pointer { position: absolute; z-index: 2; top: -6px; left: 50%; width: 0; height: 0; transform: translateX(-50%); border-left: 13px solid transparent; border-right: 13px solid transparent; border-top: 24px solid #fff; filter: drop-shadow(0 3px 4px #0006); }
+.wheel-spin { position: absolute; z-index: 2; top: 50%; left: 50%; width: 27%; aspect-ratio: 1; transform: translate(-50%, -50%); border: 4px solid #ffffffd9; border-radius: 50%; background: #16161c; color: #fff; font-weight: 800; font-size: 16px; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; box-shadow: 0 8px 24px #0009; }
+.wheel-spin:hover:not(:disabled) { background: #2a2c40; }
+.wheel-spin:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.wheel-overlay { z-index: 3; inset: -4% -10%; border-radius: 18px; padding: 18px 22px; }
+.wheel-overlay[hidden] { display: none; }
+.wheel-form, .wheel-result { display: grid; gap: 8px; width: 100%; text-align: left; }
+.wheel-result { text-align: center; justify-items: center; }
+.wheel-form h4, .wheel-result h4 { margin: 0 0 2px; font-size: 18px; color: #fff; text-align: center; }
+.wheel-result h4 { font-size: 22px; }
+.wheel-result p { margin: 0 0 6px; color: #d9dbef; font-size: 14px; }
+.wheel-form label { display: grid; gap: 4px; font-size: 13px; color: #d9dbef; }
+.wheel-form .builder-check { margin: 2px 0 0; font-size: 12px; }
+.wheel-form input:not([type="checkbox"]), .quiz-save input { width: 100%; box-sizing: border-box; padding: 8px 10px; border: 1px solid #ffffff40; border-radius: 10px; background: #ffffff14; color: #fff; font: inherit; font-size: 14px; }
+.wheel-form .button, .wheel-result .button { min-height: 40px; justify-self: center; padding-inline: 18px; }
+.wheel-form-error { margin: 0; color: #ffd27a; font-size: 12px; }
+.quiz-editor { display: grid; gap: 12px; margin-top: 16px; font-size: 14px; }
+.quiz-editor label { display: grid; gap: 6px; }
+.quiz-editor-answers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.quiz-board { position: relative; min-height: 300px; display: flex; flex-direction: column; gap: 14px; padding: 18px; border-radius: 14px; background: #0e1524bb; }
+.quiz-timer { height: 6px; border-radius: 6px; background: #ffffff1f; overflow: hidden; }
+.quiz-timer span { display: block; height: 100%; background: linear-gradient(90deg, #9a9dd0, #c7d8ff); transform-origin: left; transition: transform .1s linear; }
+.quiz-prompt { margin: 6px 0 0; font-size: 19px; font-weight: 700; line-height: 1.45; color: #fff; }
+.quiz-answers { display: grid; gap: 10px; }
+.quiz-answer { display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 14px; border: 1px solid #ffffff30; border-radius: 12px; background: #ffffff10; color: #fff; font: inherit; font-size: 15px; text-align: left; cursor: pointer; transition: background .2s, border-color .2s; }
+.quiz-answer:hover:not(:disabled) { background: #ffffff22; border-color: #ffffff60; }
+.quiz-answer:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.quiz-key { display: grid; place-items: center; flex: none; width: 28px; height: 28px; border-radius: 8px; background: #ffffff22; font-weight: 800; font-size: 13px; }
+.quiz-answer.is-correct { background: #2f7a5c; border-color: #8fe0bd; }
+.quiz-answer.is-wrong { background: #7a2f3c; border-color: #ff9fb0; }
+.quiz-answer:disabled { cursor: default; }
+.quiz-board .custom-game-overlay { border-radius: 14px; gap: 6px; }
+.quiz-save { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: center; gap: 8px; margin: 4px 0 6px; }
+.quiz-save[hidden] { display: none; }
+.quiz-save label { display: grid; gap: 4px; font-size: 13px; color: #d9dbef; text-align: left; }
+.quiz-leaderboard { width: min(100%, 280px); margin: 0 0 12px; padding: 0 0 0 22px; color: #d9dbef; font-size: 14px; text-align: left; }
+.quiz-leaderboard li { padding: 2px 0; }
+.quiz-leaderboard li > * { display: inline; }
+.quiz-leaderboard strong { float: right; color: #fff; }
+@media (max-width: 600px) {
+  .wheel-prizes, .quiz-editor-answers { grid-template-columns: 1fr; }
+  .wheel-overlay { inset: -4% -6%; padding: 14px; }
+  .quiz-prompt { font-size: 17px; }
+}
+@media (prefers-reduced-motion: reduce) { #wheel-svg, .quiz-timer span, .quiz-answer { transition: none !important; } }
+
+
+/* Playground player: one demo at a time (playground-player.js). Without JavaScript all demos stay visible. */
+.demo-section[hidden] { display: none !important; }
+.demo-player-bar { position: relative; display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; gap: 12px; margin-top: 40px; padding: 10px; border: 1px solid var(--line); border-radius: 999px; background: #fff; box-shadow: 0 18px 40px -32px #2b2d4566; scroll-margin-top: 96px; }
+.demo-player-now { margin: 0; display: grid; justify-items: center; line-height: 1.3; text-align: center; }
+.demo-player-count { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--brand-dark); }
+.demo-player-now strong { font-size: 18px; color: var(--ink); }
+.demo-player-bar .pill { min-height: 44px; font-size: 14px; padding: 8px 16px; white-space: nowrap; }
+.demo-player-all { padding: 0 14px; color: var(--muted); font-size: 14px; white-space: nowrap; }
+.demo-player-all:hover { color: var(--ink); }
+.demo-player-bar + .demo-section { padding-top: 32px; }
+.library-card.is-current { border-color: var(--ink); box-shadow: 0 0 0 1px var(--ink); }
+html[lang="th"] .demo-player-count { letter-spacing: 0; font-size: 14px; }
+@media (max-width: 760px) {
+  .demo-player-bar { grid-template-columns: 1fr 1fr; border-radius: 22px; }
+  .demo-player-now { grid-column: 1 / -1; order: -1; }
+  .demo-player-bar .pill { white-space: normal; text-align: center; justify-content: center; }
+  .demo-player-all { grid-column: 1 / -1; text-align: center; padding: 4px 0; }
+}
+
+/* Demo library cards with real game screenshots and short tags (2026-10-27). */
+.library-card { overflow: hidden; }
+.library-thumb { display: block; margin: -1px -1px 0; aspect-ratio: 16 / 10; overflow: hidden; background: #141923; }
+.library-thumb img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center top; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.library-card:hover .library-thumb img { transform: scale(1.04); }
+.library-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; }
+.library-tags span { padding: 3px 9px; border-radius: 999px; background: #f1f1f6; color: var(--brand-dark); font-size: 12px; font-weight: 700; line-height: 1.5; }
+html[lang="th"] .library-tags span { font-size: 14px; }
+@media (prefers-reduced-motion: reduce) { .library-thumb img { transition: none; } }
+
+/* Playground hero robot (2026-10-27): shared robot drawing; layout and keypad below. */
+.feed-svg { display: block; width: 100%; height: 100%; overflow: visible; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.feed-shadow { fill: #00000059; }
+.feed-cheeks ellipse { fill: #ff9fb8; }
+.feed-mouth { fill: #1a1a24; }
+.feed-robot.is-rebooting { animation: feed-reboot .7s ease-out both; }
+@keyframes feed-reboot { from { opacity: 0; } to { opacity: 1; } }
+.feed-boom { font: 800 34px Manrope, Prompt, sans-serif; fill: #ffd166; opacity: 0; letter-spacing: .04em; paint-order: stroke; stroke: #141923; stroke-width: 6px; }
+.feed-boom.is-on { animation: feed-boom 2.6s ease-out both; }
+@keyframes feed-boom { 0% { opacity: 0; } 8% { opacity: 1; } 70% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .feed-boom.is-on, .feed-robot.is-rebooting { animation-duration: .01s; } }
+
+/* Playground hero (owner request 2026-10-27): like the Home hero, no frame. Large mascot plus a six-key 3D keypad. */
+.playground-hero .hero3d-grid { min-height: 0; padding: 48px 0 64px; }
+.robot-stage { position: relative; display: grid; justify-items: center; gap: 6px; }
+.robot-glow { position: absolute; top: 0; left: 50%; width: min(96%, 480px); aspect-ratio: 1; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(circle, #9a9dd04d, #9a9dd000 68%); pointer-events: none; }
+.robot-stage .feed-stage { position: relative; width: min(100%, 470px); aspect-ratio: 1; margin: -20px auto -64px; }
+.feed-shadow { fill: #2b2d4533; }
+.keypad { position: relative; z-index: 1; perspective: 900px; padding: 8px 0 18px; }
+.keypad-base { display: grid; grid-template-columns: repeat(3, 78px); gap: 12px; padding: 18px 18px 24px; border-radius: 26px; background: linear-gradient(150deg, #ffffffd9, #e4e5eecc); border: 1px solid #fff; box-shadow: 0 12px 0 #d2d3df, 0 40px 60px -30px #2b2d4580, inset 0 1px 0 #fff; transform: rotateX(34deg) rotateZ(-10deg); }
+.keycap { position: relative; width: 78px; height: 72px; padding: 0; border: 0; border-radius: 17px; background: #c9cbd9; box-shadow: 0 9px 0 #aeb0c3, 0 16px 18px -10px #2b2d4580; transform: translateY(-7px); transition: transform .07s ease, box-shadow .07s ease; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.keycap-top { display: grid; place-content: center; justify-items: center; gap: 2px; height: 100%; border-radius: 17px; background: linear-gradient(160deg, #ffffff, #e9eaf2 70%, #dddfea); box-shadow: inset 0 -3px 0 #d3d5e2, inset 0 1px 0 #fff; }
+.keycap-letter { font: 800 24px/1 Manrope, sans-serif; color: var(--ink); }
+.keycap-label { font-size: 11px; font-weight: 700; line-height: 1.2; color: var(--muted); }
+.keycap:hover { transform: translateY(-9px); box-shadow: 0 11px 0 #aeb0c3, 0 18px 20px -10px #2b2d4580; }
+.keycap:active, .keycap.is-down { transform: translateY(0); box-shadow: 0 2px 0 #aeb0c3, 0 6px 10px -8px #2b2d4580; }
+.keycap:focus-visible { outline: 3px solid var(--brand); outline-offset: 4px; }
+.keycap:disabled { opacity: .55; cursor: default; transform: translateY(0); }
+.keycap-accent { background: #5a4fa8; box-shadow: 0 9px 0 #463c8c, 0 16px 18px -10px #2b2d4580; }
+.keycap-accent .keycap-top { background: linear-gradient(160deg, #b7aaf6, #8a7be0 70%, #7566cf); box-shadow: inset 0 -3px 0 #6658c0, inset 0 1px 0 #d6cefb; }
+.keycap-accent .keycap-letter, .keycap-accent .keycap-label { color: #fff; }
+.keycap-accent:hover { box-shadow: 0 11px 0 #463c8c, 0 18px 20px -10px #2b2d4580; }
+.keycap-accent:active, .keycap-accent.is-down { box-shadow: 0 2px 0 #463c8c, 0 6px 10px -8px #2b2d4580; }
+.robot-stage .hero-play-result { margin: 4px 0 0; min-height: 1.6em; color: var(--ink); font-size: 16px !important; font-weight: 600; text-align: center; }
+.robot-stage .feed-count { margin: 0; color: var(--muted); font-size: 14px !important; text-align: center; }
+.robot-stage .feed-count strong { color: var(--ink); font-size: 16px; }
+.robot-stage .hero-play-link { color: var(--brand-dark); text-decoration: underline; text-underline-offset: 3px; }
+html[lang="th"] .keycap-label { font-size: 14px; }
+@media (max-width: 1100px) { .playground-hero .hero3d-grid { padding-top: 24px; } }
+@media (max-width: 600px) {
+  .keypad-base { grid-template-columns: repeat(3, 70px); gap: 10px; padding: 14px 14px 20px; transform: rotateX(28deg) rotateZ(-6deg); }
+  .keycap { width: 70px; height: 64px; }
+  .robot-stage .feed-stage { width: min(100%, 320px); margin-bottom: -30px; }
+}
+@media (prefers-reduced-motion: reduce) { .keycap { transition: none; } }

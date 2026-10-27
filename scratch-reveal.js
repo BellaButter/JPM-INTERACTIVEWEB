@@ -33,7 +33,8 @@ export function setupFogReveal(t) {
  let width=0,height=0,dpr=1,revealed=false,dragging=false,touched=false,last=null,inView=false,paused=false,frame=0,lastFrame=0,time=0;
  const canMove=()=>inView&&!document.hidden&&!paused&&!reduced.matches;
  function paint() {
-  if(!ctx||revealed)return;
+  // The Playground player hides this demo until it is opened; a hidden canvas has no size to paint.
+  if(!ctx||revealed||!width||!height||!mask.width||!mask.height)return;
   ctx.setTransform(dpr,0,0,dpr,0,0);ctx.globalCompositeOperation='source-over';ctx.clearRect(0,0,width,height);
   const base=ctx.createLinearGradient(0,0,width,height);base.addColorStop(0,'#243340');base.addColorStop(.5,'#566b7a');base.addColorStop(1,'#263540');
   ctx.fillStyle=base;ctx.fillRect(0,0,width,height);
@@ -66,6 +67,7 @@ export function setupFogReveal(t) {
  }
  function resize() {
   const rect=stage.getBoundingClientRect(),nextDpr=Math.min(devicePixelRatio||1,2);
+  if(!rect.width||!rect.height)return; // hidden by the Playground player: keep the cleared mask for when it opens again
   if(width===rect.width&&height===rect.height&&dpr===nextDpr)return;
   const saved=document.createElement('canvas');saved.width=mask.width;saved.height=mask.height;
   if(saved.width&&saved.height)saved.getContext('2d').drawImage(mask,0,0);

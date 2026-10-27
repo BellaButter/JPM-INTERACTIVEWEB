@@ -2,6 +2,8 @@ import { setupMatchingGame } from './matching-game.js';
 import { setupCustomGame } from './custom-game-demo.js';
 import { setupRFIDDemo } from './rfid-demo.js';
 import { setupImmersiveRoom } from './immersive-demo.js';
+import { setupLuckyWheel } from './lucky-wheel.js';
+import { setupQuizGame } from './quiz-game.js';
 const t=text=>window.JPMI18n?.t(text)??text;
 function select(group,active){document.querySelectorAll(group).forEach(button=>{const on=button===active;button.classList.toggle('active',on);button.setAttribute('aria-pressed',String(on));});}
 
@@ -11,6 +13,8 @@ setupRFIDDemo(t);
 
 setupCustomGame(t);
 setupMatchingGame(t);
+setupLuckyWheel(t);
+setupQuizGame(t);
 
 // Light drawing: normalized strokes survive resizing.
 const canvas=document.querySelector('#light-drawing'),ctx=canvas.getContext('2d'),stage=document.querySelector('.light-stage'),brush=document.querySelector('#light-size');
