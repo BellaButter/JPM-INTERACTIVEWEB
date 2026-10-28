@@ -1,3 +1,4 @@
+import { demoStarted } from './demo-measurement.js';
 // Canvas room preview: one panoramic scene mapped onto three walls and a floor.
 export function setupImmersiveRoom(t){
  const scene=document.querySelector('.atmosphere-scene'),canvas=document.querySelector('#immersive-canvas'),ctx=canvas.getContext('2d');
@@ -90,6 +91,7 @@ export function setupImmersiveRoom(t){
  }
  function interact(x=width*.5,y=height*.42){
   if(!ctx)return;
+  demoStarted('atmosphere-room');
   effects.push({...surfaceAt(x,y),mood:scene.dataset.mood,started:time,id:++interactionCount});effects=effects.slice(-8);
   scene.dataset.interactions=String(interactionCount);scene.dataset.effect=scene.dataset.mood;
   status.textContent=t({ocean:'You touched the water: bubbles and ripples appear.',forest:'You touched the forest: fireflies gather around your touch.',cosmic:'You touched space: a burst of starlight appears.'}[scene.dataset.mood]);draw();

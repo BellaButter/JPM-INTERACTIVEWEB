@@ -1,6 +1,7 @@
+import { demoStarted } from './demo-measurement.js';
 import { setupCatchCustomization } from './catch-customization.js';
-import { setupProductExplorer } from './product-explorer.js';
-import { setupFogReveal } from './scratch-reveal.js';
+import { setupProductExplorer } from './product-explorer.js?v=2';
+import { setupFogReveal } from './scratch-reveal.js?v=2';
 const demoText = text => window.JPMI18n?.t(text) ?? text;
 import { CatchEngine, normalizeConfig } from './catch-engine.mjs';
 import { icon, mascot, overlayMascot, pop, shake, confetti, lowTime, sound } from './game-kit.js';
@@ -92,7 +93,7 @@ function animate(now) {
 }
 function run(restart = false) {
   stopFrame();
-  if (!restart && game.state === 'paused') game.resume(); else { game.start(); announcedCatch = 0; combo = 0; lastTick = 0; clearTimeout(feedbackTimeout);feedback.hidden=true; }
+  if (!restart && game.state === 'paused') game.resume(); else { game.start(); demoStarted('catch-game'); announcedCatch = 0; combo = 0; lastTick = 0; clearTimeout(feedbackTimeout);feedback.hidden=true; }
   catchCustomizer.lock(true);
   overlay.hidden = true; pauseButton.disabled = false; pauseButton.textContent = demoText('Pause'); field.classList.add('is-playing');
   field.focus({preventScroll:true}); lastTime = performance.now(); draw(); frame = requestAnimationFrame(animate);

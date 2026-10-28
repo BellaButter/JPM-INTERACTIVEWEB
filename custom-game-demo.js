@@ -1,3 +1,4 @@
+import { demoStarted } from './demo-measurement.js';
 import {setupItemUpload} from './item-upload.js';
 import {icon,overlayMascot,pop as kitPop,shake,confetti,lowTime,sound} from './game-kit.js';
 export function setupCustomGame(t){
@@ -40,7 +41,7 @@ export function setupCustomGame(t){
  function tick(){if(state!=='playing')return;remaining=Math.max(0,(deadline-performance.now())/1000);drawHUD();if(remaining===0){finish(false);return;}for(const [button,pop] of live)if(elapsed()>=pop.expires)hideCell(button);if(elapsed()>=nextSpawn)spawnWave();}
  function run(){
   if(state==='paused'){deadline=performance.now()+remaining*1000;setState('playing');}
-  else{clearParticles();clearLive();score=0;remaining=roundDuration=Number(duration.value);activeItem=upload.url?'upload':item.value;activeGoal=Number(goal.value);deadline=performance.now()+remaining*1000;setState('playing');spawnWave();}
+  else{demoStarted('tap-game');clearParticles();clearLive();score=0;remaining=roundDuration=Number(duration.value);activeItem=upload.url?'upload':item.value;activeGoal=Number(goal.value);deadline=performance.now()+remaining*1000;setState('playing');spawnWave();}
   overlay.hidden=true;drawHUD();clearInterval(interval);interval=setInterval(tick,50);status.textContent=t('Tap the target as it pops up. Use the mouse, touch, or keys 1–6.');board.focus({preventScroll:true});
  }
  function pauseRound(){if(state!=='playing')return;tick();if(state!=='playing')return;clearInterval(interval);setState('paused');overlay.hidden=false;setMood('sleep');title.textContent=t('Round paused');copy.textContent=t('Your time and collected items are saved for this round.');start.textContent=t('Resume round');status.textContent=t('Round paused');}
