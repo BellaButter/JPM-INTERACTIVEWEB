@@ -7,7 +7,8 @@ import { productExplorerDemo } from './product-demo.mjs';
 import { serviceDemoAnchors, serviceDemoNavigation, additionalServiceDemos } from './demo-components.mjs';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { localizeThai } from './localize-site.mjs';
-import { articleFigure, articleImage } from './article-media.mjs';
+import { articleFigure, articleImage, imageSize } from './article-media.mjs';
+import { existsSync } from 'node:fs';
 import { thaiCopy, translateThai, articleDate } from '../content/th/site.mjs';
 import { studio, coreValues, companyStats, services, industries, workflow, packages, projects, articles, articleTopics, faqs } from '../content/en/site.mjs';
 import { boxIconMarkup, escape as e, asset, assetSize, whyJpm, promiseTable, layout, button, pageHero, heading, cta, art, arcadeHero, demoLibrary, externalLinkIcon, projectArrowIcon, catchPlayIcon, mailIcon, phoneIcon, messageCircleIcon, bulbIcon, quoteForm, requestQuote } from './components.mjs';
@@ -15,6 +16,17 @@ import { boxIconMarkup, escape as e, asset, assetSize, whyJpm, promiseTable, lay
 if (process.env.SITE_ORIGIN && !/^https:\/\/[^/]+(?:\/[^?#]*)?$/.test(process.env.SITE_ORIGIN)) throw new Error('SITE_ORIGIN must be an HTTPS origin, optionally with a repository subpath.');
 const pages = [];
 // Structured data (schema.org). URLs use the release origin; preview builds fall back to the production domain.
+// Home service photos sit in a 240px-tall box with object-fit: contain, so a portrait photo shows narrow.
+// sizes follows the shown width, and a 720px file (when present) serves phones between 480 and 960.
+function servicePhoto(id, alt) {
+  const file = name => new URL(`../assets/service-photos/${name}`, import.meta.url);
+  const { width, height } = imageSize(file(`${id}-960.webp`));
+  const widths = [480, ...(existsSync(file(`${id}-720.webp`)) ? [720] : []), 960];
+  const srcset = widths.map(w => `assets/service-photos/${id}-${w}.webp ${w}w`).join(', ');
+  const sizes = height > width ? `${Math.ceil(240 * width / height)}px` : '(max-width: 600px) 92vw, 420px';
+  return `<img class="service-photo" src="assets/service-photos/${id}-960.webp" srcset="${srcset}" sizes="${sizes}" alt="${e(alt)}" width="${width}" height="${height}" loading="lazy">`;
+}
+
 const SITE = (process.env.SITE_ORIGIN || 'https://www.jpmmediaspace.com').replace(/\/$/,'');
 const ORG = { '@id': `${SITE}/#organization` };
 const ld = data => `<script type="application/ld+json">${JSON.stringify(data).replace(/</g,'\\u003c')}</script>`;
@@ -55,7 +67,7 @@ const serviceReferences = {
 function bento() {
   // Same two groups as the Our Work filter (owner request 2026-10-28): touchscreen apps and custom software, or interactive & immersive.
   const category = id => ['touch','custom'].includes(id) ? 'touchscreen' : 'immersive';
-  return `<div class="bento-grid">${services.map((s,i)=>`<article id="${s.id === 'sensors' ? 'sensors' : 'service-' + s.id}" class="bento-card reveal" data-library-category="${category(s.id)}" data-tilt style="--delay:${i%3*70}ms"><a class="service-photo-link" style="--service-photo: url('assets/service-photos/${s.id}-480.webp')" href="case-studies/${serviceReferences[s.id].slug}.html" aria-label="View project reference: ${e(serviceReferences[s.id].caption)}"><img class="service-photo" src="assets/service-photos/${s.id}-960.webp" srcset="assets/service-photos/${s.id}-480.webp 480w, assets/service-photos/${s.id}-960.webp 960w" sizes="(max-width: 600px) 92vw, 420px" alt="${e(serviceReferences[s.id].alt)}" width="960" height="540" loading="lazy"><span class="service-photo-caption">${serviceReferences[s.id].caption}</span></a><div class="bento-content"><p class="eyebrow">${category(s.id).toUpperCase()} / CREATIVE TECHNOLOGY</p><h3>${s.title}</h3><p>${s.description}</p><a class="library-action" href="services.html#${s.id}">Explore service ${externalLinkIcon}<span class="sr-only">: ${s.title}</span></a></div></article>`).join('')}</div>`;
+  return `<div class="bento-grid">${services.map((s,i)=>`<article id="${s.id === 'sensors' ? 'sensors' : 'service-' + s.id}" class="bento-card reveal" data-library-category="${category(s.id)}" data-tilt style="--delay:${i%3*70}ms"><a class="service-photo-link" style="--service-photo: url('assets/service-photos/${s.id}-480.webp')" href="case-studies/${serviceReferences[s.id].slug}.html" aria-label="View project reference: ${e(serviceReferences[s.id].caption)}">${servicePhoto(s.id,serviceReferences[s.id].alt)}<span class="service-photo-caption">${serviceReferences[s.id].caption}</span></a><div class="bento-content"><p class="eyebrow">${category(s.id).toUpperCase()} / CREATIVE TECHNOLOGY</p><h3>${s.title}</h3><p>${s.description}</p><a class="library-action" href="services.html#${s.id}">Explore service ${externalLinkIcon}<span class="sr-only">: ${s.title}</span></a></div></article>`).join('')}</div>`;
 }
 // FAQ structured data. Thai pages swap in translated questions and answers after localization.
 const faqSchema = list => `<script type="application/ld+json">${JSON.stringify({'@context':'https://schema.org','@type':'FAQPage',mainEntity:list.map(([q,a])=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:a}}))}).replace(/</g,'\\u003c')}</script>`;
@@ -75,7 +87,7 @@ const cubeChips = ['Draws people into your booth','Smooth on show day','Captures
 const marqueeItems = ['Interactive games','Touchscreen','LED walls','Projection mapping','LiDAR & depth cameras','RFID & NFC','Player sign-up & QR','On-site support'];
 const cubeHero = () => `<section class="hero3d" aria-labelledby="hero-title"><div class="wrap hero3d-grid">
 <div class="hero3d-copy"><h1 id="hero-title"><span class="arcade-chip hero-kicker">${boxIconMarkup}<span class="hero-kicker-text">INTERACTIVE GAMES FOR EVENT BOOTHS</span></span><span class="hero-line">MAKE YOUR BOOTH</span> <span class="arcade-highlight hero-line">BUSIER THAN EVER</span></h1><p class="arcade-intro">${studio.heroIntroduction}</p><div class="button-row">${button('#contact','Request a Quote')}${button('case-studies.html','Explore Our Work',true)}</div><ul class="hero-proof"><li>Tested before show day</li><li>Team on site until close</li><li>Player summary after the event</li></ul></div>
-<div class="cube-stage" data-cube data-mode="game"><div class="cube-orbit" aria-hidden="true"><span></span></div><img class="cube-poster" src="assets/web/cube-poster.webp" width="760" height="700" alt="The JPM Media Space mascot, a round character with a screen face" fetchpriority="high"><canvas class="cube-canvas" aria-hidden="true"></canvas><ul class="cube-chips" aria-label="What your booth gets">${cubeChips.map((chip,i)=>`<li class="cube-chip cube-chip-${i+1}"><span class="status-dot"></span>${chip}</li>`).join('')}</ul>
+<div class="cube-stage" data-cube data-mode="game"><div class="cube-orbit" aria-hidden="true"><span></span></div><img class="cube-poster" src="assets/web/cube-poster-760.webp" srcset="assets/web/cube-poster-480.webp 480w, assets/web/cube-poster-760.webp 760w, assets/web/cube-poster.webp 1140w" sizes="(max-width: 760px) 92vw, 612px" width="760" height="700" alt="The JPM Media Space mascot, a round character with a screen face" fetchpriority="high"><canvas class="cube-canvas" aria-hidden="true"></canvas><ul class="cube-chips" aria-label="What your booth gets">${cubeChips.map((chip,i)=>`<li class="cube-chip cube-chip-${i+1}"><span class="status-dot"></span>${chip}</li>`).join('')}</ul>
 <div class="cube-card"><p class="cube-card-label">MODE</p><div class="cube-tabs" role="tablist" aria-label="Character modes">${cubeModes.map((m,i)=>`<button type="button" role="tab" id="cube-tab-${m.key}" aria-controls="cube-panel-${m.key}" aria-selected="${i===0}" data-cube-mode="${m.key}">${m.tab}</button>`).join('')}</div>${cubeModes.map((m,i)=>`<div class="cube-panel" role="tabpanel" id="cube-panel-${m.key}" aria-labelledby="cube-tab-${m.key}" data-cube-panel${i?' hidden':''}><p class="cube-card-title">${m.title}</p><p>${m.text}</p></div>`).join('')}<p class="cube-hint">Tap the character to switch mode</p></div></div>
 </div><div class="marquee" aria-hidden="true"><div class="marquee-track">${[0,1].map(()=>`<div class="marquee-group">${[...marqueeItems,...marqueeItems].map(item=>`<span>${item}</span>`).join('')}</div>`).join('')}</div></div></section>`;
 const processTabs = () => `<div class="process-tabs" data-process-tabs>${workflow.map(([title,text],i)=>`<div class="process-panel${i===0?' is-active':''}" id="process-step-${i+1}" role="tabpanel" aria-labelledby="process-tab-${i+1}"><span class="process-num">0${i+1}</span><div><h3>${e(title)}</h3><p>${e(text)}</p></div></div>`).join('')}<div class="process-bar requires-js" role="tablist" aria-label="Our process">${workflow.map(([title],i)=>`<button type="button" role="tab" id="process-tab-${i+1}" aria-controls="process-step-${i+1}" aria-selected="${i===0}"${i?' tabindex="-1"':''}><span class="process-bar-num">0${i+1}</span><span class="process-bar-title">${e(title)}</span><i aria-hidden="true"></i></button>`).join('')}</div></div>`;
