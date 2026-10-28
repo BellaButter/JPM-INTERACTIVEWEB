@@ -7,7 +7,7 @@ import { localizeThai } from './localize-site.mjs';
 
 const source = readFileSync(new URL('../analytics.js', import.meta.url), 'utf8');
 function harness(hostname = 'www.jpmmediaspace.com', options = {}) {
-  const listeners = new Map(), loaded = [], storage = options.storage || new Map();
+  const listeners = new Map(), loaded = [], timers = [], followed = [], storage = options.storage || new Map();
   const window = {
     location: new URL(`https://${hostname}${options.path || '/th/index.html'}`),
     sessionStorage: {
@@ -17,14 +17,15 @@ function harness(hostname = 'www.jpmmediaspace.com', options = {}) {
     },
     addEventListener: (name, callback) => listeners.set('window:' + name, callback)
   };
+  window.location.assign = url => followed.push(url);
   const document = {
     documentElement: { lang: 'th' },
     createElement: () => ({}), head: { appendChild: tag => loaded.push(tag) },
     addEventListener: (name, callback) => listeners.set(name, callback),
     querySelector: () => options.form ? {} : null
   };
-  runInNewContext(source, { window, document, URL });
-  return { window, loaded, storage,
+  runInNewContext(source, { window, document, URL, setTimeout: callback => timers.push(callback) });
+  return { window, loaded, storage, timers, followed,
     fire: (name, event = {}) => listeners.get(name)?.(event),
     events: () => Array.from(window.dataLayer || [], args => Array.from(args)).filter(args => args[0] === 'event')
   };
@@ -55,8 +56,8 @@ test('shared shell includes analytics once on release EN/TH pages, absent on pre
       const expected = origin === 'https://www.jpmmediaspace.com' ? 1 : 0;
       for (const html of [en, th]) assert.equal((html.match(/analytics\.js/g) || []).length, expected);
       if (expected) {
-        assert(en.includes('src="../analytics.js?v=2" defer'));
-        assert(th.includes('src="../../analytics.js?v=2" defer'));
+        assert(en.includes('src="../analytics.js?v=3" defer'));
+        assert(th.includes('src="../../analytics.js?v=3" defer'));
       }
     }
   } finally {
@@ -84,6 +85,25 @@ test('invalid, cancelled and demo forms cannot generate a quote submission', () 
   }
   assert.equal(h.events().length,0);
   assert.equal(h.storage.size,0);
+});
+
+test('LINE waits for measurement then navigates once, including a blocked-tag fallback', () => {
+  const h = harness();
+  const link = {href:'https://line.me/R/ti/p/@jpm',closest:()=>null};
+  let prevented = false;
+  h.fire('click', {button:0,target:{closest:()=>link},preventDefault:()=>{prevented=true;}});
+  assert(prevented);
+  assert.equal(h.followed.length,0);
+  h.events()[0][2].event_callback();
+  h.timers[0]();
+  assert.equal(h.followed.length,1);
+  const blocked = harness();
+  blocked.fire('click', {button:0,target:{closest:()=>link},preventDefault:()=>{}});
+  blocked.timers[0]();
+  assert.equal(blocked.followed.length,1);
+  const modified = harness();
+  modified.fire('click', {button:0,ctrlKey:true,target:{closest:()=>link},preventDefault:()=>{throw Error('Must preserve new-tab click');}});
+  assert.equal(modified.timers.length,0);
 });
 
 test('lead requires a fresh valid submission followed by Thank You, and is consumed once', () => {

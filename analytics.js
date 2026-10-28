@@ -25,7 +25,21 @@
     try { url = new URL(link.href, window.location.href); } catch { return; }
     const contact = url.protocol === 'tel:' ? 'phone' : url.protocol === 'mailto:' ? 'email'
       : ['line.me', 'lin.ee'].includes(url.hostname) ? 'line' : null;
-    if (contact) send('contact_click', { contact_method: contact, cta_location: position(link) });
+    if (contact) {
+      const parameters = { contact_method: contact, cta_location: position(link) };
+      // A normal LINE navigation waits briefly for the tag, with a bounded
+      // fallback even if Analytics is blocked. Modified clicks and protocol
+      // handlers retain their native behavior.
+      if (contact === 'line' && event.button === 0 && !event.defaultPrevented &&
+        !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey &&
+        (!link.target || link.target === '_self')) {
+        event.preventDefault();
+        let followed = false;
+        const follow = () => { if (!followed) { followed = true; window.location.assign(url.href); } };
+        setTimeout(follow, 700);
+        send('contact_click', { ...parameters, event_callback: follow, event_timeout: 600 });
+      } else send('contact_click', parameters);
+    }
     else if (url.origin === window.location.origin &&
       (/\/(?:th\/)?contact\.html$/.test(url.pathname) || url.hash === '#contact')) {
       send('quote_cta_click', { cta_location: position(link) });

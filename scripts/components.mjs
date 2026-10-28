@@ -37,7 +37,7 @@ export function footer(prefix) { return `<footer class="wrap"><div class="footer
 // ogImage (a path from the site root), ogImageAlt and ogImageDims let a page share its own picture; others use the site cover.
 export function layout({ title, description, body, active = '', prefix = '', path, scripts = [], draft = false, noindex = false, ogType = 'website', ogImage = 'assets/web/og-cover.jpg', ogImageAlt = 'JPM Media Space immersive LED installation', ogImageDims = { width: 1200, height: 630 } }) {
   const origin = process.env.SITE_ORIGIN?.replace(/\/$/, '');
-  const analytics = ['https://www.jpmmediaspace.com', 'https://jpmmediaspace.com'].includes(origin) ? `<script src="${prefix}analytics.js?v=2" defer></script>` : '';
+  const analytics = ['https://www.jpmmediaspace.com', 'https://jpmmediaspace.com'].includes(origin) ? `<script src="${prefix}analytics.js?v=3" defer></script>` : '';
   const canonical = origin ? `<link rel="canonical" href="${escape(origin)}/${path}">` : '';
   const pageUrl = origin ? `${origin}/${path}` : '';
   const social = `<meta property="og:site_name" content="JPM Media Space"><meta property="og:locale" content="en_US">${origin ? `<meta property="og:url" content="${escape(pageUrl)}"><meta property="og:image" content="${escape(origin)}/${ogImage}">${ogImageDims ? `<meta property="og:image:width" content="${ogImageDims.width}"><meta property="og:image:height" content="${ogImageDims.height}">` : ''}<meta property="og:image:alt" content="${escape(ogImageAlt)}"><meta name="twitter:image" content="${escape(origin)}/${ogImage}">` : ''}<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${escape(title)} — JPM Media Space"><meta name="twitter:description" content="${escape(description)}">`;
