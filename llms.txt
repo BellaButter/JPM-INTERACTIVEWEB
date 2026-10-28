@@ -1,0 +1,80 @@
+# JPM Media Space
+
+> JPM Media Space is a creative technology studio in Thailand that designs interactive games, touchscreen applications, and interactive LED, projection, and sensor content for event booths and brand activations, as well as permanent installations. Also known as JPM Interactive.
+
+Contact: jpmmediaspace@gmail.com · +66 96 282 6224 · LINE @jpmmediaspace. Languages: Thai and English.
+
+## Key pages
+- [Home (English)](https://www.jpmmediaspace.com/index.html)
+- [Home (Thai)](https://www.jpmmediaspace.com/th/index.html)
+- [Services](https://www.jpmmediaspace.com/services.html)
+- [Packages and starting prices](https://www.jpmmediaspace.com/packages.html)
+- [Our work](https://www.jpmmediaspace.com/case-studies.html)
+- [Playable demos](https://www.jpmmediaspace.com/playground.html)
+- [Partner with us](https://www.jpmmediaspace.com/partner-with-us.html): for event agencies, production houses, LED providers
+- [Contact and quotes](https://www.jpmmediaspace.com/contact.html)
+
+## Services
+- Interactive Games: Multiplayer trivia, branded games, and playful activations that turn your audience into participants.
+- Touchscreen Applications: Product catalogs, digital guestbooks, wayfinding, and museum archives made to be explored.
+- Immersive Experiences: Connect light, motion, and content to transform ordinary rooms into responsive environments.
+- Sensor Technologies: LiDAR, depth cameras, RFID, and NFC connect physical actions with digital responses.
+- Custom Interactive Development: Purpose-built software and connected multimedia systems, from concept to installation.
+- Interactive LED & Projection Content: Interactive content and software for LED and projection: motion-tracking walls, reactive floors, and projection mapping that run on your screens.
+
+## FAQ
+### What does JPM Media Space offer?
+JPM Media Space is a creative technology studio in Thailand. We design and build interactive games, touchscreen applications, and interactive content for LED walls, projectors, and sensors, mainly for event booths and brand activations, as well as permanent installations.
+
+### How much does an interactive game for an event booth cost?
+Event packages start at 30,000.- for touchscreen experiences and 56,000.- for interactive LED and projection content. The final price depends on the game, content, and scope, and is confirmed in your quotation.
+
+### What kinds of booth games can you make?
+Popular formats include catch games, memory match, lucky draw games, quiz games, Guitar Hero– and Fruit Ninja–style games, and motion games that use sensors. Short, timed rounds keep the queue moving and give people watching a reason to join. You can try some of these formats in our Playground.
+
+### Can the game use our logo, products, and brand colours?
+Yes. Every game is built around your brand: your logo and colours, your products as in-game items, and your campaign message. The Playground demos let you try this with your own image.
+
+### How long does it take to build a booth game?
+A booth game typically takes at least one week to build, depending on the game and content. Share your event date when you request a quote, and we will plan the schedule and build a prototype for you to test before it goes live.
+
+### Can you use the screen we already have?
+Yes. Our content and software run on your touchscreen, LED wall, or projector. Screens and projectors are not included in our packages, so share the size and resolution and we will design for them.
+
+### What if something goes wrong during the event?
+We test the full system on site before the event opens, and our technical team stays on site from start to finish to fix issues on the spot.
+
+### Can the game collect player information under PDPA?
+Yes. We can add a sign-up form or QR scan before play, with a PDPA consent step you approve before any data is collected. After the event, you receive a summary of players and engagement to plan your next activation.
+
+### Do permanent installations come with a warranty?
+Yes. Permanent installations come with a 1-year warranty, and our team provides after-sales support and maintenance. The coverage is confirmed in your quotation.
+
+### Do you work with event agencies and organizers?
+Yes. We work directly with brands and as the interactive team for event agencies, production houses, and LED providers.
+
+## Articles
+### [Event Booth Games](https://www.jpmmediaspace.com/insights/event-booth-games.html)
+Games that draw a queue at trade shows, launches, and brand activations: how they work, what they cost, and how to plan one that runs smoothly on show day.
+- [Designing for participation, not just presentation](https://www.jpmmediaspace.com/insights/designing-for-participation.html) (2026-10-27): A studio perspective on connecting people, brands, and physical spaces.
+
+### [Planning & Lead Capture](https://www.jpmmediaspace.com/insights/planning-leads.html)
+Planning an interactive project from brief to show day: packages, what to prepare, and how to collect leads and player summaries.
+- [One moment or a lasting destination?](https://www.jpmmediaspace.com/insights/events-and-permanent-spaces.html) (2026-10-27): How the original event and permanent installation packages frame a project conversation.
+
+## Projects
+- [Punthai Coffee](https://www.jpmmediaspace.com/case-studies/punthai-coffee.html)
+- [Shrine of Blessed Nicholas Bunkerd](https://www.jpmmediaspace.com/case-studies/nicholas-shrine.html)
+- [BCC Power Technologies](https://www.jpmmediaspace.com/case-studies/bcc-power.html)
+- [Dynasty’s information](https://www.jpmmediaspace.com/case-studies/dynasty.html)
+- [Kepler’s information](https://www.jpmmediaspace.com/case-studies/kepler.html)
+- [Walailak University’s museum](https://www.jpmmediaspace.com/case-studies/walailak-museum.html)
+- [[Oishi x One Piece] Cards Random](https://www.jpmmediaspace.com/case-studies/oishi.html) (portfolio with employer)
+- [[KIA] Immersive Wall](https://www.jpmmediaspace.com/case-studies/kia.html) (portfolio with employer)
+- [[LAZADA Run Thailand] Interactive Running Game](https://www.jpmmediaspace.com/case-studies/lazada-run.html) (portfolio with employer)
+- [[Crowne Plaza Bangkok Lumpini Park] Interactive Floor](https://www.jpmmediaspace.com/case-studies/crowne-plaza.html) (portfolio with employer)
+- [[Cafe Amazon] Tea Machine](https://www.jpmmediaspace.com/case-studies/cafe-amazon.html) (portfolio with employer)
+- [[Bangchak] Fortune Wheel](https://www.jpmmediaspace.com/case-studies/bangchak.html) (portfolio with employer)
+- [[XSpring Digital] Object Dropping Game](https://www.jpmmediaspace.com/case-studies/xspring.html) (portfolio with employer)
+- [[PTTEP @IPTC] Guitar Hero Game](https://www.jpmmediaspace.com/case-studies/pttep.html) (portfolio with employer)
+- [[World Grand Prix Sport Weekend] MuayThai Exhibition](https://www.jpmmediaspace.com/case-studies/muaythai.html) (portfolio with employer)
