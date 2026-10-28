@@ -1,4 +1,8 @@
 {
+  "framework": null,
+  "installCommand": "",
+  "buildCommand": "npm run build:release",
+  "outputDirectory": ".",
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -15,6 +19,24 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
+    },
+    {
+      "source": "/(portfolio-interactive|portfolio-touch-screen|studio-archive)(.html)?",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/deliverables/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
         }
       ]
     }
