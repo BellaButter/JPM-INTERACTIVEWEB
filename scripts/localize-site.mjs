@@ -55,5 +55,5 @@ export function localizeThai(html, pagePath) {
 export function languageAlternates(pagePath) {
   if (!process.env.SITE_ORIGIN) return '';
   const origin=process.env.SITE_ORIGIN.replace(/\/$/,'');
-  return `<link rel="alternate" hreflang="en" href="${origin}/${pagePath}"><link rel="alternate" hreflang="th" href="${origin}/th/${pagePath}"><link rel="alternate" hreflang="x-default" href="${origin}/${pagePath}">`;
+  return `<link rel="alternate" hreflang="en" href="${origin}/${pagePath}"><link rel="alternate" hreflang="th" href="${origin}/th/${pagePath}"><link rel="alternate" hreflang="x-default" href="${origin}/th/${pagePath}">`;
 }

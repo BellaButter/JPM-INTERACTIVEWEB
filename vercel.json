@@ -3,6 +3,13 @@
   "installCommand": "",
   "buildCommand": "npm run build:release",
   "outputDirectory": ".",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/th/index.html",
+      "permanent": false
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",

@@ -162,7 +162,7 @@ if (process.env.SITE_ORIGIN) {
   const today=new Date().toISOString().slice(0,10);
   // Articles and topic hubs report their own update date; other pages use the build date.
   const lastmod=route=>{const page=pages.find(p=>p.path===route);if(page?.article)return page.article.updated||page.article.published;if(page?.topic){const dates=articles.filter(a=>a.status==='published'&&a.topic===page.topic.slug).map(a=>a.updated||a.published).sort();return dates.pop()||today;}return today;};
-  const alternates=route=>`<xhtml:link rel="alternate" hreflang="en" href="${e(origin+'/'+route)}"/><xhtml:link rel="alternate" hreflang="th" href="${e(origin+'/th/'+route)}"/><xhtml:link rel="alternate" hreflang="x-default" href="${e(origin+'/'+route)}"/>`;
+  const alternates=route=>`<xhtml:link rel="alternate" hreflang="en" href="${e(origin+'/'+route)}"/><xhtml:link rel="alternate" hreflang="th" href="${e(origin+'/th/'+route)}"/><xhtml:link rel="alternate" hreflang="x-default" href="${e(origin+'/th/'+route)}"/>`;
   await writeFile(new URL('../sitemap.xml',import.meta.url),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">${routes.flatMap(route=>[route,'th/'+route].map(loc=>`<url><loc>${e(origin+'/'+loc)}</loc><lastmod>${lastmod(route)}</lastmod>${alternates(route)}</url>`)).join('')}</urlset>\n`);
   await writeFile(new URL('../robots.txt',import.meta.url),`User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n`);
   // llms.txt: a plain summary for AI assistants and answer engines (GEO).
