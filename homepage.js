@@ -181,11 +181,12 @@ document.querySelectorAll('.faq-item').forEach(item => {
     for (const rect of range.getClientRects()) { if (rect.width < 1) continue; if (!tops.some(top => Math.abs(top - rect.top) < rect.height / 2)) tops.push(rect.top); }
     return tops.length;
   }
+  // Add the class to every heading first and measure them together, so the browser lays out
+  // the page once instead of once per heading (this ran before first paint on phones).
   function fit() {
-    for (const h of headings) {
-      h.classList.add('th-one-line');
-      if (lineCount(h) > 1) h.classList.remove('th-one-line');
-    }
+    for (const h of headings) h.classList.add('th-one-line');
+    const wrapped = headings.filter(h => lineCount(h) > 1);
+    for (const h of wrapped) h.classList.remove('th-one-line');
   }
   let pending = 0;
   addEventListener('resize', () => { cancelAnimationFrame(pending); pending = requestAnimationFrame(fit); });
