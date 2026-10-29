@@ -111,3 +111,11 @@ export const faqs = [
   ['Do permanent installations come with a warranty?', 'Yes. Permanent installations come with a 1-year warranty, and our team provides after-sales support and maintenance. The coverage is confirmed in your quotation.'],
   ['Do you work with event agencies and organizers?', 'Yes. We work directly with brands and as the interactive team for event agencies, production houses, and LED providers.']
 ];
+
+// Interactive event games service page (S0, owner-reviewed 2026-10-29). Same approved facts as the home FAQ.
+export const eventGameFaqs = [
+  ['Can you put our logo and products in the game?', 'Yes. Every game is built around your brand: your logo, colours, products, and campaign message.'],
+  ['Are screens or projectors included?', 'No. Our games run on the touchscreen, LED wall, or projector you have. Share the screen size and resolution, and we design to fit.'],
+  ['How long does a booth game take to make?', 'At least one week, depending on the game and content. Share your event date when you request a quote, and we will plan time for you to try the prototype before the event.'],
+  ['What is the starting price?', `Event packages start at ${eventPrice(0)} for touchscreen experiences and ${eventPrice(1)} for LED and projection content. The final price is set in your quotation, based on the agreed scope.`]
+];

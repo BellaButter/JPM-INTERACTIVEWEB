@@ -1549,3 +1549,10 @@ html[lang="th"] .keycap-label { font-size: 14px; }
 .simple-demo input[type="range"], .game-customization input[type="range"] { accent-color: var(--brand); }
 .rfid-display { border: 1px solid #ffffff22; background: radial-gradient(120% 70% at 50% -5%, #3f4a7aaa, transparent 62%), linear-gradient(#1b1e35, #0f1220); }
 .match-board { background: transparent; border-radius: 14px; }
+
+/* Interactive event games page (S0, 2026-10-29): demo screenshot beside the intro, note under the promises. */
+.event-games-figure { margin: 0; }
+.event-games-figure img { display: block; width: 100%; height: auto; border-radius: 22px; background: #1b1e35; box-shadow: 0 26px 50px -32px #10131fcc; }
+.event-games-figure figcaption { margin-top: 10px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.section-note { margin-top: 28px; }
+#brief .text-link { display: inline-block; margin-top: 22px; }

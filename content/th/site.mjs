@@ -1,6 +1,6 @@
 import { demoCopy } from './demos.mjs';
 // Thai editorial copy keyed to the shared English source. Brand/project names remain unchanged.
-import { studio, services, coreValues, companyStats, industries, workflow, packages, projects, articles, articleTopics, faqs } from '../en/site.mjs';
+import { studio, services, coreValues, companyStats, industries, workflow, packages, projects, articles, articleTopics, faqs, eventGameFaqs } from '../en/site.mjs';
 export const thaiCopy = new Map();
 const add=(en,th)=>thaiCopy.set(en.replace(/\s+/g,' ').trim(),th);
 const fields=(source,thai)=>Object.entries(thai).forEach(([key,value])=>add(source[key],value));
@@ -302,6 +302,55 @@ Object.entries({
  'ask us first.':'ถามเราบ่อยที่สุด'
 }).forEach(([en,th])=>add(en,th));
 Object.entries(demoCopy).forEach(([en,th])=>add(en,th));
+
+// Interactive event games page (S0): owner-reviewed Thai copy, 2026-10-29.
+const thaiEventGameFaqs = [
+ ['ใส่โลโก้และสินค้าในเกมได้ไหม?','ได้ ทุกเกมออกแบบรอบแบรนด์ของคุณ ทั้งโลโก้ สี สินค้า และข้อความแคมเปญ'],
+ ['รวมจอหรือโปรเจกเตอร์ด้วยไหม?','ไม่รวม เกมของเราใช้กับทัชสกรีน จอ LED หรือโปรเจกเตอร์ที่คุณมีได้ แจ้งขนาดและความละเอียดจอมา เราออกแบบให้พอดี'],
+ ['ใช้เวลาทำนานแค่ไหน?','อย่างน้อย 1 สัปดาห์ ขึ้นกับรูปแบบเกมและเนื้อหา แจ้งวันงานมาตั้งแต่ตอนขอใบเสนอราคา เราจะวางตารางให้มีเวลาลอง prototype ก่อนใช้จริง'],
+ ['ราคาเริ่มต้นเท่าไร?',`แพ็กเกจงานอีเวนต์เริ่มต้นที่ ${thaiEventPrice(0)} สำหรับงานทัชสกรีน และ ${thaiEventPrice(1)} สำหรับคอนเทนต์บนจอ LED และโปรเจกชัน ราคาสุดท้ายระบุในใบเสนอราคาตามขอบเขตงาน`]
+];
+if (thaiEventGameFaqs.length !== eventGameFaqs.length) throw new Error('Thai event game FAQ count must match English.');
+eventGameFaqs.forEach(([q,a],i)=>{ add(q,thaiEventGameFaqs[i][0]); add(a,thaiEventGameFaqs[i][1]); });
+Object.entries({
+ 'Interactive Games for Event Booths':'รับทำเกมอินเทอร์แอคทีฟสำหรับบูธงานอีเวนต์',
+ 'Interactive Event Games':'รับทำเกมอินเทอร์แอคทีฟ',
+ 'Booth games people queue to play, designed for your brand. Try a prototype before you decide, tested before show day, with our technical team on site from opening to close.':'เกมบูธที่คนต่อคิวรอเล่น ออกแบบเพื่อแบรนด์คุณ ลอง prototype ก่อนตัดสินใจ ทดสอบก่อนวันงาน และมีทีมเทคนิคอยู่หน้างานตั้งแต่เปิดจนปิด',
+ 'INTERACTIVE GAME DEVELOPMENT FOR EVENTS':'รับทำเกมอินเทอร์แอคทีฟสำหรับบูธและงานอีเวนต์',
+ 'Make your booth':'เราจะทำให้บูธของคุณ',
+ 'the one people notice.':'เป็นที่สนใจของคนในงาน',
+ 'JPM Media Space designs and builds interactive games for events, product launches, and brand activations. Games people understand at a glance, finish quickly, and that make people watching want a turn. One team handles it all, from concept to handover.':'JPM Media Space ออกแบบและพัฒนาเกมอินเทอร์แอคทีฟสำหรับงานอีเวนต์ งานเปิดตัวสินค้า และกิจกรรมแบรนด์ เกมที่เข้าใจได้ทันที เล่นจบไว และทำให้คนที่ยืนดูอยากเข้ามาเล่นต่อ ทั้งหมดดูแลโดยทีมเดียว ตั้งแต่คิดคอนเซปต์จนส่งมอบงาน',
+ 'Catch game demo: the round mascot catches falling stars and dodges bombs on a dark booth stage':'เดโมเกม Catch ตัวละครกลมรับดาวที่ตกลงมาและหลบระเบิดบนเวทีบูธสีเข้ม',
+ 'Catch, one of the demos in our Playground.':'Catch หนึ่งในเดโมจากพื้นที่ทดลองของเรา',
+ 'START WITH YOUR GOAL':'เริ่มจากเป้าหมายของคุณ',
+ 'Games that start from what your brand wants.':'เกมที่เริ่มจากสิ่งที่แบรนด์อยากได้',
+ 'We start with one question: when the game ends, what do you want players to remember or do next? Some events want people to discover a new product, some want a list of interested visitors, and some simply want the liveliest booth in the hall. The answer lets us choose the game format, the rules, and the pace of play.':'เราเริ่มจากคำถามเดียว: เล่นจบแล้ว คุณอยากให้ผู้เล่นจำอะไรหรือทำอะไรต่อ บางงานอยากให้คนรู้จักสินค้ารุ่นใหม่ บางงานอยากได้รายชื่อคนที่สนใจ และบางงานแค่อยากให้บูธคึกคักที่สุดในฮอลล์ คำตอบนี้ทำให้เราเลือกแนวเกม กติกา และจังหวะการเล่นได้ตรงจุด',
+ 'Every game is designed for your brand: your logo, colours, products that become in-game items, and campaign messages. You don’t need a game idea first. Tell us your goal and your audience, and we’ll take it from there.':'ทุกเกมออกแบบเพื่อแบรนด์ของคุณ ทั้งโลโก้ สี สินค้าที่กลายเป็นไอเทมในเกม และข้อความแคมเปญ คุณไม่ต้องมีไอเดียเกมมาก่อน แค่บอกเป้าหมายและกลุ่มผู้ร่วมงาน เราช่วยคิดต่อให้',
+ 'TRY BEFORE YOU BRIEF':'ลองก่อนส่งบรีฟ',
+ 'Play first,':'ลองเล่นก่อน',
+ 'then let’s talk.':'แล้วค่อยคุยกัน',
+ 'In our Playground you can play sample games right in your browser, such as Catch, Tap the Right Item, Memory Match, Lucky Wheel, and Quick Quiz. Some let you upload your own product images. Found a style you like? Bring it to our first conversation.':'ในพื้นที่ทดลองของเรา คุณเล่นเกมตัวอย่างได้จริงบนเบราว์เซอร์ เช่น Catch, Tap the Right Item, Memory Match, Lucky Wheel และ Quick Quiz บางเกมอัปโหลดภาพสินค้าของคุณเข้าไปลองได้เลย เล่นแล้วชอบแนวไหน หยิบมาเป็นจุดเริ่มคุยกันได้ทันที',
+ 'These demos are a starting point. Your game is designed fresh to fit your brand, your space, and the screens you will actually use.':'เดโมเหล่านี้เป็นจุดตั้งต้น เกมจริงของคุณจะออกแบบใหม่ให้เข้ากับแบรนด์ พื้นที่ และจอที่ใช้จริง',
+ 'WHAT YOU GET':'สิ่งที่คุณได้',
+ 'We check feasibility and build one prototype version for you to try before you decide.':'เราตรวจความเป็นไปได้ และทำ prototype หนึ่งเวอร์ชันให้คุณลองก่อนตัดสินใจ',
+ 'Show day':'วันงาน',
+ 'We test the full system before the doors open, and the team who wrote the program is on site from opening to close.':'ทดสอบระบบทั้งหมดก่อนเปิดงาน และทีมที่เขียนโปรแกรมเองอยู่หน้างานตั้งแต่เปิดจนปิด',
+ 'After the event':'หลังจบงาน',
+ 'A summary of players and engagement to plan your next event (if you want this data).':'สรุปจำนวนผู้เล่นและการมีส่วนร่วม ไว้วางแผนงานครั้งต่อไป (ถ้าคุณต้องการข้อมูลนี้)',
+ 'A system you can update, move, or expand. Invest once and keep using it.':'ระบบที่อัปเดต ย้ายงาน หรือต่อยอดได้ ลงทุนครั้งเดียวแล้วใช้ต่อ',
+ 'Want a list of interested visitors? We can add a sign-up form or QR scan before play, with the PDPA consent step you approve.':'ถ้าคุณอยากได้รายชื่อผู้สนใจ เราเพิ่มการลงทะเบียนหรือสแกน QR ก่อนเล่นได้ พร้อมขั้นตอนขอความยินยอมตาม PDPA ที่คุณอนุมัติ',
+ 'Our real on-site work':'ผลงานหน้างานจริงของเรา',
+ 'View our work':'ดูผลงานทั้งหมด',
+ 'See the booth games we have built for events on our portfolio page.':'คุณสามารถชมผลงานการสร้างเกมสำหรับบูธในงานอีเวนต์ได้ที่หน้าผลงานของเรา',
+ 'START WITH A SHORT BRIEF':'เริ่มจากบรีฟสั้น ๆ',
+ 'Five things are enough to start.':'ส่ง 5 เรื่องมาก่อนก็พอ',
+ 'Send us your activity goal, your players, the event date, your booth size, and the screen you plan to use. If you liked a game in our Playground, mention it too. We’ll reply with a direction and a scope of work.':'เป้าหมายของกิจกรรม, กลุ่มผู้เล่น, วันงาน, ขนาดบูธ และจอที่จะใช้ ถ้ามีเกมที่ชอบจากพื้นที่ทดลอง แนบมาด้วย เราจะตอบกลับพร้อมแนวทางและขอบเขตงาน',
+ 'Send us your brief':'ส่งบรีฟให้เรา',
+ 'Not sure which game yet? Read our event booth game articles.':'ยังเลือกแนวเกมไม่ได้? อ่านบทความเรื่องเกมบูธอีเวนต์ก่อน',
+ 'Questions about':'คำถามเรื่อง',
+ 'booth games.':'เกมบูธ',
+ 'Booth game details':'รายละเอียดเกมบูธ'
+}).forEach(([en,th])=>add(en,th));
 
 // Thai copy polish (2026-10-16): entries whose Thai text is shared by several
 // English keys or built in code. Applied last so they take precedence.

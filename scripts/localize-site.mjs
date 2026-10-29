@@ -42,7 +42,7 @@ export function localizeThai(html, pagePath) {
   }
   // Thai copy needs its own wrapping instead of English's forced heading breaks;
   // a space keeps the two Thai phrases apart, except after a lead-in that reads as one phrase with the next line.
-  html=html.replace(/(<h[1-3]\b[^>]*>)([\s\S]*?)(<\/h[1-3]>)/g,(_,open,copy,close)=>open+copy.replace(/\s*<br\s*\/?>\s*/g,(_,offset,text)=>/(?:^|\s)(?:ขอ|ไอเดียที่|ก้าวเข้าไปอยู่|เราไม่ได้แค่|คำถามที่ลูกค้า)$/.test(text.slice(0,offset).split(/<[^>]+>/).pop().trim())?'':' ')+close);
+  html=html.replace(/(<h[1-3]\b[^>]*>)([\s\S]*?)(<\/h[1-3]>)/g,(_,open,copy,close)=>open+copy.replace(/\s*<br\s*\/?>\s*/g,(_,offset,text)=>/(?:^|\s)(?:ขอ|ไอเดียที่|ก้าวเข้าไปอยู่|เราไม่ได้แค่|คำถามที่ลูกค้า|คำถามเรื่อง)$/.test(text.slice(0,offset).split(/<[^>]+>/).pop().trim())?'':' ')+close);
   if(pagePath==='about.html') {
     html=html.replace(/(<section class="page-hero wrap">[\s\S]*?<h1>)[\s\S]*?(<\/h1>)/, '$1<span class="thai-title-line">บริษัทด้านครีเอทีฟเทคโนโลยี</span><span class="thai-title-line">ผู้เชี่ยวชาญด้านอินเทอร์แอคทีฟ</span><span class="gradient-text thai-title-line">และประสบการณ์อิมเมอร์ซีฟ</span>$2');
   }
