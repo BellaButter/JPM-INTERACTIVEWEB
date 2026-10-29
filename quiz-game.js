@@ -1,3 +1,4 @@
+import { demoStarted } from './demo-measurement.js';
 import {overlayMascot,pop,shake,confetti,lowTime,sound} from './game-kit.js';
 // Quick Quiz demo: four timed questions, 100 points per correct answer plus 10 per second left,
 // and a leaderboard kept in memory for this visit only. The timer pauses while the tab is hidden.
@@ -44,6 +45,7 @@ export function setupQuizGame(t){
   save.hidden=false;save.reset();leaderboard();start.textContent=t('Play again');status.textContent=fill('Round over: {score} points.',{score});
  }
  function begin(){
+  demoStarted('quick-quiz');
   store();clearTimeout(next);current=0;score=0;right=0;overlay.hidden=true;save.hidden=true;board.hidden=true;setState('playing');status.textContent=t('Choose an answer before the timer runs out.');render();
   choices.querySelector('.quiz-answer')?.focus({preventScroll:true});
  }

@@ -1,3 +1,4 @@
+import { demoStarted } from './demo-measurement.js';
 import {overlayMascot,confetti,sound} from './game-kit.js';
 // Lucky Wheel demo: weighted prizes, optional sign-up with PDPA consent, and a running player summary.
 // Player details stay in memory only; nothing is stored or sent.
@@ -51,7 +52,7 @@ export function setupLuckyWheel(t){
   if(state!=='ready')return;
   if(signup.checked&&!player){show('form',true);return;}
   const list=prizes(),spun=spinTo(list,angle),index=spun.index;angle=spun.angle;
-  setState('spinning');status.textContent=t('Spinning…');sound.play('spin');
+  setState('spinning');demoStarted('lucky-wheel');status.textContent=t('Spinning…');sound.play('spin');
   const duration=reduced.matches?0:4200;svg.style.transition=duration?`transform ${duration}ms cubic-bezier(.12,.8,.18,1)`:'none';svg.style.transform=`rotate(${angle}deg)`;
   setTimeout(()=>finish(list[index].name),duration+60);
  }

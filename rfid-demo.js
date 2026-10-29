@@ -1,3 +1,4 @@
+import { demoStarted } from './demo-measurement.js';
 import {demoProducts} from './content/en/demo-products.mjs';
 export function setupRFIDDemo(t){
  const reader=document.querySelector('#rfid-reader'),screen=document.querySelector('#rfid-display'),status=document.querySelector('#sensor-status');
@@ -6,6 +7,7 @@ export function setupRFIDDemo(t){
  const imageURL=product=>new URL('./assets/demo-products/'+product.id+'.svg',import.meta.url).href;
  function choose(product){selected=product;document.querySelectorAll('[data-rfid-product]').forEach(button=>{const on=button.dataset.rfidProduct===product.id;button.classList.toggle('active',on);button.setAttribute('aria-pressed',String(on));});status.textContent=t('Selected product:')+' '+product.name+'. '+t('Place it on the reader.');}
  function place(product=selected){
+  demoStarted('sensor-trigger');
   choose(product);reader.dataset.product=product.id;screen.dataset.product=product.id;reader.classList.add('has-product');
   const id='RFID-00'+(demoProducts.indexOf(product)+1);
   readerImage.src=screenImage.src=imageURL(product);readerImage.hidden=screenImage.hidden=false;

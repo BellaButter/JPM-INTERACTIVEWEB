@@ -1,3 +1,4 @@
+import { demoStarted } from './demo-measurement.js';
 import {setupItemUpload} from './item-upload.js';
 // Soft fog reveal: the persistent mask is independent of the animated fog.
 export function setupFogReveal(t) {
@@ -77,6 +78,7 @@ export function setupFogReveal(t) {
   maskCtx.setTransform(dpr,0,0,dpr,0,0);dragging=false;last=null;paint();
  }
  function reveal() {
+  demoStarted('scratch-reveal');
   revealed=true;dragging=false;last=null;canvas.hidden=true;cancelAnimationFrame(frame);frame=0;
   status.textContent=upload.url?t('Your uploaded image has been revealed.'):t('Revealed:')+' '+messageNode.textContent;
  }
@@ -94,7 +96,7 @@ export function setupFogReveal(t) {
   last=point;paint();
   if(!revealed)status.textContent=t('Keep swiping to let the scene emerge.');
  }
- canvas.addEventListener('pointerdown',event=>{if(event.button!==0||revealed)return;touched=true;dragging=true;last=null;canvas.setPointerCapture(event.pointerId);swipe(event);});
+ canvas.addEventListener('pointerdown',event=>{if(event.button!==0||revealed)return;demoStarted('scratch-reveal');touched=true;dragging=true;last=null;canvas.setPointerCapture(event.pointerId);swipe(event);});
  canvas.addEventListener('pointermove',swipe);
  function finish(){dragging=false;last=null;}
  canvas.addEventListener('pointerup',finish);canvas.addEventListener('pointercancel',finish);canvas.addEventListener('lostpointercapture',finish);
