@@ -1,6 +1,7 @@
 /* JPM CI design system. Brand colors come from the original style.css. */
 :root {
-  color-scheme: light;
+  /* "only light" asks browsers not to auto-darken the page (owner saw a forced dark page on Android, 2026-10-30). */
+  color-scheme: only light;
   /* JPM CI, light mode (2026-10-27): black/white logo, slate brand from the original style.css. */
   --bg: #f2f2f5;
   --card: #ffffff;
@@ -1094,7 +1095,7 @@ html[lang="th"] .hero3d-copy h1 { font-size: clamp(38px, 4.6vw, 66px); line-heig
 @media (max-width: 600px) { .home-stats .company-stats strong { font-size: 36px; } }
 
 /* Section headings and cards. */
-.catalog-heading { align-items: end; }
+@media (min-width: 1051px) { .catalog-heading { align-items: end; } } /* phones stack the heading and filters on the left */
 .catalog-heading h2 { font-size: clamp(30px, 3.2vw, 46px); font-weight: 600; letter-spacing: -.04em; }
 .catalog-heading .eyebrow { margin-bottom: 12px; }
 .bento-card, .library-card { background: #fff; border-color: var(--line); box-shadow: 0 18px 40px -32px #2b2d4566; }
