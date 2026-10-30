@@ -110,7 +110,29 @@ const articleCopy=[
  ['ราคาเริ่มต้นเท่าไร?',`${articlePrice(0)} สำหรับงานทัชสกรีน และ ${articlePrice(1)} สำหรับคอนเทนต์ LED และโปรเจกชัน ราคาสุดท้ายระบุในใบเสนอราคาตามขอบเขตงาน`],
  ['รวมจอด้วยไหม?','ไม่รวม เกมใช้กับจอที่คุณหรือผู้จัดงานมี'],
  ['ควรบอกงบก่อนไหม?','ควร เราจะได้เสนอสิ่งที่คุ้มที่สุดในงบนั้นตั้งแต่รอบแรก']
- ],actions:['ส่งบรีฟเพื่อขอใบเสนอราคา','ดูแพ็กเกจ']}
+ ],readNext:'อ่านต่อ: เช็กลิสต์บรีฟเกมออกบูธ',actions:['ส่งบรีฟเพื่อขอใบเสนอราคา','ดูแพ็กเกจ']},
+ {title:'บรีฟทำเกมออกบูธต้องมีอะไรบ้าง เช็กลิสต์ก่อนขอใบเสนอราคา',metaTitle:'เช็กลิสต์บรีฟทำเกมออกบูธ 8 ข้อก่อนขอใบเสนอราคา',description:'เตรียมบรีฟเกมบูธให้ครบใน 8 ข้อ เป้าหมาย ผู้เล่น วันงาน พื้นที่ จอ เนื้อหาแบรนด์ การเก็บข้อมูล และงบ ได้ใบเสนอราคาที่แม่นและเริ่มงานได้เร็ว',summary:'บรีฟที่ครบตั้งแต่แรกทำให้คุณได้ใบเสนอราคาที่แม่น และได้เห็น prototype เร็วขึ้น ไม่จำเป็นต้องตอบได้ทุกข้อ ข้อไหนยังไม่รู้ เขียนว่า "รอยืนยัน" ได้เลย เราช่วยคิดต่อให้ คัดลอกเช็กลิสต์นี้ไปกรอกแล้วส่งมาได้ทันที',cover:{alt:'ภาพประกอบแท็บเล็ตแสดงแนวคิดเกมรับไอเทม คู่กับแบบร่างบูธ เช็กลิสต์ และมือที่กำลังวางแผน',caption:'ภาพประกอบแนวคิดการบรีฟเกมออกบูธ สร้างด้วย AI ผ่าน Magnific ไม่ใช่ภาพงานจริงหรือหน้าจอเกมที่ส่งมอบ'},sections:[
+ ['เช็กลิสต์ 8 ข้อ',[{list:[
+  ['เป้าหมาย','เล่นจบแล้วอยากให้คนจำอะไร หรือทำอะไรต่อ เช่น รู้จักสินค้ารุ่นใหม่ ลงทะเบียน หรือคุยกับทีมขาย'],
+  ['ผู้เล่น','ใครมางาน อายุประมาณเท่าไร คนทั่วไปหรือกลุ่มธุรกิจ และคาดว่าคนจะหยุดที่บูธนานแค่ไหน'],
+  ['วันและสถานที่','วันติดตั้ง วันเปิดงาน เวลาเปิดปิดแต่ละวัน และชื่อสถานที่ เราใช้เวลาทำอย่างน้อย 1 สัปดาห์ ยิ่งแจ้งเร็วยิ่งมีเวลาลอง prototype นานขึ้น'],
+  ['พื้นที่','ขนาดบูธ ผัง ตำแหน่งจอ ทางเข้าออก และจุดที่คนจะยืนรอ'],
+  ['จอและอุปกรณ์','ชนิดจอ (ทัชสกรีน / LED / โปรเจกเตอร์) ขนาด แนวตั้งหรือแนวนอน และความละเอียด แต่ถ้ายังไม่รู้สเปก ใส่ชื่อผู้ประสานงานแทนได้'],
+  ['เนื้อหาแบรนด์','โลโก้ สี ฟอนต์ ภาพสินค้า ข้อความแคมเปญ ถ้าเป็นเกมตอบคำถาม ส่งคำถาม ตัวเลือก และคำเฉลยที่ตรวจแล้วมาในไฟล์เดียว'],
+  ['การเก็บข้อมูล','อยากได้รายชื่อผู้เล่นไหม เก็บอะไรบ้าง (ชื่อ เบอร์ อีเมล) ใครเป็นผู้ใช้ข้อมูล และใครอนุมัติข้อความยินยอม PDPA'],
+  ['งบและผู้อนุมัติ','กรอบงบคร่าว ๆ และใครเป็นคนตัดสินใจเรื่องภาพและเนื้อหา']
+ ]}]],
+ ['ตัวอย่างบรีฟสั้นที่ใช้ได้','ตัวอย่างสมมติ: งานเปิดตัวกาแฟพร้อมดื่ม 3 รส ที่ศูนย์การค้า 3 วัน ผู้เล่นเป็นคนทั่วไปที่เดินผ่าน อยากให้คนจำได้ว่าแต่ละรสต่างกันอย่างไร และอยากได้เบอร์โทรเพื่อส่งคูปอง มีทัชสกรีนแนวตั้ง 1 จอ บูธขนาด 3×3 เมตร บรีฟแค่นี้เราเสนอแนวเกมและราคาได้แล้ว'],
+ ['สิ่งที่ไม่ต้องเตรียมมา',[{list:[
+  'ชื่อเกมหรือกติกาที่คิดไว้แล้ว เราช่วยคิดจากเป้าหมาย',
+  'สเปกคอมพิวเตอร์เชิงเทคนิค เราคุยกับผู้ดูแลจอให้',
+  'ไฟล์ภาพทุกชิ้นตั้งแต่วันแรก ส่งตามมาได้ แต่ควรตกลงวันปิดรับเนื้อหาร่วมกัน'
+ ]}]]
+ ],faqs:[
+ ['ยังไม่มีไอเดียเกม ส่งบรีฟได้ไหม?','ได้ ส่งเป้าหมายและกลุ่มผู้เล่นมา เราเสนอแนวเกมให้'],
+ ['ยังไม่รู้วันงานแน่ชัดทำอย่างไร?','แจ้งช่วงเวลาคร่าว ๆ มาก่อน เราวางตารางเผื่อไว้และยืนยันอีกครั้งเมื่อวันงานชัด'],
+ ['ควรแนบไฟล์อะไร?','คู่มือแบรนด์ ภาพสินค้าที่มีสิทธิ์ใช้ และผังบูธเท่าที่มี']
+ ],readNext:'อ่านต่อ: ทำเกมออกบูธต้องเตรียมงบอะไรบ้าง',actions:['กรอกบรีฟแล้วส่งให้เรา','ลองเดโม']}
 ];
 // Article topics (2026-10-27): hub names, intros and page titles. Dates read in Thai with the Buddhist year.
 const topicCopy={
@@ -126,7 +148,7 @@ articles.forEach(article=>[article.published,article.updated].filter(Boolean).fo
 Object.entries({'Articles worth reading':'บทความที่น่าสนใจ','ARTICLE TOPIC':'หัวข้อบทความ','Article topics':'หัวข้อบทความ','Browse by topic':'เลือกอ่านตามหัวข้อ','Articles on this topic are coming soon.':'บทความในหัวข้อนี้กำลังจะมาเร็ว ๆ นี้','In the meantime, see how we work on this.':'ระหว่างนี้ ลองดูบริการและผลงานที่เกี่ยวข้องของเราได้เลย','RELATED SERVICES & WORK':'บริการและผลงานที่เกี่ยวข้อง','See it in practice':'ดูจากงานจริง','Published':'เผยแพร่','Updated':'อัปเดต','MORE ON THIS TOPIC':'อ่านต่อในหัวข้อนี้','View topic':'ดูหัวข้อนี้','Coming soon':'เร็ว ๆ นี้'}).forEach(([en,th])=>add(en,th));
 // Image alt text and captions: articleCopy[i].cover and the third item of a section ({ alt, caption }).
 const addMedia=(media,th)=>{if(!media||!th)return;if(media.alt&&th.alt)add(media.alt,th.alt);if(media.caption&&th.caption)add(media.caption,th.caption);};
-articles.forEach((article,i)=>{add(article.title,articleCopy[i].title);add(article.summary,articleCopy[i].summary);addMedia(article.cover,articleCopy[i].cover);article.sections.forEach((pair,j)=>pair.forEach((item,k)=>{const th=articleCopy[i].sections[j]?.[k];if(typeof item==='string')add(item,th);else if(Array.isArray(item))item.forEach((p,m)=>{if(typeof p==='string')add(p,th[m]);else if(p.list)p.list.forEach((pair,n)=>pair.forEach((s,o)=>add(s,th[m].list[n][o])));else{p.table.head.forEach((s,o)=>add(s,th[m].table.head[o]));p.table.rows.forEach((row,n)=>row.forEach((s,o)=>add(s,th[m].table.rows[n][o])));}});else addMedia(item,th);}));const copy=articleCopy[i];if(article.metaTitle)add(article.metaTitle,copy.metaTitle);if(article.description)add(article.description,copy.description);(article.faqs||[]).forEach(([q,a],m)=>{add(q,copy.faqs[m][0]);add(a,copy.faqs[m][1]);});(article.actions||[]).forEach(([label],m)=>add(label,copy.actions[m]));if(article.readNext)add(article.readNext[1],copy.readNext);});
+articles.forEach((article,i)=>{add(article.title,articleCopy[i].title);add(article.summary,articleCopy[i].summary);addMedia(article.cover,articleCopy[i].cover);article.sections.forEach((pair,j)=>pair.forEach((item,k)=>{const th=articleCopy[i].sections[j]?.[k];if(typeof item==='string')add(item,th);else if(Array.isArray(item))item.forEach((p,m)=>{if(typeof p==='string')add(p,th[m]);else if(p.list)p.list.forEach((pair,n)=>typeof pair==='string'?add(pair,th[m].list[n]):pair.forEach((s,o)=>add(s,th[m].list[n][o])));else{p.table.head.forEach((s,o)=>add(s,th[m].table.head[o]));p.table.rows.forEach((row,n)=>row.forEach((s,o)=>add(s,th[m].table.rows[n][o])));}});else addMedia(item,th);}));const copy=articleCopy[i];if(article.metaTitle)add(article.metaTitle,copy.metaTitle);if(article.description)add(article.description,copy.description);(article.faqs||[]).forEach(([q,a],m)=>{add(q,copy.faqs[m][0]);add(a,copy.faqs[m][1]);});(article.actions||[]).forEach(([label],m)=>add(label,copy.actions[m]));if(article.readNext)add(article.readNext[1],copy.readNext);});
 
 export const uiCopy = {
  'Skip to content':'ข้ามไปยังเนื้อหา','Explore':'สำรวจ','Our Work':'ผลงานของเรา','Playground':'พื้นที่ทดลอง','Articles':'บทความ','Partner With Us':'ร่วมงานกับเรา','Let’s talk':'คุยกับเรา','Menu':'เมนู',
@@ -430,7 +452,8 @@ Object.entries({
  'Articles on this topic':'บทความในหมวดนี้',
  'Read next: Booth game ideas for brands':'อ่านต่อ: ไอเดียเกมออกบูธสำหรับแบรนด์',
  'Read next: What budget do you need for a booth game?':'อ่านต่อ: ทำเกมออกบูธต้องเตรียมงบอะไรบ้าง',
- 'Setting a budget? See what a booth game budget includes.':'กำลังตั้งงบ? ดูคู่มืองบทำเกมออกบูธ'
+ 'Setting a budget? See what a booth game budget includes.':'กำลังตั้งงบ? ดูคู่มืองบทำเกมออกบูธ',
+ 'Want to prepare more? Use our booth game brief checklist.':'อยากเตรียมให้ครบกว่านั้น? ใช้เช็กลิสต์บรีฟเกมออกบูธ'
 }).forEach(([en,th])=>add(en,th));
 
 // Thai copy polish (2026-10-16): entries whose Thai text is shared by several

@@ -133,7 +133,30 @@ export const articles = [
     ['What is the starting price?', `${startPrice(0)} for touchscreen experiences and ${startPrice(1)} for LED and projection content. The final price is set in your quotation, based on the agreed scope.`],
     ['Are screens included?', 'No. The game runs on the screens you or the organizer have.'],
     ['Should we tell you our budget first?', 'Yes. That way we can propose the best value within it from the first round.']
-  ], actions: [['Send your brief for a quote', 'contact.html?service=Interactive%20Games'], ['See packages', 'packages.html', true]] }
+  ], readNext: ['event-game-brief-checklist.html', 'Read next: Booth game brief checklist'], actions: [['Send your brief for a quote', 'contact.html?service=Interactive%20Games'], ['See packages', 'packages.html', true]] },
+  // C6 (owner-reviewed 2026-10-30). Cover: Mina's AI illustration made in Magnific (Seedream 5 Pro).
+  { slug: 'event-game-brief-checklist', title: 'What should a booth game brief include? A checklist before you ask for a quote', metaTitle: 'Booth Game Brief Checklist: 8 Points Before You Ask for a Quote', description: 'Prepare a complete booth game brief in 8 points: goal, players, dates, space, screens, brand content, data collection, and budget, for an accurate quote and a faster start.', topic: 'planning-leads', category: 'Practical Guides', published: '2026-10-30', updated: '2026-10-30', cover: { image: 'event-game-brief-checklist-cover.webp', alt: 'Illustration of a catch-game tablet beside a booth sketch and checklist, with hands planning the brief.', caption: 'AI-generated illustration of an event-game brief, not a real installation or a delivered game.' }, summary: 'A complete brief from the start gets you an accurate quote and a prototype sooner. You do not need to answer every point. Anything you do not know yet, write “to be confirmed” and we will help you work it out. Copy this checklist, fill it in, and send it to us.', status: 'published', readTime: '3 min', sections: [
+    ['The 8-point checklist', [{ ordered: true, list: [
+      ['Goal:', 'what should people remember or do after playing, such as discover a new product, sign up, or talk to the sales team'],
+      ['Players:', 'who comes to the event, roughly how old, general public or business visitors, and how long people are likely to stop at the booth'],
+      ['Dates and venue:', 'set-up day, opening day, opening hours each day, and the venue name. We need at least one week to build, so the earlier you tell us, the longer you can try the prototype'],
+      ['Space:', 'booth size, layout, screen position, entry and exit, and where people will queue'],
+      ['Screens and equipment:', 'screen type (touchscreen / LED / projector), size, portrait or landscape, and resolution. If you do not know the specs yet, give us the coordinator’s name instead'],
+      ['Brand content:', 'logo, colours, fonts, product images, campaign messages. For a quiz game, send the checked questions, options, and answers in one file'],
+      ['Data collection:', 'do you want a list of players, what to collect (name, phone, email), who will use the data, and who approves the PDPA consent wording'],
+      ['Budget and approvers:', 'a rough budget range, and who decides on visuals and content']
+    ] }]],
+    ['A short brief that works', 'A hypothetical example: a launch of three ready-to-drink coffee flavours at a shopping mall for three days. Players are passers-by. You want people to remember how each flavour differs, and you want phone numbers to send coupons. You have one portrait touchscreen and a 3×3 metre booth. With a brief this short, we can already propose a game and a price.'],
+    ['What you do not need to prepare', [{ list: [
+      'A game name or rules already worked out. We help you shape them from your goal',
+      'Technical computer specs. We talk to the screen team for you',
+      'Every image file on day one. You can send them later, but agree on a content deadline together'
+    ] }]]
+  ], faqs: [
+    ['Can we send a brief without a game idea?', 'Yes. Send us your goal and your players, and we will propose a game.'],
+    ['What if the event date is not fixed yet?', 'Give us a rough time frame first. We plan with some buffer and confirm once the date is set.'],
+    ['What files should we attach?', 'Your brand guidelines, product images you have the rights to use, and the booth layout if you have it.']
+  ], readNext: ['event-game-budget.html', 'Read next: What budget do you need for a booth game?'], actions: [['Fill in your brief and send it to us', 'contact.html?service=Interactive%20Games'], ['Try demo', 'playground.html', true]] }
 ];
 
 // Home FAQ (2026-10-26, expanded 2026-10-27). Answers stay within owner-approved facts: package prices,
