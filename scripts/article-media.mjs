@@ -35,11 +35,13 @@ export function articleImage(name, prefix = '') {
     return { src: `${prefix}assets/articles/${encodeURIComponent(name)}`, path: `assets/articles/${encodeURIComponent(name)}`, original: `assets/articles/${encodeURIComponent(name)}`, size: size ? ` width="${size.width}" height="${size.height}"` : '', dims: size };
   }
   if (!existsSync(new URL(name, root))) throw new Error(`Article image not found: assets/articles/${name} or assets/${name}`);
-  const path = asset(name);
+  // A name with a folder (e.g. playground/tap-game.webp) keeps its slashes; Thai pages swap playground shots for the Thai ones.
+  const nested = name.includes('/') ? 'assets/' + name.split('/').map(encodeURIComponent).join('/') : '';
+  const path = nested || asset(name);
   const sized = assetSize(name);
   const dims = sized ? { width: +sized.match(/width="(\d+)"/)[1], height: +sized.match(/height="(\d+)"/)[1] } : imageSize(new URL(name, root));
   // original: the untouched file, used for sharing previews (some chat apps handle JPEG/PNG better than WebP).
-  return { src: prefix + path, path, original: `assets/${encodeURIComponent(name)}`, size: dims ? ` width="${dims.width}" height="${dims.height}"` : '', dims };
+  return { src: prefix + path, path, original: nested || `assets/${encodeURIComponent(name)}`, size: dims ? ` width="${dims.width}" height="${dims.height}"` : '', dims };
 }
 
 // <figure> markup. The cover loads first; inline figures load lazily.

@@ -1572,3 +1572,6 @@ html[lang="th"] .keycap-label { font-size: 14px; }
 .topic-guide .faq-list { margin-top: 8px; }
 .topic-guide .button-row { margin-top: 40px; }
 @media (max-width: 600px) { .guide-table { font-size: 14px; } .guide-table th, .guide-table td { padding: 12px; } .guide-table td:last-child { white-space: normal; } }
+
+/* Article actions sit below the reading text, outside .article-body link styles (2026-10-30). */
+.article-actions { margin-top: 36px; }
