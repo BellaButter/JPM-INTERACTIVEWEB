@@ -951,14 +951,17 @@ html body main li:not(:is(.simple-demo, .scratch-shell, .custom-game-overlay, fo
 html body .arcade-intro { font-size: 19px !important; }
 html body main .eyebrow, html body .arcade-chip { font-size: 13px !important; }
 html body #navigation a, html body #navigation summary { font-size: 16px !important; }
-html body :is(.why-item, .process-step, .bento-content, .library-card) h3, html body .faq-item summary h3 { font-size: 22px !important; }
+html body :is(.why-item, .process-step, .bento-content, .library-card) h3 { font-size: 22px !important; }
+/* FAQ questions: 2pt below card titles (owner request 2026-10-30). */
+html body .faq-item summary h3 { font-size: 19px !important; }
 html body .company-stats > div > span { font-size: 13px !important; }
 html body main :is(.button-row a, a.button, button.button) { font-size: 15px !important; }
 html body footer :is(a, span):not(.eyebrow) { font-size: 15px; }
 @media (max-width: 600px) {
   html body main p:not(.eyebrow, .photo-caption, .hero-field-hint, .catalog-status, .filter-count, .demo-preview-label):not(:is(.simple-demo, .scratch-shell, .custom-game-overlay, .game-overlay, .demo-preview, form, .cube-stage) *) { font-size: 17px !important; }
   html body .arcade-intro { font-size: 17px !important; }
-  html body :is(.why-item, .process-step, .bento-content, .library-card) h3, html body .faq-item summary h3 { font-size: 20px !important; }
+  html body :is(.why-item, .process-step, .bento-content, .library-card) h3 { font-size: 20px !important; }
+  html body .faq-item summary h3 { font-size: 17px !important; }
 }
 html body main :is(.text-link, .library-action) { font-size: 15px !important; }
 html body main :is(.service-photo-caption, .article-meta, .article-meta span, .hero-field-hint) { font-size: 13px !important; }
