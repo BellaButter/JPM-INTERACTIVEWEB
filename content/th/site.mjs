@@ -1,6 +1,6 @@
 import { demoCopy } from './demos.mjs';
 // Thai editorial copy keyed to the shared English source. Brand/project names remain unchanged.
-import { studio, services, coreValues, companyStats, industries, workflow, packages, projects, articles, articleTopics, faqs, eventGameFaqs } from '../en/site.mjs';
+import { studio, services, coreValues, companyStats, industries, workflow, packages, projects, articles, articleTopics, faqs, eventGameFaqs, topicGuides } from '../en/site.mjs';
 export const thaiCopy = new Map();
 const add=(en,th)=>thaiCopy.set(en.replace(/\s+/g,' ').trim(),th);
 const fields=(source,thai)=>Object.entries(thai).forEach(([key,value])=>add(source[key],value));
@@ -350,6 +350,45 @@ Object.entries({
  'Questions about':'คำถามเรื่อง',
  'booth games.':'เกมบูธ',
  'Booth game details':'รายละเอียดเกมบูธ'
+}).forEach(([en,th])=>add(en,th));
+
+// Event Booth Games topic guide (P1): owner-reviewed Thai copy, 2026-10-30.
+const boothGuide = topicGuides['event-booth-games'];
+const thaiBoothGuide = {
+ title:'เกมบูธอีเวนต์ คู่มือเลือกเกมออกบูธให้คนอยากเล่น',
+ description:'เลือกเกมบูธจากเป้าหมาย ผู้เล่น และพื้นที่ เทียบเกมตอบคำถาม จับคู่ รับไอเทม วงล้อสุ่ม พร้อมวิธีวางคิว งบ และการเก็บ lead',
+ lead:'เกมบูธที่ดีเริ่มจากคำถามว่า คุณอยากให้ผู้ร่วมงานทำอะไรและจำอะไรกลับไป จากนั้นเลือกวิธีเล่นที่เข้าใจได้ในไม่กี่วินาที เล่นจบไวพอให้คิวเดิน และเข้ากับพื้นที่บูธจริง คู่มือนี้พาคุณไล่ตั้งแต่เลือกแนวเกมจนถึงวันงาน',
+ sections:[
+  ['เริ่มจากเป้าหมาย ไม่ใช่ชื่อเกม',['เกมที่เหมาะกับแบรนด์คุณ อาจไม่ใช่เกมที่คนเล่นเยอะในบูธของคนอื่น ลองเลือกเป้าหมายหลักหนึ่งข้อก่อน แล้วเกมที่เหมาะจะชัดขึ้นเอง'],[
+   ['ให้คนเข้าใจจุดเด่นสินค้า','เกมตอบคำถาม ที่ใช้คำเฉลยเล่าเรื่องสินค้า','Quick Quiz'],
+   ['ให้คนจำหน้าตาสินค้าหลายรุ่น','เกมจับคู่ภาพ','Memory Match'],
+   ['ให้บูธคึกคัก คนยืนดูเยอะ','เกมรับไอเทม หรือเกมแตะเป้าหมายจับเวลา','Catch, Tap the Right Item'],
+   ['แจกของรางวัลและเก็บรายชื่อ','วงล้อสุ่ม พร้อมลงทะเบียนก่อนหมุน','Lucky Wheel'],
+   ['ให้คนขยับตัว เป็นภาพที่คนอยากถ่าย','เกมเซนเซอร์จับการเคลื่อนไหว บนจอ LED หรือโปรเจกชัน','ดูผลงาน LAZADA Run']
+  ]],
+  ['คนเดินผ่านต้องเข้าใจได้ในไม่กี่วินาที',['ในฮอลล์งานอีเวนต์ คนตัดสินใจเร็วมากว่าจะหยุดหรือเดินต่อ เกมที่ดีจึงต้องเห็นแล้วเข้าใจทันทีว่าเล่นอย่างไร โดยไม่ต้องอ่านกติกายาว และคนที่ยืนดูอยู่ก็สนุกไปด้วย','เกมรอบสั้นที่จับเวลาชัดเจนช่วยให้คิวเดินเร็ว เวลาคำนวณคิว ให้นับเวลาอธิบายกติกา เปลี่ยนคน และแจกรางวัลรวมด้วย ไม่ใช่นับแค่เวลาในเกม ตัวอย่างสมมติ: เล่น 45 วินาที บวกเปลี่ยนคน 15 วินาที เท่ากับรอบละ 1 นาที หนึ่งจอจะรับได้ไม่เกินชั่วโมงละ 60 รอบ']],
+  ['จอ พื้นที่ และวิธีควบคุม',['เกมเดียวกันอาจเล่นบนทัชสกรีน จอ LED หรือโปรเจกเตอร์ แต่ประสบการณ์ต่างกันมาก ทัชสกรีนเหมาะกับบูธเล็กและเกมที่ต้องเลือกคำตอบ ส่วนเซนเซอร์จับการเคลื่อนไหวต้องการพื้นที่ยืนและแสงที่เหมาะ แต่เรียกคนดูได้มากกว่า','เกมของ JPM Media Space ใช้กับจอที่คุณมีอยู่แล้วได้ แค่แจ้งขนาดจอ ความละเอียด และผังบูธ เราออกแบบให้พอดีกับระยะที่คนยืนเล่นจริง']],
+  ['ได้มากกว่าคนเดินผ่าน: เก็บ lead และสรุปผล',['เกมเป็นจังหวะที่เหมาะที่สุดในการขอข้อมูล เพราะคนอยากเล่นอยู่แล้ว เราเพิ่มการลงทะเบียนหรือสแกน QR ก่อนเล่นได้ พร้อมขั้นตอนขอความยินยอมตาม PDPA ที่คุณอนุมัติ หลังจบงานคุณจะได้สรุปจำนวนผู้เล่นและการมีส่วนร่วม ไว้วางแผนงานครั้งต่อไป']],
+  ['งบ บรีฟ และเวลา',[`พอเลือกแนวเกมได้ คำถามต่อไปคืองบและเวลา แพ็กเกจงานอีเวนต์เริ่มต้นที่ ${thaiEventPrice(0)} สำหรับงานทัชสกรีน และใช้เวลาทำอย่างน้อย 1 สัปดาห์ ขึ้นกับเกมและเนื้อหา บรีฟที่ครบตั้งแต่แรกทำให้ใบเสนอราคาแม่นและเริ่มงานได้เร็ว`]]
+ ],
+ faqs:[
+  ['เกมแบบไหนเหมาะกับแบรนด์เรา?','เริ่มจากสิ่งที่อยากให้คนจำ แล้วเทียบกับตารางด้านบน ถ้ายังไม่แน่ใจ ส่งธีมงานมา เราช่วยคัดให้ได้'],
+  ['ต้องมีจอเองไหม?','ใช่ แพ็กเกจไม่รวมจอและโปรเจกเตอร์ แต่เกมของเราใช้กับจอที่คุณหรือผู้จัดงานมีได้'],
+  ['เก็บข้อมูลผู้เล่นได้ไหม?','ได้ ด้วยการลงทะเบียนหรือ QR ก่อนเล่น พร้อมขั้นตอนขอความยินยอมตาม PDPA']
+ ]
+};
+['title','description','lead'].forEach(key=>add(boothGuide[key],thaiBoothGuide[key]));
+boothGuide.sections.forEach(([title,paras,rows],i)=>{const [th,thParas,thRows]=thaiBoothGuide.sections[i];add(title,th);paras.forEach((p,j)=>add(p,thParas[j]));(rows||[]).forEach((row,r)=>[0,1,2].forEach(c=>add(row[c],thRows[r][c])));});
+boothGuide.faqs.forEach(([q,a],i)=>{add(q,thaiBoothGuide.faqs[i][0]);add(a,thaiBoothGuide.faqs[i][1]);});
+Object.entries({
+ 'Event booth games:':'เกมบูธอีเวนต์:',
+ 'a guide to choosing the right game.':'คู่มือเลือกเกมให้เข้ากับแบรนด์และพื้นที่',
+ 'Main goal':'เป้าหมายหลัก',
+ 'Game format that fits':'แนวเกมที่เข้ากัน',
+ 'Try it':'ลองเดโม',
+ 'Send us your event theme':'ส่งธีมงานให้เราช่วยเลือกเกม',
+ 'IN THIS TOPIC':'ในหมวดนี้',
+ 'Articles on this topic':'บทความในหมวดนี้'
 }).forEach(([en,th])=>add(en,th));
 
 // Thai copy polish (2026-10-16): entries whose Thai text is shared by several

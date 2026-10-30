@@ -112,6 +112,35 @@ export const faqs = [
   ['Do you work with event agencies and organizers?', 'Yes. We work directly with brands and as the interactive team for event agencies, production houses, and LED providers.']
 ];
 
+// Topic guides (pillar content shown above a topic hub's article list). Event Booth Games guide = P1,
+// owner-reviewed 2026-10-30. Read-more links are added only once the target article is published.
+export const topicGuides = {
+  'event-booth-games': {
+    title: 'Event Booth Games: How to Choose a Game People Want to Play',
+    description: 'Choose a booth game by goal, players, and space. Compare quiz, memory match, catch, and lucky wheel games, with queues, budget, and lead capture.',
+    heading: 'Event booth games:<br><span class="gradient-text">a guide to choosing the right game.</span>',
+    lead: 'A good booth game starts with one question: what do you want visitors to do and remember? Then choose a way to play that people understand in seconds, that ends fast enough to keep the queue moving, and that fits your actual booth. This guide takes you from choosing a game to show day.',
+    sections: [
+      ['Start with a goal, not a game name', ['The right game for your brand may not be the one drawing a crowd at someone else’s booth. Pick one main goal first, and the right game becomes clear.'], [
+        ['Help people understand what makes your product stand out', 'A quiz game that uses each answer to tell the product story', 'Play Quick Quiz', 'playground.html#quiz-game'],
+        ['Help people remember several product models', 'A memory match game', 'Play Memory Match', 'playground.html#matching-game'],
+        ['Make the booth lively, with a crowd watching', 'A catch game or a timed tap game', 'Play Catch or Tap the Right Item', 'playground.html#catch-game'],
+        ['Give away prizes and collect contacts', 'A lucky wheel with sign-up before each spin', 'Play Lucky Wheel', 'playground.html#lucky-wheel'],
+        ['Get people moving, in a scene they want to photograph', 'A motion-sensor game on an LED wall or projection', 'See the LAZADA Run project', 'case-studies/lazada-run.html']
+      ]],
+      ['Passers-by should get it in seconds', ['In an event hall, people decide very quickly whether to stop or walk on. A good game shows how to play at a glance, without long rules, and the people watching enjoy it too.', 'Short, clearly timed rounds keep the queue moving. When you estimate the queue, count the time to explain the rules, change players, and hand out prizes, not just the time in the game. A hypothetical example: 45 seconds of play plus 15 seconds to change players makes one minute per round, so one screen can take at most 60 rounds an hour.']],
+      ['Screens, space, and controls', ['The same game can run on a touchscreen, an LED wall, or a projector, but the experience is very different. Touchscreens suit small booths and games where players choose answers. Motion sensors need standing space and suitable lighting, but they draw a bigger crowd.', 'JPM Media Space games run on the screens you already have. Share the screen size, resolution, and booth layout, and we design for the distance people actually stand from the screen.']],
+      ['More than footfall: leads and a summary', ['A game is the best moment to ask for details, because people already want to play. We can add a sign-up form or QR scan before play, with the PDPA consent step you approve. After the event, you get a summary of players and engagement to plan your next one.']],
+      ['Budget, brief, and timing', [`Once you have a game in mind, the next questions are budget and time. Event packages start at ${eventPrice(0)} for touchscreen experiences, and a game takes at least one week to make, depending on the game and content. A complete brief from the start makes the quotation accurate and gets work started sooner.`]]
+    ],
+    faqs: [
+      ['Which game suits our brand?', 'Start with what you want people to remember, then compare it with the table above. Not sure yet? Send us your event theme and we’ll help you choose.'],
+      ['Do we need our own screen?', 'Yes. Packages do not include screens or projectors, but our games run on the screens you or the organizer already have.'],
+      ['Can the game collect player details?', 'Yes, with a sign-up form or QR scan before play and a PDPA consent step.']
+    ]
+  }
+};
+
 // Interactive event games service page (S0, owner-reviewed 2026-10-29). Same approved facts as the home FAQ.
 export const eventGameFaqs = [
   ['Can you put our logo and products in the game?', 'Yes. Every game is built around your brand: your logo, colours, products, and campaign message.'],

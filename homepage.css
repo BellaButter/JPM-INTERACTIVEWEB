@@ -1557,3 +1557,15 @@ html[lang="th"] .keycap-label { font-size: 14px; }
 .event-games-figure figcaption { margin-top: 10px; color: var(--muted); font-size: 14px; line-height: 1.6; }
 .section-note { margin-top: 28px; }
 #brief .text-link { display: inline-block; margin-top: 22px; }
+
+/* Topic guide (pillar content on a topic hub, 2026-10-30): goal table and FAQ inside the reading panel. */
+.topic-nav-section { padding-bottom: 0; }
+.guide-table-wrap { margin-top: 26px; overflow-x: auto; border: 1px solid var(--line); border-radius: 18px; }
+.guide-table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.6; }
+.guide-table th, .guide-table td { padding: 14px 16px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+.guide-table th { background: var(--brand-soft); color: var(--ink); font-weight: 700; font-size: 14px; }
+.guide-table tr:last-child td { border-bottom: 0; }
+.guide-table td:last-child { white-space: nowrap; }
+.topic-guide .faq-list { margin-top: 8px; }
+.topic-guide .button-row { margin-top: 40px; }
+@media (max-width: 600px) { .guide-table { font-size: 14px; } .guide-table th, .guide-table td { padding: 12px; } .guide-table td:last-child { white-space: normal; } }
