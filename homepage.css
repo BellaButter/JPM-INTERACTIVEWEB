@@ -1575,3 +1575,9 @@ html[lang="th"] .keycap-label { font-size: 14px; }
 
 /* Article actions sit below the reading text, outside .article-body link styles (2026-10-30). */
 .article-actions { margin-top: 36px; }
+
+/* Article tables and bold-lead lists (2026-10-30). */
+.article-table td:last-child { white-space: normal; }
+.article-list { margin: 18px 0 0; padding-left: 22px; }
+.article-list li { margin-top: 10px; line-height: 1.8; }
+.article-body .guide-table-wrap + p { margin-top: 22px; }

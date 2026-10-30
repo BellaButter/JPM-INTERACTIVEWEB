@@ -61,6 +61,8 @@ const stories={
  ]
 };
 projects.filter(p=>p.story).forEach(project=>Object.values(project.story).forEach((text,i)=>add(text,stories[project.slug][i])));
+// Event package starting prices for article copy (thaiEventPrice is defined further down).
+const articlePrice=index=>packages[0].items[index].startingPrice.toLocaleString('en-US')+'.-';
 const articleCopy=[
  {title:'ออกแบบให้คนอยากมีส่วนร่วม ไม่ใช่แค่ดู',summary:'มุมมองของเราในการเชื่อมผู้คน แบรนด์ และพื้นที่จริงเข้าด้วยกัน',cover:{alt:'ผู้ชายสองคนกำลังแตะและสำรวจข้อมูลบนจอทัชสกรีนขนาดใหญ่ในพื้นที่สาธารณะ',caption:'ภาพสต็อกประกอบแนวคิด ไม่ใช่ผลงานหรือภาพหน้างานของ JPM Media Space · ASphotofamily / Magnific'},sections:[
  ['เริ่มจากคนที่อยู่ในพื้นที่','ที่ JPM Media Space เราเชื่อว่าเทคโนโลยีควรเป็นมากกว่าเครื่องมือแสดงข้อมูล ประสบการณ์อินเทอร์แอคทีฟที่ดีจะชวนให้ผู้ชมได้ลงมือทำอะไรสักอย่าง ไม่ว่าจะแตะหน้าจอ เดินผ่านพื้นที่ หรือสำรวจเรื่องราว คำถามแรกของเราจึงเป็น “อยากให้เขาได้สัมผัสประสบการณ์แบบไหน”'],
@@ -84,7 +86,31 @@ const articleCopy=[
  ['ต้องทำเกมใหม่ทั้งหมดไหม?','ไม่จำเป็น ถ้ากติกาเดิมตอบเป้าหมายอยู่แล้ว เราออกแบบภาพและเนื้อหาใหม่ให้เข้ากับแบรนด์ได้ ถ้าอยากได้วิธีเล่นใหม่ เราก็พัฒนาให้ได้'],
  ['ใส่สินค้าในเกมอย่างไรให้มีความหมาย?','ให้สินค้าเป็นส่วนหนึ่งของกติกา เช่น เป็นของที่ต้องรับ คำตอบที่ถูก หรือรางวัล ไม่ใช่แค่ภาพพื้นหลัง'],
  ['ลองเกมก่อนจ้างได้ไหม?','ได้ เล่นเดโมในพื้นที่ทดลองได้เลย และทุกงานเราทำ prototype ให้ลองก่อนตัดสินใจ']
- ],actions:['ส่งธีมแบรนด์ให้เราช่วยคัดเกม','ลองเดโม']}
+ ],readNext:'อ่านต่อ: ทำเกมออกบูธต้องเตรียมงบอะไรบ้าง',actions:['ส่งธีมแบรนด์ให้เราช่วยคัดเกม','ลองเดโม']},
+ {title:'ทำเกมออกบูธต้องเตรียมงบอะไรบ้าง',metaTitle:'ทำเกมออกบูธราคาเท่าไร ต้องเตรียมงบอะไรบ้าง',description:'งบทำเกมบูธมีอะไรบ้าง อะไรทำให้ราคาเปลี่ยน และจะลดงบตรงไหนโดยไม่เสียผลลัพธ์ พร้อมราคาเริ่มต้นแพ็กเกจงานอีเวนต์',summary:`แพ็กเกจงานอีเวนต์ของ JPM Media Space เริ่มต้นที่ ${articlePrice(0)} สำหรับงานทัชสกรีน และ ${articlePrice(1)} สำหรับคอนเทนต์บนจอ LED และโปรเจกชัน ราคาสุดท้ายขึ้นกับสิ่งที่คุณต้องการ บทความนี้บอกว่างบมีอะไรบ้าง อะไรทำให้ราคาขยับ และจะลดงบตรงไหนได้โดยไม่เสียสิ่งที่สำคัญ`,cover:{alt:'โลโก้ JPM Media Space บนพื้นหลังสีขาว'},sections:[
+ ['งบเกมบูธมีอะไรบ้าง',[{table:{head:['ส่วนของงาน','ตัวอย่าง','อยู่ในงานของเราไหม'],rows:[
+  ['ตัวเกมและกติกา','วิธีเล่น ระบบคะแนน หน้าเริ่มและหน้าจบ','มี'],
+  ['ภาพ เสียง และเนื้อหาแบรนด์','โลโก้ สี สินค้า คำถาม ข้อความแคมเปญ','มี'],
+  ['Prototype และทดสอบ','prototype หนึ่งเวอร์ชัน ทดสอบก่อนเปิดงาน','มี'],
+  ['ดูแลหน้างาน','ทีมเทคนิคอยู่ตั้งแต่เปิดจนปิด','มี'],
+  ['ลงทะเบียน/QR และสรุปผู้เล่น','ฟอร์มก่อนเล่น ความยินยอม PDPA สรุปหลังงาน','บริการเสริม'],
+  ['จอ โปรเจกเตอร์ คอมพิวเตอร์','ทัชสกรีน จอ LED โครงยึด','ไม่รวม เกมใช้กับจอของคุณหรือผู้จัดงาน']
+ ]}},'การแยกแบบนี้ช่วยให้คุณเห็นทันทีว่าส่วนไหนต้องตั้งงบกับเรา และส่วนไหนต้องคุยกับผู้จัดงานหรือผู้ให้เช่าจอ ถ้ามีหลายฝ่าย เราประสานกับทีมจอให้ เพราะเราทำงานกับเอเจนซีและผู้ให้บริการจอ LED อยู่แล้ว']],
+ ['อะไรทำให้งบเพิ่ม',[{list:[
+  ['กติกาใหม่ทั้งหมด','แทนการปรับจากเกมที่มีอยู่'],
+  ['หลายภาษา หลายจอ หรือหลายโหมด','เพราะต้องออกแบบและทดสอบเพิ่มทุกชุด'],
+  ['เซนเซอร์จับการเคลื่อนไหว','แทนการแตะจอ'],
+  ['ส่งข้อมูลเข้าระบบอื่น','เช่น CRM ของแบรนด์'],
+  ['เนื้อหามาช้าหรือเปลี่ยนหลังเริ่มงาน','ทำให้ต้องแก้ทั้งภาพและทดสอบใหม่']
+ ]}]],
+ ['ลดงบตรงไหนได้บ้าง',['เก็บสิ่งที่ทำให้คนอยากเล่นและจำแบรนด์ได้ไว้ก่อน คือกติกาหลักและภาพแบรนด์ ส่วนที่ลดได้ก่อนคือจำนวนฉาก เอฟเฟกต์พิเศษ หรือการเชื่อมระบบที่ยังไม่จำเป็น ตัวอย่างสมมติ: เกมตอบคำถามชุดเดียวที่ทำให้ดี มักได้ผลดีกว่าหลายโหมดที่เนื้อหาบาง','บอกกรอบงบมาตั้งแต่แรกได้เลย เราจะเสนอทางเลือกที่ได้ผลดีที่สุดภายในงบนั้น แทนการเสนอทุกอย่างแล้วค่อยตัดออก']],
+ ['ลงทุนครั้งเดียว ใช้ต่อได้','ระบบที่เราส่งมอบอัปเดต ย้ายงาน หรือต่อยอดได้ ถ้าคุณออกบูธหลายงานต่อปี บอกเราตั้งแต่ตอนคุยงาน เราจะออกแบบให้เปลี่ยนเนื้อหาได้ง่ายในงานถัดไป ส่วนงานติดตั้งถาวรมีรับประกัน 1 ปี'],
+ ['เทียบใบเสนอราคาให้แฟร์','ส่งบรีฟฉบับเดียวกันให้ทุกเจ้า แล้วดู 4 เรื่องนอกจากยอดรวม: มี prototype ให้ลองก่อนไหม ทดสอบบนจอจริงเมื่อไร ใครอยู่หน้างานถ้าเกมมีปัญหา และเอาเกมมาใช้ซ้ำได้ไหม ใบเสนอราคาที่ถูกกว่าแต่ไม่มีคนหน้างาน อาจแพงกว่าในวันที่เกมค้าง']
+ ],faqs:[
+ ['ราคาเริ่มต้นเท่าไร?',`${articlePrice(0)} สำหรับงานทัชสกรีน และ ${articlePrice(1)} สำหรับคอนเทนต์ LED และโปรเจกชัน ราคาสุดท้ายระบุในใบเสนอราคาตามขอบเขตงาน`],
+ ['รวมจอด้วยไหม?','ไม่รวม เกมใช้กับจอที่คุณหรือผู้จัดงานมี'],
+ ['ควรบอกงบก่อนไหม?','ควร เราจะได้เสนอสิ่งที่คุ้มที่สุดในงบนั้นตั้งแต่รอบแรก']
+ ],actions:['ส่งบรีฟเพื่อขอใบเสนอราคา','ดูแพ็กเกจ']}
 ];
 // Article topics (2026-10-27): hub names, intros and page titles. Dates read in Thai with the Buddhist year.
 const topicCopy={
@@ -100,7 +126,7 @@ articles.forEach(article=>[article.published,article.updated].filter(Boolean).fo
 Object.entries({'Articles worth reading':'บทความที่น่าสนใจ','ARTICLE TOPIC':'หัวข้อบทความ','Article topics':'หัวข้อบทความ','Browse by topic':'เลือกอ่านตามหัวข้อ','Articles on this topic are coming soon.':'บทความในหัวข้อนี้กำลังจะมาเร็ว ๆ นี้','In the meantime, see how we work on this.':'ระหว่างนี้ ลองดูบริการและผลงานที่เกี่ยวข้องของเราได้เลย','RELATED SERVICES & WORK':'บริการและผลงานที่เกี่ยวข้อง','See it in practice':'ดูจากงานจริง','Published':'เผยแพร่','Updated':'อัปเดต','MORE ON THIS TOPIC':'อ่านต่อในหัวข้อนี้','View topic':'ดูหัวข้อนี้','Coming soon':'เร็ว ๆ นี้'}).forEach(([en,th])=>add(en,th));
 // Image alt text and captions: articleCopy[i].cover and the third item of a section ({ alt, caption }).
 const addMedia=(media,th)=>{if(!media||!th)return;if(media.alt&&th.alt)add(media.alt,th.alt);if(media.caption&&th.caption)add(media.caption,th.caption);};
-articles.forEach((article,i)=>{add(article.title,articleCopy[i].title);add(article.summary,articleCopy[i].summary);addMedia(article.cover,articleCopy[i].cover);article.sections.forEach((pair,j)=>pair.forEach((item,k)=>{const th=articleCopy[i].sections[j]?.[k];if(typeof item==='string')add(item,th);else if(Array.isArray(item))item.forEach((p,m)=>add(p,th[m]));else addMedia(item,th);}));const copy=articleCopy[i];if(article.metaTitle)add(article.metaTitle,copy.metaTitle);if(article.description)add(article.description,copy.description);(article.faqs||[]).forEach(([q,a],m)=>{add(q,copy.faqs[m][0]);add(a,copy.faqs[m][1]);});(article.actions||[]).forEach(([label],m)=>add(label,copy.actions[m]));});
+articles.forEach((article,i)=>{add(article.title,articleCopy[i].title);add(article.summary,articleCopy[i].summary);addMedia(article.cover,articleCopy[i].cover);article.sections.forEach((pair,j)=>pair.forEach((item,k)=>{const th=articleCopy[i].sections[j]?.[k];if(typeof item==='string')add(item,th);else if(Array.isArray(item))item.forEach((p,m)=>{if(typeof p==='string')add(p,th[m]);else if(p.list)p.list.forEach((pair,n)=>pair.forEach((s,o)=>add(s,th[m].list[n][o])));else{p.table.head.forEach((s,o)=>add(s,th[m].table.head[o]));p.table.rows.forEach((row,n)=>row.forEach((s,o)=>add(s,th[m].table.rows[n][o])));}});else addMedia(item,th);}));const copy=articleCopy[i];if(article.metaTitle)add(article.metaTitle,copy.metaTitle);if(article.description)add(article.description,copy.description);(article.faqs||[]).forEach(([q,a],m)=>{add(q,copy.faqs[m][0]);add(a,copy.faqs[m][1]);});(article.actions||[]).forEach(([label],m)=>add(label,copy.actions[m]));if(article.readNext)add(article.readNext[1],copy.readNext);});
 
 export const uiCopy = {
  'Skip to content':'ข้ามไปยังเนื้อหา','Explore':'สำรวจ','Our Work':'ผลงานของเรา','Playground':'พื้นที่ทดลอง','Articles':'บทความ','Partner With Us':'ร่วมงานกับเรา','Let’s talk':'คุยกับเรา','Menu':'เมนู',
@@ -402,7 +428,9 @@ Object.entries({
  'Send us your event theme':'ส่งธีมงานให้เราช่วยเลือกเกม',
  'IN THIS TOPIC':'ในหมวดนี้',
  'Articles on this topic':'บทความในหมวดนี้',
- 'Read next: Booth game ideas for brands':'อ่านต่อ: ไอเดียเกมออกบูธสำหรับแบรนด์'
+ 'Read next: Booth game ideas for brands':'อ่านต่อ: ไอเดียเกมออกบูธสำหรับแบรนด์',
+ 'Read next: What budget do you need for a booth game?':'อ่านต่อ: ทำเกมออกบูธต้องเตรียมงบอะไรบ้าง',
+ 'Setting a budget? See what a booth game budget includes.':'กำลังตั้งงบ? ดูคู่มืองบทำเกมออกบูธ'
 }).forEach(([en,th])=>add(en,th));
 
 // Thai copy polish (2026-10-16): entries whose Thai text is shared by several

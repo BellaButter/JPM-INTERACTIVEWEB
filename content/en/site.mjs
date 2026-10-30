@@ -82,6 +82,8 @@ export const articleTopics = [
 ];
 export const articleFormats = ['Inspiration', 'Behind the Experience', 'Practical Guides'];
 export const articleCategories = articleFormats;
+// Event package starting prices for article copy (packages is defined above; eventPrice comes later).
+const startPrice = index => packages[0].items[index].startingPrice.toLocaleString('en-US') + '.-';
 export const articles = [
   { slug: 'designing-for-participation', title: 'Designing for participation, not just presentation', topic: 'event-booth-games', category: 'Inspiration', published: '2026-10-27', updated: '2026-10-27', cover: { image: 'designing-for-participation-cover.webp', alt: 'Two men exploring information together on a large touchscreen in a public space.', caption: 'Stock image illustrating a general concept, not a JPM Media Space project. ASphotofamily / Magnific' }, summary: 'A studio perspective on connecting people, brands, and physical spaces.', status: 'published', readTime: '3 min', sections: [
     ['Start with the person in the space', 'At JPM Media Space, we believe technology should be more than a display tool. An interactive experience invites a visitor to do something: touch a screen, move through a space, or explore a story. The first question is what we want that person to experience.'],
@@ -106,7 +108,32 @@ export const articles = [
     ['Do we need a completely new game?', 'Not necessarily. If an existing format already fits your goal, we redesign the visuals and content around your brand. If you want a new way to play, we can build that too.'],
     ['How do we put our product in the game in a meaningful way?', 'Make the product part of the rules, such as the item to catch, the right answer, or the prize, not just a background picture.'],
     ['Can we try a game before hiring you?', 'Yes. Play the demos in our Playground, and for every project we build a prototype for you to try before you decide.']
-  ], actions: [['Send us your brand theme', 'contact.html?service=Interactive%20Games'], ['Try demo', 'playground.html', true]] }
+  ], readNext: ['event-game-budget.html', 'Read next: What budget do you need for a booth game?'], actions: [['Send us your brand theme', 'contact.html?service=Interactive%20Games'], ['Try demo', 'playground.html', true]] },
+  // P2 (owner-reviewed 2026-10-30). Cover is the logo placeholder until Mina's photo arrives.
+  { slug: 'event-game-budget', title: 'What budget do you need for a booth game?', metaTitle: 'How Much Does a Booth Game Cost? What to Budget For', description: 'What goes into a booth game budget, what changes the price, and where you can save without losing results, with event package starting prices.', topic: 'planning-leads', category: 'Practical Guides', published: '2026-10-30', updated: '2026-10-30', cover: { image: 'article-cover-placeholder.webp', alt: 'JPM Media Space logo on a white background' }, summary: `JPM Media Space event packages start at ${startPrice(0)} for touchscreen experiences and ${startPrice(1)} for LED and projection content. The final price depends on what you need. This article explains what goes into the budget, what moves the price, and where you can save without losing what matters.`, status: 'published', readTime: '4 min', sections: [
+    ['What goes into a booth game budget', [{ table: { head: ['Part of the work', 'Examples', 'Included in our work?'], rows: [
+      ['The game and its rules', 'How to play, scoring, start and end screens', 'Yes'],
+      ['Visuals, sound, and brand content', 'Logo, colours, products, questions, campaign messages', 'Yes'],
+      ['Prototype and testing', 'One prototype version, tested before the event opens', 'Yes'],
+      ['On-site support on show day', 'A technical team on site from opening to close', 'Yes'],
+      ['Sign-up or QR and a player summary', 'A form before play, PDPA consent, a summary after the event', 'Add-on service'],
+      ['Screens, projectors, computers', 'Touchscreens, LED walls, stands', 'Not included; the game runs on your screens or the organizer’s']
+    ] } }, 'Splitting it this way shows at once which parts to budget with us and which to discuss with the organizer or screen rental company. If several parties are involved, we coordinate with the screen team, because we already work with agencies and LED providers.']],
+    ['What makes the budget go up', [{ list: [
+      ['A completely new set of rules', 'instead of adapting an existing game'],
+      ['Several languages, screens, or modes', 'because each set needs its own design and testing'],
+      ['Motion sensors', 'instead of touch'],
+      ['Sending data to another system', 'such as your brand’s CRM'],
+      ['Content that arrives late or changes after work starts', 'which means redoing visuals and testing again']
+    ] }]],
+    ['Where you can save', ['Keep what makes people want to play and remember your brand: the core rules and your brand visuals. The first things to cut are extra scenes, special effects, or system connections you do not need yet. A hypothetical example: one quiz set done well often works better than several modes with thin content.', 'Tell us your budget range from the start. We will propose the option that works best within it, instead of proposing everything and then cutting back.']],
+    ['Invest once, keep using it', 'The system we deliver can be updated, moved, or expanded. If you exhibit at several events a year, tell us when we first talk, and we will design it so the content is easy to change for the next event. Permanent installations come with a 1-year warranty.'],
+    ['Compare quotes fairly', 'Send the same brief to every supplier, then look at four things besides the total: is there a prototype to try first, when is it tested on the real screen, who is on site if the game has a problem, and can the game be reused. A cheaper quote with no one on site can cost more on the day the game freezes.']
+  ], faqs: [
+    ['What is the starting price?', `${startPrice(0)} for touchscreen experiences and ${startPrice(1)} for LED and projection content. The final price is set in your quotation, based on the agreed scope.`],
+    ['Are screens included?', 'No. The game runs on the screens you or the organizer have.'],
+    ['Should we tell you our budget first?', 'Yes. That way we can propose the best value within it from the first round.']
+  ], actions: [['Send your brief for a quote', 'contact.html?service=Interactive%20Games'], ['See packages', 'packages.html', true]] }
 ];
 
 // Home FAQ (2026-10-26, expanded 2026-10-27). Answers stay within owner-approved facts: package prices,
@@ -145,7 +172,7 @@ export const topicGuides = {
       ['Passers-by should get it in seconds', ['In an event hall, people decide very quickly whether to stop or walk on. A good game shows how to play at a glance, without long rules, and the people watching enjoy it too.', 'Short, clearly timed rounds keep the queue moving. When you estimate the queue, count the time to explain the rules, change players, and hand out prizes, not just the time in the game. A hypothetical example: 45 seconds of play plus 15 seconds to change players makes one minute per round, so one screen can take at most 60 rounds an hour.']],
       ['Screens, space, and controls', ['The same game can run on a touchscreen, an LED wall, or a projector, but the experience is very different. Touchscreens suit small booths and games where players choose answers. Motion sensors need standing space and suitable lighting, but they draw a bigger crowd.', 'JPM Media Space games run on the screens you already have. Share the screen size, resolution, and booth layout, and we design for the distance people actually stand from the screen.']],
       ['More than footfall: leads and a summary', ['A game is the best moment to ask for details, because people already want to play. We can add a sign-up form or QR scan before play, with the PDPA consent step you approve. After the event, you get a summary of players and engagement to plan your next one.']],
-      ['Budget, brief, and timing', [`Once you have a game in mind, the next questions are budget and time. Event packages start at ${eventPrice(0)} for touchscreen experiences, and a game takes at least one week to make, depending on the game and content. A complete brief from the start makes the quotation accurate and gets work started sooner.`]]
+      ['Budget, brief, and timing', [`Once you have a game in mind, the next questions are budget and time. Event packages start at ${eventPrice(0)} for touchscreen experiences, and a game takes at least one week to make, depending on the game and content. A complete brief from the start makes the quotation accurate and gets work started sooner.`], null, ['insights/event-game-budget.html', 'Read next: What budget do you need for a booth game?']]
     ],
     faqs: [
       ['Which game suits our brand?', 'Start with what you want people to remember, then compare it with the table above. Not sure yet? Send us your event theme and we’ll help you choose.'],
