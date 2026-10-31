@@ -1581,3 +1581,7 @@ html[lang="th"] .keycap-label { font-size: 14px; }
 .article-list { margin: 18px 0 0; padding-left: 22px; }
 .article-list li { margin-top: 10px; line-height: 1.8; }
 .article-body .guide-table-wrap + p { margin-top: 22px; }
+
+/* Brief section links on the event games page (owner request 2026-10-31): one tight group under the button. */
+.brief-links { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin-top: 28px; }
+#brief .brief-links .text-link { margin: 0; }
