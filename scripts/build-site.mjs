@@ -168,10 +168,13 @@ pages.push({path:'contact.html',active:'contact',title:'Contact Us & Request a Q
 
 pages.push({path:'thank-you.html',active:'contact',noindex:true,title:'Thank You — Enquiry Received',description:'Thank you for contacting JPM Media Space about your project.',body:`<section class="wrap section thank-you"><p class="eyebrow">THANK YOU FOR REACHING OUT</p><h1>Your next experience<br><span class="gradient-text">starts here.</span></h1><p>Your enquiry has been submitted. Our team will review your project details and get in touch using the contact information you provided.</p><p>If you need to reach us directly, call <a href="tel:+66962826224">${studio.phone}</a> or message us on <a href="${studio.line}">LINE</a>.</p>${button('case-studies.html','Explore Our Work')}</section>`});
 
+// In-text links: article and guide copy may contain [anchor](page.html#id), with the path from the site root.
+// The marker stays in the text until after Thai localization (which translates whole paragraphs), then becomes a link.
+const inlineLinks = (html, prefix) => html.replace(/\[([^\]<>]+)\]\(([a-z0-9/-]+\.html(?:#[a-z0-9-]+)?)\)/g, (_, text, href) => `<a href="${prefix}${href}">${text}</a>`);
 for (const page of pages) {
   await mkdir(new URL(`../${page.path.includes('/') ? page.path.slice(0,page.path.lastIndexOf('/')+1) : ''}`, import.meta.url), {recursive:true});
   const html=layout({...page,prefix:page.prefix||''}).replace('</head>',pageSchema(page,x=>x,'en')+'</head>');
-  await writeFile(new URL(`../${page.path}`,import.meta.url),html);
+  await writeFile(new URL(`../${page.path}`,import.meta.url),inlineLinks(html,page.prefix||''));
   const thaiPath='th/'+page.path;
   await mkdir(new URL(`../${thaiPath.slice(0,thaiPath.lastIndexOf('/')+1)}`,import.meta.url),{recursive:true});
   let thai=localizeThai(html,page.path);
@@ -181,7 +184,7 @@ for (const page of pages) {
   // Game screenshots on the Playground cards have Thai versions.
   thai=thai.replaceAll('assets/playground/','assets/playground/th/');
   if (page.faqs) thai=thai.replace(faqSchema(page.faqs),faqSchema(page.faqs.map(([q,a])=>[translateThai(q),translateThai(a)])));
-  await writeFile(new URL(`../${thaiPath}`,import.meta.url),thai);
+  await writeFile(new URL(`../${thaiPath}`,import.meta.url),inlineLinks(thai,page.prefix||''));
 }
 const routes = pages.filter(page=>!page.draft && !page.noindex).map(page=>page.path);
 const noindexRoutes = pages.filter(page=>page.noindex).map(page=>page.path);
