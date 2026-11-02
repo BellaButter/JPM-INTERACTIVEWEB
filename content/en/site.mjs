@@ -167,7 +167,23 @@ export const articles = [
     ['How hard should the questions be?', 'Most people should get them right if they read the question carefully. A game so hard that people have to guess makes them stop caring about the explanation.'],
     ['Can several people compete at once?', 'Yes. Multiplayer quiz games are part of what we build. Tell us how many screens and players you want in your brief.'],
     ['Can we collect player names?', 'Yes. Add a sign-up form or QR scan before play, with a PDPA consent step.']
-  ], readNext: ['booth-game-ideas.html', 'Read next: Booth game ideas for brands'], actions: [['Send us sample questions', 'contact.html?service=Interactive%20Games'], ['Try Quick Quiz', 'playground.html#quiz-game', true]] }
+  ], readNext: ['booth-game-ideas.html', 'Read next: Booth game ideas for brands'], actions: [['Send us sample questions', 'contact.html?service=Interactive%20Games'], ['Try Quick Quiz', 'playground.html#quiz-game', true]] },
+  // C7 (owner-reviewed 2026-11-02, publish 2026-11-04). Cover: Mina, AI illustration via Magnific (2026-11-02).
+  { slug: 'event-game-development-timeline', title: 'How long does it take to build an event game? Planning from brief to show day', metaTitle: 'How Long Does an Event Game Take? From Brief to Show Day', description: 'A booth game takes at least one week to build. See what each stage needs, from brief and prototype to testing and show day, and what makes a project slip.', topic: 'planning-leads', category: 'Practical Guides', published: '2026-11-04', updated: '2026-11-04', cover: { image: 'event-game-development-timeline-cover.webp', alt: 'Illustration of a brief-to-event development timeline beside a game tablet and an undated calendar.', caption: 'AI-generated concept illustration, not a real installation or a delivered game screen.' }, summary: 'A JPM Media Space booth game takes at least one week to build, depending on the game format and content. What gets a game finished on time is not only how fast the development team works, but knowing what each stage needs from you and getting it to us in time.', status: 'published', readTime: '3 min', sections: [
+    ['Five stages from brief to show day', [{ ordered: true, list: [
+      ['Brief and scope:', 'we talk through your goal, players, screens, and event date, check feasibility, and send a quote'],
+      ['Prototype:', 'we build one prototype version for you to play before you decide, so you see the real rules and pace instead of imagining them from a document'],
+      ['Brand content and revisions:', 'your logo, product images, questions, and campaign messages go into the game, then you review and request changes'],
+      ['Usability testing:', 'we check resolution, touch response, speed, and how each new round starts, to prevent problems on show day'],
+      ['Set-up and show day:', 'we test the whole system before the event opens, and our technical team stays on site from opening to close']
+    ] }]],
+    ['What slows a project down', 'Usually not the game itself, but information that arrives late: product images not yet approved, questions still waiting for legal review, or screen specs that only come in after work has started. Agree on a content deadline together from the start and have one approver on your side, and the work stays on plan much more easily. [Our brief checklist](insights/event-game-brief-checklist.html) helps you gather it all up front.'],
+    ['Can you do a rush job?', 'Tell us your event date when you ask for a quote. If time is short, we will suggest a way to make it, such as adapting a game whose rules already exist instead of designing a new one from scratch. We will tell you plainly from the start what can and cannot be done in time, because a game that has not been tested before show day is a risk we do not want you to take. See [how we build booth games](interactive-event-games.html).']
+  ], faqs: [
+    ['How many days does a booth game take?', 'At least one week, depending on the game format and content.'],
+    ['Does the date we send images affect delivery?', 'Yes. Content that arrives late pushes back both the content stage and the testing stage.'],
+    ['Do you test before show day?', 'Yes. We test on the real screens before show day, and again on site before the event opens.']
+  ], readNext: ['event-game-budget.html', 'Read next: What budget do you need for a booth game?'], actions: [['Tell us your date and get a quote', 'contact.html?service=Interactive%20Games'], ['Brief checklist', 'insights/event-game-brief-checklist.html', true]] }
 ];
 
 // Home FAQ (2026-10-26, expanded 2026-10-27). Answers stay within owner-approved facts: package prices,

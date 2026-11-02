@@ -33,6 +33,7 @@
     "insights/event-game-budget.html",
     "insights/event-game-brief-checklist.html",
     "insights/event-quiz-game.html",
+    "insights/event-game-development-timeline.html",
     "partner-with-us.html",
     "contact.html"
   ],
@@ -69,6 +70,7 @@
     "th/insights/event-game-budget.html",
     "th/insights/event-game-brief-checklist.html",
     "th/insights/event-quiz-game.html",
+    "th/insights/event-game-development-timeline.html",
     "th/partner-with-us.html",
     "th/contact.html"
   ],
