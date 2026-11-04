@@ -5,6 +5,9 @@
  for(const [en,th] of copy) if(en.toLowerCase()===key.toLowerCase()) return th;
  if(key.endsWith(' — JPM Media Space')) return translateThai(key.slice(0,-18))+' — JPM Media Space';
  if(key.startsWith(': ')) return ': '+translateThai(key.slice(2));
+ if(/, page \d+$/.test(key)) { const [, base, n] = key.match(/^(.*), page (\d+)$/); return translateThai(base)+' หน้า '+n; }
+ if(/^Page \d+$/.test(key)) return 'หน้า '+key.slice(5);
+ if(key==='Article pages') return 'หน้ารายการบทความ';
  if(key==='— current section') return '— หมวดปัจจุบัน';
  if(key.startsWith('View project reference: ')) return 'ดูผลงานอ้างอิง: '+translateThai(key.slice(24));
  if(key.startsWith('Explore ') && /Catch Game|Scratch Reveal|Product Explorer|Atmosphere Room|Projection Room|Sensor Trigger|RFID Product Display|Experience Builder|Your Brand’s Game|Tap the Right Item|Memory Match|Light Canvas/.test(key)) return key.replace('Explore ','สำรวจ ');
