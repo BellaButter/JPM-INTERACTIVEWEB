@@ -183,7 +183,25 @@ export const articles = [
     ['How many days does a booth game take?', 'At least one week, depending on the game format and content.'],
     ['Does the date we send images affect delivery?', 'Yes. Content that arrives late pushes back both the content stage and the testing stage.'],
     ['Do you test before show day?', 'Yes. We test on the real screens before show day, and again on site before the event opens.']
-  ], readNext: ['event-game-budget.html', 'Read next: What budget do you need for a booth game?'], actions: [['Tell us your date and get a quote', 'contact.html?service=Interactive%20Games'], ['Brief checklist', 'insights/event-game-brief-checklist.html', true]] }
+  ], readNext: ['event-game-budget.html', 'Read next: What budget do you need for a booth game?'], actions: [['Tell us your date and get a quote', 'contact.html?service=Interactive%20Games'], ['Brief checklist', 'insights/event-game-brief-checklist.html', true]] },
+  // N1 (owner-reviewed 2026-11-06). Cover: logo placeholder until Mina's still from the Punthai Coffee video arrives.
+  { slug: 'interactive-wall', title: 'What is an interactive wall (experience wall), and what kind of event suits one?', metaTitle: 'What Is an Interactive Wall (Experience Wall)? When to Use One', description: 'Walls and floors that respond to every movement, on the LED screen or projector you already have. Right for booths and permanent installations, with starting prices.', topic: 'led-projection-immersive', category: 'Inspiration', published: '2026-11-06', updated: '2026-11-06', cover: { image: 'article-cover-placeholder.webp', alt: 'JPM Media Space logo on a white background' }, summary: 'An interactive wall is a large screen or a projection on a wall that responds when people walk past, stand in front of it, or raise a hand. The image moves with them straight away, so people walking past stop to look, and people who stop want to take a photo home. It suits booths that want to stand out in the hall, and permanent spaces such as lobbies and showrooms.', status: 'published', readTime: '3 min', sections: [
+    ['How it works', 'An interactive wall has three parts: an LED screen or projector that shows the image, a sensor that reads where people are or how they move, such as LiDAR or a depth camera, and the content and software that turn that movement into visuals. JPM Media Space builds the content and software, and it runs on the screen or projector you already have. [Our LED and projection packages](services.html#projection) do not include screens or projectors.'],
+    ['Which type to choose', [{ table: { head: ['Type', 'Best for', 'What to think about'], rows: [
+      ['LED wall', 'Bright spaces and trade show halls', 'The screen comes from the organiser or a rental company, so you need its resolution'],
+      ['Projected image', 'Wide walls and rooms where you can control the light', 'Ambient light, and people’s shadows blocking the image'],
+      ['Interactive floor', 'Walkways, lobbies, and anywhere people pass through', 'Where it is mounted, and the ceiling height']
+    ] } }]],
+    ['At an event or as a permanent installation', `At an event, an interactive wall is a backdrop people want to step into, play with, and photograph. Event packages for LED and projection content start at ${startPrice(1)}, and [permanent installations](packages.html) start at ${packages[1].items[1].startingPrice.toLocaleString('en-US')}.- with a 1-year warranty, and are designed so you can change the content for each season.`],
+    ['Examples from our work', [{ list: [
+      ['Punthai Coffee:', 'a moving image wall that brought the brand’s world into an exhibition, where people stood in front of the screen and reached into the scene. [See the project](case-studies/punthai-coffee.html)'],
+      ['KIA Immersive Wall and Crowne Plaza Interactive Floor', '(portfolio with employer). See [KIA](case-studies/kia.html) and [Crowne Plaza](case-studies/crowne-plaza.html)']
+    ] }, 'Watch the video for each project on its page, or try the [Light Canvas demo](playground.html#light-canvas), where the image responds as you drag your finger in the browser.']]
+  ], faqs: [
+    ['Do we need a special screen?', 'No. We make the content to fit the LED screen or projector you have, and we choose the sensor to suit the space.'],
+    ['Can we change what is on the wall?', 'Yes. Permanent installations are designed so you can change the content for each season or campaign.'],
+    ['Is there a warranty?', 'Permanent installations come with a 1-year warranty. The scope is set out in your quotation.']
+  ], readNext: ['events-and-permanent-spaces.html', 'Read next: One moment or a lasting destination?'], actions: [['Talk to us about your wall', 'contact.html?service=Interactive%20LED%20%26%20Projection%20Content'], ['Try Light Canvas', 'playground.html#light-canvas', true]] }
 ];
 
 // Home FAQ (2026-10-26, expanded 2026-10-27). Answers stay within owner-approved facts: package prices,
