@@ -1589,3 +1589,16 @@ html[lang="th"] .keycap-label { font-size: 14px; }
 /* Article pages (2026-11-04): pager under the Articles grid, 10 articles per page. */
 .article-pager { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 40px; }
 .article-pager .filter-button { min-width: 44px; text-align: center; font-size: 15px; }
+
+/* Event games hero actions (owner request 2026-11-09): brief button first, sample games second, a short note below.
+   On phones both buttons fill the width, so the primary one is easy to see and tap. */
+.page-hero-actions { margin-top: 30px; }
+.page-hero-note { max-width: 560px; margin-top: 14px; color: var(--muted); font-size: 15px !important; line-height: 1.6; }
+@media (max-width: 600px) {
+  .page-hero-actions { flex-direction: column; align-items: stretch; }
+  .page-hero-actions .button { width: 100%; min-height: 52px; justify-content: center; gap: 12px; }
+}
+
+/* Booth games topic card on the Articles page: the topic link and a service link in one box. */
+.topic-card-split .topic-card-main { display: flex; flex-direction: column; gap: 12px; flex: 1; color: inherit; text-decoration: none; }
+.topic-card-split .topic-service-link { align-self: flex-start; }

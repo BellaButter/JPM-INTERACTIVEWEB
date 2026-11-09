@@ -18,6 +18,7 @@
     : element.closest('.demo-section') ? 'demo'
     : element.closest('.request-quote') ? 'quote_section'
     : element.closest('.hero,.page-hero') ? 'hero' : 'content';
+  const quoteLocations = new Set(['home_hero', 'service_hero', 'service_brief', 'packages', 'playground', 'article_end', 'footer']);
   document.addEventListener('click', event => {
     const link = event.target.closest?.('a[href]');
     if (!link) return;
@@ -40,9 +41,11 @@
         send('contact_click', { ...parameters, event_callback: follow, event_timeout: 600 });
       } else send('contact_click', parameters);
     }
-    else if (url.origin === window.location.origin &&
-      (/\/(?:th\/)?contact\.html$/.test(url.pathname) || url.hash === '#contact')) {
-      send('quote_cta_click', { cta_location: position(link) });
+    // Only buttons marked data-quote-cta ask for a brief or a quote; general
+    // contact links (menu, "Let's talk", "Start a conversation") are not counted.
+    else if (link.hasAttribute?.('data-quote-cta')) {
+      const location = link.getAttribute('data-quote-cta');
+      send('quote_cta_click', { cta_location: quoteLocations.has(location) ? location : 'other' });
     }
   });
 

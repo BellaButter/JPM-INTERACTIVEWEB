@@ -56,8 +56,8 @@ test('shared shell includes analytics once on release EN/TH pages, absent on pre
       const expected = origin === 'https://www.jpmmediaspace.com' ? 1 : 0;
       for (const html of [en, th]) assert.equal((html.match(/analytics\.js/g) || []).length, expected);
       if (expected) {
-        assert(en.includes('src="../analytics.js?v=3" defer'));
-        assert(th.includes('src="../../analytics.js?v=3" defer'));
+        assert(en.includes('src="../analytics.js?v=4" defer'));
+        assert(th.includes('src="../../analytics.js?v=4" defer'));
       }
     }
   } finally {
@@ -66,16 +66,50 @@ test('shared shell includes analytics once on release EN/TH pages, absent on pre
   }
 });
 
-test('contact and quote clicks use fixed labels without transmitting URL or entered text', () => {
+const testLink = (h, href, quote = null) => ({ href: new URL(href, h.window.location.href).href, closest: selector => selector === 'footer',
+  hasAttribute: name => name === 'data-quote-cta' && quote !== null, getAttribute: name => name === 'data-quote-cta' ? quote : null });
+
+test('contact clicks use fixed labels without transmitting URL or entered text', () => {
   const h = harness();
-  for (const href of ['https://line.me/R/ti/p/@jpm', 'tel:+66123456789', 'mailto:private@example.org', '/th/contact.html?service=private', '#contact', '/th/services.html']) {
-    const link = { href: new URL(href, h.window.location.href).href, closest: selector => selector === 'footer' };
+  for (const href of ['https://line.me/R/ti/p/@jpm', 'tel:+66123456789', 'mailto:private@example.org']) {
+    const link = testLink(h, href);
     h.fire('click', { target: { closest: () => link } });
   }
-  assert.deepEqual(h.events().map(e => e[1]), ['contact_click','contact_click','contact_click','quote_cta_click','quote_cta_click']);
-  assert.deepEqual(h.events().slice(0,3).map(e => e[2].contact_method), ['line','phone','email']);
+  assert.deepEqual(h.events().map(e => e[1]), ['contact_click','contact_click','contact_click']);
+  assert.deepEqual(h.events().map(e => e[2].contact_method), ['line','phone','email']);
   assert(!JSON.stringify(h.events()).includes('private'));
   assert(!JSON.stringify(h.events()).includes('123456789'));
+});
+
+test('quote_cta_click fires once only for marked brief/quote buttons, with their own location', () => {
+  const h = harness();
+  // General contact links: the "Contact" menu, "Let's talk", "Start a conversation", #contact without a marker.
+  for (const href of ['/th/contact.html', '/th/contact.html?service=private', '#contact', '/th/services.html']) {
+    const link = testLink(h, href);
+    h.fire('click', { target: { closest: () => link } });
+  }
+  assert.equal(h.events().length, 0);
+  for (const [href, quote] of [['/th/contact.html?service=Interactive%20Games', 'service_hero'], ['/th/contact.html?service=Interactive%20Games', 'service_brief'], ['/th/contact.html', 'made up <b>label</b>']]) {
+    const link = testLink(h, href, quote);
+    h.fire('click', { target: { closest: () => link } });
+  }
+  assert.deepEqual(h.events().map(e => [e[1], e[2].cta_location]), [['quote_cta_click','service_hero'], ['quote_cta_click','service_brief'], ['quote_cta_click','other']]);
+  assert(!JSON.stringify(h.events()).includes('Interactive'));
+});
+
+test('built pages mark every brief/quote button and leave general contact links unmarked', () => {
+  const page = path => readFileSync(new URL('../' + path, import.meta.url), 'utf8');
+  const marks = html => [...html.matchAll(/data-quote-cta="([a-z_]+)"/g)].map(m => m[1]);
+  for (const [path, expected] of [['interactive-event-games.html', ['service_hero', 'service_brief', 'footer']], ['th/interactive-event-games.html', ['service_hero', 'service_brief', 'footer']],
+    ['index.html', ['home_hero', 'footer']], ['packages.html', ['packages', 'packages', 'footer']], ['playground.html', ['playground', 'footer']], ['insights/event-game-budget.html', ['article_end', 'footer']]]) {
+    assert.deepEqual(marks(page(path)), expected, path);
+  }
+  const html = page('th/interactive-event-games.html');
+  assert(html.includes('href="contact.html?service=Interactive%20Games" data-quote-cta="service_hero"'));
+  assert(html.includes('href="playground.html"'));
+  // The header "Let's talk" pill and the shared "Start a conversation" section stay general contact links.
+  assert(!/<a [^>]*data-quote-cta[^>]*><span>/.test(html));
+  assert(!/data-quote-cta="[a-z_]+">เริ่มคุยกับเรา|data-quote-cta="[a-z_]+">Start a conversation/.test(html + page('about.html')));
 });
 
 test('invalid, cancelled and demo forms cannot generate a quote submission', () => {

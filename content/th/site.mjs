@@ -472,7 +472,7 @@ Object.entries({
  'START WITH A SHORT BRIEF':'เริ่มจากบรีฟสั้น ๆ',
  'Five things are enough to start.':'ส่ง 5 เรื่องมาก่อนก็พอ',
  'Send us your activity goal, your players, the event date, your booth size, and the screen you plan to use. If you liked a game in our Playground, mention it too. We’ll reply with a direction and a scope of work.':'เป้าหมายของกิจกรรม, กลุ่มผู้เล่น, วันงาน, ขนาดบูธ และจอที่จะใช้ ถ้ามีเกมที่ชอบจากพื้นที่ทดลอง แนบมาด้วย เราจะตอบกลับพร้อมแนวทางและขอบเขตงาน',
- 'Send us your brief':'ส่งบรีฟให้เรา',
+ 'Send us your brief':'ส่งบรีฟให้เรา','Send a brief for a quote':'ส่งบรีฟเพื่อขอใบเสนอราคา','Try the sample games':'ลองเล่นเกมตัวอย่าง','Tell us your goal, event date and rough booth size. Our team will suggest a game format and estimate the scope of work.':'บอกเป้าหมาย วันงาน และขนาดบูธเบื้องต้น ทีมจะช่วยแนะนำรูปแบบเกมและประเมินขอบเขตงานให้','See our event booth game service':'ดูบริการรับทำเกมบูธอีเวนต์',
  'Not sure which game yet? Read our event booth game articles.':'ยังเลือกแนวเกมไม่ได้? อ่านบทความเรื่องเกมบูธอีเวนต์ก่อน',
  'Questions about':'คำถามเรื่อง',
  'booth games.':'เกมบูธ',
