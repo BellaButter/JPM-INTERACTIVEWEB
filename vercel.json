@@ -8,6 +8,386 @@
       "source": "/",
       "destination": "/th/index.html",
       "permanent": false
+    },
+    {
+      "source": "/en",
+      "destination": "/index.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/:section(case-studies|works)/:slug(interactive-wall-crown-plaza|immersive-floor-interaction)",
+      "destination": "/case-studies/crowne-plaza.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/:section(case-studies|works)/:slug(lazada-run)",
+      "destination": "/case-studies/lazada-run.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/:section(case-studies|works)/:slug(punthai-visual)",
+      "destination": "/case-studies/punthai-coffee.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/:section(case-studies|works)/:slug(sakkarasathan-nicolas)",
+      "destination": "/case-studies/nicholas-shrine.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/:section(case-studies|works)/:slug(bcc-power-interactive)",
+      "destination": "/case-studies/bcc-power.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/:section(case-studies|works)/:slug(roulette-bangchak)",
+      "destination": "/case-studies/bangchak.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/:section(case-studies|works)/:slug(tea-machine-cafe-amazon)",
+      "destination": "/case-studies/cafe-amazon.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/:section(case-studies|works)/:slug(space-x-interactive)",
+      "destination": "/case-studies/xspring.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/:section(case-studies|works)/:slug(oishi-card-rfid)",
+      "destination": "/case-studies/oishi.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/:section(case-studies|works)/:slug(kia-visual-experience|immersive-wall-experience)",
+      "destination": "/case-studies/kia.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/:section(case-studies|works)/:slug(dynasty-preview)",
+      "destination": "/case-studies/dynasty.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/:section(case-studies|works)/:slug(kepler-preview)",
+      "destination": "/case-studies/kepler.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/:section(case-studies|works)/:slug(guitar-hero-pttep|guitar-hero-interactive)",
+      "destination": "/case-studies/pttep.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/:section(case-studies|works)/:slug(muay-thai-learning-media|muay-thai-interactive)",
+      "destination": "/case-studies/muaythai.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/:section(case-studies|works)/:slug(crab-life-walailak|fish-video-walailak|history-preview-walailak|research-preview-walailak|gam-luang-sap-yak-kon)",
+      "destination": "/case-studies/walailak-museum.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/:section(case-studies|works)/:slug([^./]+)",
+      "destination": "/case-studies.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/:section(case-studies|works)",
+      "destination": "/case-studies.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/services/:slug([^./]+)",
+      "destination": "/services.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/services",
+      "destination": "/services.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/content/:slug([^./]+)",
+      "destination": "/insights.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/content",
+      "destination": "/insights.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/industries",
+      "destination": "/industries.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/faq",
+      "destination": "/index.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/:section(case-studies|works)/:slug(interactive-wall-crown-plaza|immersive-floor-interaction)",
+      "destination": "/case-studies/crowne-plaza.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/:section(case-studies|works)/:slug(lazada-run)",
+      "destination": "/case-studies/lazada-run.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/:section(case-studies|works)/:slug(punthai-visual)",
+      "destination": "/case-studies/punthai-coffee.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/:section(case-studies|works)/:slug(sakkarasathan-nicolas)",
+      "destination": "/case-studies/nicholas-shrine.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/:section(case-studies|works)/:slug(bcc-power-interactive)",
+      "destination": "/case-studies/bcc-power.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/:section(case-studies|works)/:slug(roulette-bangchak)",
+      "destination": "/case-studies/bangchak.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/:section(case-studies|works)/:slug(tea-machine-cafe-amazon)",
+      "destination": "/case-studies/cafe-amazon.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/:section(case-studies|works)/:slug(space-x-interactive)",
+      "destination": "/case-studies/xspring.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/:section(case-studies|works)/:slug(oishi-card-rfid)",
+      "destination": "/case-studies/oishi.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/:section(case-studies|works)/:slug(kia-visual-experience|immersive-wall-experience)",
+      "destination": "/case-studies/kia.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/:section(case-studies|works)/:slug(dynasty-preview)",
+      "destination": "/case-studies/dynasty.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/:section(case-studies|works)/:slug(kepler-preview)",
+      "destination": "/case-studies/kepler.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/:section(case-studies|works)/:slug(guitar-hero-pttep|guitar-hero-interactive)",
+      "destination": "/case-studies/pttep.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/:section(case-studies|works)/:slug(muay-thai-learning-media|muay-thai-interactive)",
+      "destination": "/case-studies/muaythai.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/:section(case-studies|works)/:slug(crab-life-walailak|fish-video-walailak|history-preview-walailak|research-preview-walailak|gam-luang-sap-yak-kon)",
+      "destination": "/case-studies/walailak-museum.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/:section(case-studies|works)/:slug([^./]+)",
+      "destination": "/case-studies.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/:section(case-studies|works)",
+      "destination": "/case-studies.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/services/:slug([^./]+)",
+      "destination": "/services.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/services",
+      "destination": "/services.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/content/:slug([^./]+)",
+      "destination": "/insights.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/content",
+      "destination": "/insights.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/about",
+      "destination": "/about.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/contact",
+      "destination": "/contact.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/industries",
+      "destination": "/industries.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/faq",
+      "destination": "/index.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/:section(case-studies|works)/:slug(interactive-wall-crown-plaza|immersive-floor-interaction)",
+      "destination": "/th/case-studies/crowne-plaza.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/:section(case-studies|works)/:slug(lazada-run)",
+      "destination": "/th/case-studies/lazada-run.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/:section(case-studies|works)/:slug(punthai-visual)",
+      "destination": "/th/case-studies/punthai-coffee.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/:section(case-studies|works)/:slug(sakkarasathan-nicolas)",
+      "destination": "/th/case-studies/nicholas-shrine.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/:section(case-studies|works)/:slug(bcc-power-interactive)",
+      "destination": "/th/case-studies/bcc-power.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/:section(case-studies|works)/:slug(roulette-bangchak)",
+      "destination": "/th/case-studies/bangchak.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/:section(case-studies|works)/:slug(tea-machine-cafe-amazon)",
+      "destination": "/th/case-studies/cafe-amazon.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/:section(case-studies|works)/:slug(space-x-interactive)",
+      "destination": "/th/case-studies/xspring.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/:section(case-studies|works)/:slug(oishi-card-rfid)",
+      "destination": "/th/case-studies/oishi.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/:section(case-studies|works)/:slug(kia-visual-experience|immersive-wall-experience)",
+      "destination": "/th/case-studies/kia.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/:section(case-studies|works)/:slug(dynasty-preview)",
+      "destination": "/th/case-studies/dynasty.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/:section(case-studies|works)/:slug(kepler-preview)",
+      "destination": "/th/case-studies/kepler.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/:section(case-studies|works)/:slug(guitar-hero-pttep|guitar-hero-interactive)",
+      "destination": "/th/case-studies/pttep.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/:section(case-studies|works)/:slug(muay-thai-learning-media|muay-thai-interactive)",
+      "destination": "/th/case-studies/muaythai.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/:section(case-studies|works)/:slug(crab-life-walailak|fish-video-walailak|history-preview-walailak|research-preview-walailak|gam-luang-sap-yak-kon)",
+      "destination": "/th/case-studies/walailak-museum.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/:section(case-studies|works)/:slug([^./]+)",
+      "destination": "/th/case-studies.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/:section(case-studies|works)",
+      "destination": "/th/case-studies.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/services/:slug([^./]+)",
+      "destination": "/th/services.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/services",
+      "destination": "/th/services.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/content/:slug([^./]+)",
+      "destination": "/th/insights.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/content",
+      "destination": "/th/insights.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/about",
+      "destination": "/th/about.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/contact",
+      "destination": "/th/contact.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/industries",
+      "destination": "/th/industries.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/faq",
+      "destination": "/th/index.html",
+      "statusCode": 301
     }
   ],
   "headers": [
