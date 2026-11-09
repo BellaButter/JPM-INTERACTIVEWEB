@@ -439,6 +439,27 @@ const thaiEventGameFaqs = [
 ];
 if (thaiEventGameFaqs.length !== eventGameFaqs.length) throw new Error('Thai event game FAQ count must match English.');
 eventGameFaqs.forEach(([q,a],i)=>{ add(q,thaiEventGameFaqs[i][0]); add(a,thaiEventGameFaqs[i][1]); });
+// Event games page rework (owner request 2026-11-09). Hero H1 and intro are the owner's wording.
+[
+ ['Interactive game development for booths and events','รับทำเกมอินเทอร์แอคทีฟสำหรับบูธและงานอีเวนต์'],
+ ['We design and build games for booths, product launches and brand activations, fitted to your product, your players and the screens you will actually use. Our team takes it from the game concept and prototype to testing before event day.','ออกแบบและพัฒนาเกมสำหรับบูธ งานเปิดตัวสินค้า และกิจกรรมแบรนด์ ปรับเกมให้เข้ากับสินค้า ผู้เล่น และจอที่ใช้จริง ทีมดูแลตั้งแต่คิดรูปแบบเกม ทำต้นแบบ ไปจนถึงทดสอบก่อนวันงาน'],
+ ['Interactive game design and development for booths, product launches and brand activations. Try our sample games and send a brief so JPM Media Space can scope your project.','รับออกแบบและพัฒนาเกมอินเทอร์แอคทีฟสำหรับบูธ งานเปิดตัวสินค้า และกิจกรรมแบรนด์ ลองเล่นเกมตัวอย่างและส่งบรีฟเพื่อประเมินขอบเขตงานกับ JPM Media Space'],
+ ['Best for getting product information across. Turn your product’s key points into short questions players race to answer, with a live leaderboard.','เหมาะกับการสื่อสารข้อมูลสินค้า เปลี่ยนจุดเด่นของสินค้าเป็นคำถามสั้น ๆ ให้ผู้เล่นแข่งกันตอบในเวลาจำกัด พร้อมตารางคะแนนในงาน'],
+ ['Best for prize giveaways. Set your own prizes and odds, and add a sign-up before each spin if you want a list of visitors.','เหมาะกับกิจกรรมแจกของรางวัล ตั้งรางวัลและโอกาสออกได้เอง และเพิ่มการลงทะเบียนก่อนหมุนได้ ถ้าอยากเก็บรายชื่อผู้ร่วมงาน'],
+ ['Best for putting your product images into the game. Players catch your products as they fall and dodge hazards. You can upload your own image in the demo.','เหมาะกับการนำภาพสินค้ามาเป็นส่วนหนึ่งของเกม ผู้เล่นรับสินค้าของแบรนด์ที่ตกลงมาและหลบสิ่งกีดขวาง ลองอัปโหลดภาพของคุณในเดโมได้เลย'],
+ ['Quick Quiz demo screen','หน้าจอเดโม Quick Quiz'],['Lucky Wheel demo screen','หน้าจอเดโม Lucky Wheel'],['Catch Game demo screen','หน้าจอเดโม Catch Game'],
+ ['The brief','โจทย์'],['How people played','คนในงานเล่นอย่างไร'],['Our part','ส่วนที่ทีมรับผิดชอบ'],['See this project','ดูผลงานนี้'],['More booth games:','เกมบูธอื่น ๆ:'],
+ ['At PTTEP’s booth at IPTC, Bangkok Convention Centre, visitors stood at a large touchscreen and tapped the notes in time, in the style of Guitar Hero.','ที่บูธ PTTEP ในงาน IPTC ที่ Bangkok Convention Centre ผู้ร่วมงานยืนเล่นที่จอทัชสกรีนขนาดใหญ่ แตะโน้ตให้ตรงจังหวะแบบ Guitar Hero'],
+ ['For Bangchak’s 38th anniversary, players pressed Start to spin a wheel that stops on one of the company’s values, such as Innovation, Boldness or Customer Empathy.','ในงานครบรอบ 38 ปีของ Bangchak ผู้เล่นกด Start ให้วงล้อหมุนไปหยุดที่ค่านิยมขององค์กร เช่น Innovation, Boldness หรือ Customer Empathy'],
+ ['BEFORE YOU ASK FOR A QUOTE','ก่อนขอใบเสนอราคา'],['Price, time and equipment at a glance.','ราคา เวลา และอุปกรณ์ สรุปไว้ให้แล้ว'],
+ ['Starting price','ราคาเริ่มต้น'],['From','เริ่มต้น'],['Time to build','ระยะเวลาผลิต'],['At least 1 week','อย่างน้อย 1 สัปดาห์'],['Equipment to prepare','อุปกรณ์ที่ต้องเตรียม'],['Your own screen','จอของคุณ'],
+ [`Touchscreen games for events. LED and projection content starts at ${thaiEventPrice(1)}. The final price is set in your quotation, based on the agreed scope.`,`สำหรับเกมทัชสกรีนในงานอีเวนต์ ส่วนคอนเทนต์บนจอ LED และโปรเจกชันเริ่มต้นที่ ${thaiEventPrice(1)} ราคาสุดท้ายระบุในใบเสนอราคาตามขอบเขตงาน`],
+ ['Depending on the game and content. Share your event date early so we can plan a prototype test before the show.','ขึ้นกับรูปแบบเกมและเนื้อหา แจ้งวันงานมาตั้งแต่แรก เราจะวางตารางให้มีเวลาลอง prototype ก่อนวันงาน'],
+ ['Screens and projectors are not included. Our games run on your touchscreen, LED wall or projector. Tell us its size and resolution.','ราคาไม่รวมจอและโปรเจกเตอร์ เกมใช้กับทัชสกรีน จอ LED หรือโปรเจกเตอร์ที่คุณมี แจ้งขนาดและความละเอียดจอมาได้เลย'],
+ ['See what a booth game budget includes','ดูว่างบเกมบูธรวมอะไรบ้าง'],['Use our booth game brief checklist','ใช้เช็กลิสต์บรีฟเกมบูธ'],
+ ['Activity goal','เป้าหมายกิจกรรม'],['Players','กลุ่มผู้เล่น'],['Event date','วันงาน'],['Booth size','ขนาดบูธ'],['Screen you will use','จอที่จะใช้'],
+ ['If you liked a game in our Playground, mention it too. We’ll reply with a direction and a scope of work.','ถ้าชอบเกมไหนใน Playground บอกเราด้วย เราจะตอบกลับพร้อมแนวทางและขอบเขตงาน']
+].forEach(([en,th])=>add(en,th));
 Object.entries({
  'Interactive Games for Event Booths':'รับทำเกมอินเทอร์แอคทีฟสำหรับบูธงานอีเวนต์',
  'Interactive Event Games':'รับทำเกมอินเทอร์แอคทีฟ',
