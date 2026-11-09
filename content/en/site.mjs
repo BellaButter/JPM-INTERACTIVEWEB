@@ -201,7 +201,32 @@ export const articles = [
     ['Do we need a special screen?', 'No. We make the content to fit the LED screen or projector you have, and we choose the sensor to suit the space.'],
     ['Can we change what is on the wall?', 'Yes. Permanent installations are designed so you can change the content for each season or campaign.'],
     ['Is there a warranty?', 'Permanent installations come with a 1-year warranty. The scope is set out in your quotation.']
-  ], readNext: ['events-and-permanent-spaces.html', 'Read next: One moment or a lasting destination?'], actions: [['Talk to us about your wall', 'contact.html?service=Interactive%20LED%20%26%20Projection%20Content'], ['Try Light Canvas', 'playground.html#light-canvas', true]] }
+  ], readNext: ['events-and-permanent-spaces.html', 'Read next: One moment or a lasting destination?'], actions: [['Talk to us about your wall', 'contact.html?service=Interactive%20LED%20%26%20Projection%20Content'], ['Try Light Canvas', 'playground.html#light-canvas', true]] },
+  // C8 (owner-reviewed 2026-11-09). Cover: Mina, stock photo by prostock-studio via Magnific (2026-11-09).
+  { slug: 'compare-event-game-quotes', title: 'How to compare booth game quotes before you choose a supplier', metaTitle: 'Comparing Booth Game Quotes: A Checklist Before You Choose', description: 'The cheaper quote may not be the better deal. Six things to compare beyond the total, from the prototype and testing to on-site support and reusing the game.', topic: 'planning-leads', category: 'Practical Guides', published: '2026-11-09', updated: '2026-11-09', cover: { image: 'compare-event-game-quotes-cover.webp', alt: 'A man comparing two sheets of paper beside a laptop in an office.', caption: 'Stock photograph illustrating document comparison. Credit: prostock-studio via Magnific.' }, summary: 'Two quotes that both say “booth game” can describe very different amounts of work. Before you choose on the total, compare these six things and you will see what each supplier really gives you.', status: 'published', readTime: '3 min', sections: [
+    ['Start with the same brief', 'Send [the same brief](insights/event-game-brief-checklist.html) to every supplier. If each one gets different information, the prices you get back cannot be compared. Our 8-point brief checklist is a good starting point.'],
+    ['Six things to compare', [{ ordered: true, list: [
+      ['Is there a prototype to try first?', 'Do you see the real game before you decide, or only still images?'],
+      ['Visuals and revision rounds:', 'how far can the game take on your brand visuals, and how many rounds of changes are included?'],
+      ['When is it tested on the real screen?', 'Before show day, or does the first problem appear when the booth opens?'],
+      ['Who is on site?', 'If the game freezes at two in the afternoon, who fixes it, and how fast?'],
+      ['What is not included:', 'are the screen, computer, and player data collection written down clearly?'],
+      ['Can the game be reused?', 'Does the next event mean paying for a new build, or only changing the content?']
+    ] }]],
+    ['How JPM Media Space answers', [{ table: { head: ['Point', 'What you get from us'], rows: [
+      ['Prototype first', 'One prototype version to try before you decide'],
+      ['Testing before opening', 'We test the whole system before the event opens'],
+      ['Team on site', 'The team who wrote the program is on site from opening to close'],
+      ['Screens', 'Not included. The game runs on your screen or the organiser’s'],
+      ['Reuse', 'A system you can update, move, or build on'],
+      ['After the show', 'A summary of players and engagement (if you want it)']
+    ] } }, 'See [how we build booth games](interactive-event-games.html) from brief to show day.']],
+    ['Cheaper does not mean better value', 'A cheaper quote with nobody on site can cost more on the day the game freezes in front of your customers. If you have a question about any line in our quote, just ask and we will explain every item. To see what usually goes into the total, read [what a booth game budget includes](insights/event-game-budget.html).']
+  ], faqs: [
+    ['Should we just pick the cheapest quote?', 'Compare the six points above first. Whatever is not included often becomes a cost later.'],
+    ['Should we ask about file rights?', 'Yes. Ask whether you can use the game at your next event, and what that would cost.'],
+    ['What does “on-site support” mean?', 'For us, it means the technical team who built that game stays at the booth from opening to close, ready to fix any problem straight away.']
+  ], readNext: ['event-game-development-timeline.html', 'Read next: How long does it take to build an event game?'], actions: [['Get a quote to compare', 'contact.html?service=Interactive%20Games'], ['See packages', 'packages.html', true]] }
 ];
 
 // Home FAQ (2026-10-26, expanded 2026-10-27). Answers stay within owner-approved facts: package prices,
