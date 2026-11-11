@@ -26,6 +26,7 @@
     "playground.html",
     "insights.html",
     "insights/event-booth-games.html",
+    "insights/touchscreens-kiosks.html",
     "insights/led-projection-immersive.html",
     "insights/planning-leads.html",
     "insights/designing-for-participation.html",
@@ -37,6 +38,7 @@
     "insights/event-game-development-timeline.html",
     "insights/interactive-wall.html",
     "insights/compare-event-game-quotes.html",
+    "insights/touchscreen-vs-motion-games.html",
     "partner-with-us.html",
     "contact.html"
   ],
@@ -66,6 +68,7 @@
     "th/playground.html",
     "th/insights.html",
     "th/insights/event-booth-games.html",
+    "th/insights/touchscreens-kiosks.html",
     "th/insights/led-projection-immersive.html",
     "th/insights/planning-leads.html",
     "th/insights/designing-for-participation.html",
@@ -77,14 +80,13 @@
     "th/insights/event-game-development-timeline.html",
     "th/insights/interactive-wall.html",
     "th/insights/compare-event-game-quotes.html",
+    "th/insights/touchscreen-vs-motion-games.html",
     "th/partner-with-us.html",
     "th/contact.html"
   ],
   "noindexRoutes": [
-    "insights/touchscreens-kiosks.html",
     "insights/sensors-technology.html",
     "thank-you.html",
-    "th/insights/touchscreens-kiosks.html",
     "th/insights/sensors-technology.html",
     "th/thank-you.html"
   ]

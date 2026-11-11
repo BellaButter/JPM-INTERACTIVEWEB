@@ -226,7 +226,24 @@ export const articles = [
     ['Should we just pick the cheapest quote?', 'Compare the six points above first. Whatever is not included often becomes a cost later.'],
     ['Should we ask about file rights?', 'Yes. Ask whether you can use the game at your next event, and what that would cost.'],
     ['What does “on-site support” mean?', 'For us, it means the technical team who built that game stays at the booth from opening to close, ready to fix any problem straight away.']
-  ], readNext: ['event-game-development-timeline.html', 'Read next: How long does it take to build an event game?'], actions: [['Get a quote to compare', 'contact.html?service=Interactive%20Games'], ['See packages', 'packages.html', true]] }
+  ], readNext: ['event-game-development-timeline.html', 'Read next: How long does it take to build an event game?'], actions: [['Get a quote to compare', 'contact.html?service=Interactive%20Games'], ['See packages', 'packages.html', true]] },
+  // C4 (owner-reviewed 2026-11-11). Cover: logo placeholder until Mina's image arrives.
+  { slug: 'touchscreen-vs-motion-games', title: 'Touchscreen games or motion-sensing games: which suits your booth?', metaTitle: 'Touchscreen vs Motion-Sensing Booth Games: Which to Choose', description: 'Touchscreen games compared with motion-sensing games on space, onlookers, lighting, and accessibility, so you can choose the one that fits your booth.', topic: 'touchscreens-kiosks', category: 'Practical Guides', published: '2026-11-11', updated: '2026-11-11', cover: { image: 'article-cover-placeholder.webp', alt: 'JPM Media Space logo on a white background' }, summary: 'Touchscreens and motion sensors are the two approaches we use most in booth games. Touchscreens are easy to play and need little space, while motion games draw more onlookers. Choose by what you want people to do, not by which technology looks more advanced.', status: 'published', readTime: '3 min', sections: [
+    ['A side-by-side comparison', [{ table: { head: ['Point', 'Touchscreen', 'Motion sensing'], rows: [
+      ['Best for', 'Games where people choose answers, read information, or tap targets', 'Games where people run, jump, or wave'],
+      ['Floor space', 'Works in a small booth', 'Needs room to stand and play in front of the screen'],
+      ['Onlookers', 'People see it up close', 'Visible from far away, and a scene people want to photograph'],
+      ['What to check', 'Screen height, reach, and button size', 'Lighting, sensor mounting distance, and passers-by who interfere'],
+      ['Screens', 'Your touchscreen or the organiser’s', 'An LED screen or projector, with a sensor such as LiDAR or a depth camera']
+    ] } }]],
+    ['Touchscreens: think about reach', 'A big screen does not mean every point is within reach. We place the buttons people use most at a height most people can touch comfortably, including children and wheelchair users, and we test repeated taps on the real screen before show day. Try [Tap the Right Item](playground.html#tap-game) to feel how a touch game plays.'],
+    ['Motion sensing: think about space and light', 'You need a clearly marked play area, separate from the walkway and the queue, so passers-by do not confuse the game. We choose the sensor and where to mount it from the real booth layout, and fine-tune it on site before the event opens. An example from our work is [LAZADA Run Thailand](case-studies/lazada-run.html), a running game where people move in front of the screen (portfolio with employer).'],
+    ['You do not have to choose just one', 'Some booths use a motion game to draw people in, then a touchscreen at another spot for sign-up or browsing products. People who would rather not move around can still take part. Tell us your booth size and the screens you have, and we will help you plan it. See [how we build booth games](interactive-event-games.html), or read our [guide to event booth games](insights/event-booth-games.html).']
+  ], faqs: [
+    ['What sensors do motion games use?', 'It depends on the game and the space, for example LiDAR or a depth camera. We choose once we have seen the booth layout.'],
+    ['Can a small booth use a motion game?', 'Yes, if there is enough room to stand and play. Send us your booth layout to check first.'],
+    ['Can we use the venue’s screen?', 'Yes. Tell us its size, resolution, and touch system, and we will check and test it before show day.']
+  ], readNext: ['interactive-wall.html', 'Read next: What is an interactive wall (experience wall)?'], actions: [['Send us your booth layout', 'contact.html?service=Interactive%20Games'], ['Try Catch', 'playground.html#catch-game', true]] }
 ];
 
 // Home FAQ (2026-10-26, expanded 2026-10-27). Answers stay within owner-approved facts: package prices,
