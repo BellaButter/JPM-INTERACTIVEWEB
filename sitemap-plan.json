@@ -25,6 +25,7 @@
     "case-studies/muaythai.html",
     "playground.html",
     "insights.html",
+    "insights-2.html",
     "insights/event-booth-games.html",
     "insights/touchscreens-kiosks.html",
     "insights/led-projection-immersive.html",
@@ -39,6 +40,7 @@
     "insights/interactive-wall.html",
     "insights/compare-event-game-quotes.html",
     "insights/touchscreen-vs-motion-games.html",
+    "insights/booth-game-rounds-and-queues.html",
     "partner-with-us.html",
     "contact.html"
   ],
@@ -67,6 +69,7 @@
     "th/case-studies/muaythai.html",
     "th/playground.html",
     "th/insights.html",
+    "th/insights-2.html",
     "th/insights/event-booth-games.html",
     "th/insights/touchscreens-kiosks.html",
     "th/insights/led-projection-immersive.html",
@@ -81,6 +84,7 @@
     "th/insights/interactive-wall.html",
     "th/insights/compare-event-game-quotes.html",
     "th/insights/touchscreen-vs-motion-games.html",
+    "th/insights/booth-game-rounds-and-queues.html",
     "th/partner-with-us.html",
     "th/contact.html"
   ],
