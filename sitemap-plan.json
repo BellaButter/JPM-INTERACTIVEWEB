@@ -41,6 +41,7 @@
     "insights/compare-event-game-quotes.html",
     "insights/touchscreen-vs-motion-games.html",
     "insights/booth-game-rounds-and-queues.html",
+    "insights/template-vs-custom-event-games.html",
     "partner-with-us.html",
     "contact.html"
   ],
@@ -85,6 +86,7 @@
     "th/insights/compare-event-game-quotes.html",
     "th/insights/touchscreen-vs-motion-games.html",
     "th/insights/booth-game-rounds-and-queues.html",
+    "th/insights/template-vs-custom-event-games.html",
     "th/partner-with-us.html",
     "th/contact.html"
   ],
