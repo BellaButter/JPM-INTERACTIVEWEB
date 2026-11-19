@@ -272,7 +272,23 @@ export const articles = [
   ], faqs: [
     ['Is a ready-made game always cheaper?', 'It is usually easier to keep within budget, but if the rules need a lot of changes, it may cost about the same as building new. See the starting prices on our packages page.'],
     ['Can we reuse the game at the next event?', 'Yes. We design it so it can be updated, moved, or built on.']
-  ], readNext: ['booth-game-ideas.html', 'Read next: Booth game ideas for brands'], actions: [['Send us the game you like and what to change', 'contact.html?service=Interactive%20Games'], ['Try demo', 'playground.html', true]] }
+  ], readNext: ['booth-game-ideas.html', 'Read next: Booth game ideas for brands'], actions: [['Send us the game you like and what to change', 'contact.html?service=Interactive%20Games'], ['Try demo', 'playground.html', true]] },
+  // C10 (owner-reviewed 2026-11-19). Cover: Mina, AI illustration (2026-11-19).
+  { slug: 'small-booth-game-layout', title: 'How to fit a game into a small booth: screen, play spot, and the way in and out', metaTitle: 'Games for Small Booths: Placing the Screen, Play Spot, and Queue', description: 'Even a 3×3 metre booth can have a game people queue for. How to place the screen, the play spot, the waiting spot, and the walkway so a small booth feels lively, not crowded.', topic: 'event-booth-games', category: 'Practical Guides', published: '2026-11-19', updated: '2026-11-19', cover: { image: 'small-booth-game-layout-cover.webp', alt: 'A 3D illustration of a small game booth with a touchscreen, player zone, waiting visitor, and entry and exit arrows.', caption: 'Concept illustration of a compact game booth layout.' }, summary: 'A small booth does not have to be one nobody notices. A game placed in the right spot can make a 3×3 metre booth feel lively. The secret is to keep three areas clearly apart: where people play, where they wait, and the way out.', status: 'published', readTime: '3 min', sections: [
+    ['Start from the real floor plan', 'Booth size alone is not enough. Send us the plan showing which sides open onto the aisle, pillars, power sockets, and where the counter goes. A booth open on two sides and one open on a single side need the screen placed differently.'],
+    ['Face the screen toward people walking past', 'The game screen should face the aisle so passers-by can see someone playing. That is the best advertising your booth has. For a touchscreen, a portrait screen takes little space and is easy to read from where people stand. We design the game to fit the size and orientation of the screen you have.'],
+    ['Keep the waiting spot apart from the play spot', 'Let people waiting stand to the side where they can still see the screen, without blocking the player or the walkway of the booth next door. If there is a sign-up before play, let people scan a QR code to register while they wait, so they can play as soon as it is their turn and the play spot is not held up by forms.'],
+    ['Which games suit a small booth', [{ list: [
+      ['Portrait touchscreen:', 'takes the least space, and suits quiz, matching, and tap-the-target games'],
+      ['Spin-the-wheel game:', 'quick to finish, so the queue moves fast'],
+      ['Motion game:', 'works if there is enough room to stand in front of the screen. Send us the plan to check first']
+    ] }, 'Still deciding between a touchscreen and a motion game? Read [touchscreen games or motion-sensing games](insights/touchscreen-vs-motion-games.html).']],
+    ['Leave room for cables and the technical team', 'The computer, cables, and technical team need a place, even in a small booth. Our technical team is on site from opening to close, so leave a small corner where they can reach the equipment without walking through the players. See [how we build booth games](interactive-event-games.html), or read our [guide to event booth games](insights/event-booth-games.html).']
+  ], faqs: [
+    ['Can you estimate from the booth size alone?', 'Roughly, yes. But a plan showing the aisles and power sockets lets us place the screen more accurately.'],
+    ['Can a small booth use a motion game?', 'Yes, if there is enough room to stand and play. We check the plan for you first.'],
+    ['Do we need to leave room for a queue?', 'You should. People waiting and watching others play are part of what makes a booth feel lively.']
+  ], readNext: ['booth-game-rounds-and-queues.html', 'Read next: How long should one round of a booth game be?'], actions: [['Send us your booth floor plan', 'contact.html?service=Interactive%20Games'], ['Try demo', 'playground.html', true]] }
 ];
 
 // Home FAQ (2026-10-26, expanded 2026-10-27). Answers stay within owner-approved facts: package prices,
