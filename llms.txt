@@ -72,6 +72,10 @@ Touchscreen applications, digital catalogs, and kiosks for event booths, showroo
 Interactive content for LED walls, projection, floors, and immersive rooms, using screens and projectors you already have.
 - [What is an interactive wall (experience wall), and what kind of event suits one?](https://www.jpmmediaspace.com/insights/interactive-wall.html) (2026-11-06): An interactive wall is a large screen or a projection on a wall that responds when people walk past, stand in front of it, or raise a hand. The image moves with them straight away, so people walking past stop to look, and people who stop want to take a photo home. It suits booths that want to stand out in the hall, and permanent spaces such as lobbies and showrooms.
 
+### [Sensors & Technology](https://www.jpmmediaspace.com/insights/sensors-technology.html)
+LiDAR, depth cameras, RFID, and NFC: which sensor fits which space, and how movement and objects become content.
+- [Booth games when the internet is unreliable: what to prepare](https://www.jpmmediaspace.com/insights/offline-event-game-backup.html) (2026-11-20): Thousands of people use the internet in an event hall at the same time, and it often slows down when the hall is busiest, which is exactly when your booth matters most. A good game has to keep running even if the connection drops. This is something to talk through while you plan.
+
 ### [Planning & Lead Capture](https://www.jpmmediaspace.com/insights/planning-leads.html)
 Planning an interactive project from brief to show day: packages, what to prepare, and how to collect leads and player summaries.
 - [One moment or a lasting destination?](https://www.jpmmediaspace.com/insights/events-and-permanent-spaces.html) (2026-10-27): How the original event and permanent installation packages frame a project conversation.

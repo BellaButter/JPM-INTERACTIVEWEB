@@ -288,7 +288,18 @@ export const articles = [
     ['Can you estimate from the booth size alone?', 'Roughly, yes. But a plan showing the aisles and power sockets lets us place the screen more accurately.'],
     ['Can a small booth use a motion game?', 'Yes, if there is enough room to stand and play. We check the plan for you first.'],
     ['Do we need to leave room for a queue?', 'You should. People waiting and watching others play are part of what makes a booth feel lively.']
-  ], readNext: ['booth-game-rounds-and-queues.html', 'Read next: How long should one round of a booth game be?'], actions: [['Send us your booth floor plan', 'contact.html?service=Interactive%20Games'], ['Try demo', 'playground.html', true]] }
+  ], readNext: ['booth-game-rounds-and-queues.html', 'Read next: How long should one round of a booth game be?'], actions: [['Send us your booth floor plan', 'contact.html?service=Interactive%20Games'], ['Try demo', 'playground.html', true]] },
+  // C11 (owner-reviewed 2026-11-20). Cover: Mina, AI illustration (2026-11-20).
+  { slug: 'offline-event-game-backup', title: 'Booth games when the internet is unreliable: what to prepare', metaTitle: 'Booth Games With Unreliable Internet: Backup Plans to Prepare', description: 'Event hall internet often slows down when the hall is busiest. How to separate what needs the internet, prepare a backup plan, and rehearse before show day so the game keeps running.', topic: 'sensors-technology', category: 'Practical Guides', published: '2026-11-20', updated: '2026-11-20', cover: { image: 'offline-event-game-backup-cover.webp', alt: 'An event booth kiosk with a disconnected Wi-Fi icon beside a computer, backup drive, and pending-data card.', caption: 'Concept illustration of backup planning for an event game.' }, summary: 'Thousands of people use the internet in an event hall at the same time, and it often slows down when the hall is busiest, which is exactly when your booth matters most. A good game has to keep running even if the connection drops. This is something to talk through while you plan.', status: 'published', readTime: '3 min', sections: [
+    ['Work out what needs the internet', 'Most of the time the game itself does not need the internet. What usually does are the extras, such as sending player names into the brand’s system or sending coupons by SMS. In [your brief](insights/event-game-brief-checklist.html), just tell us what you want, and we will design the parts that need the internet separately from the parts that do not.'],
+    ['Agree beforehand what happens if the connection drops', [{ list: [
+      'Can the game keep running?',
+      'Where is player data entered during that time kept, and when is it sent on?',
+      'How does the activity carry on if its system depends on the internet?'
+    ] }, 'The answers to all three should be in the plan before show day, not worked out once the connection has dropped.']],
+    ['Rehearse a dropped connection before opening', 'We test the whole system on site before the event opens, including cutting the internet to check the game behaves as agreed. Our technical team is on site from opening to close, so if anything goes wrong, the people who wrote the program can fix it straight away. See [how we build booth games](interactive-event-games.html).'],
+    ['Ask the organiser about the internet early', 'Ask the organiser what internet the booth gets, whether a cable or Wi-Fi line can be kept separate from the public, and what it costs. Put the answers in your brief, and we will design for the internet you will actually have.']
+  ], readNext: ['event-game-development-timeline.html', 'Read next: How long does it take to build an event game?'], actions: [['Plan your show day with us', 'contact.html?service=Interactive%20Games'], ['Brief checklist', 'insights/event-game-brief-checklist.html', true]] }
 ];
 
 // Home FAQ (2026-10-26, expanded 2026-10-27). Answers stay within owner-approved facts: package prices,

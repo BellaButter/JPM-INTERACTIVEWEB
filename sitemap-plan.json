@@ -29,6 +29,7 @@
     "insights/event-booth-games.html",
     "insights/touchscreens-kiosks.html",
     "insights/led-projection-immersive.html",
+    "insights/sensors-technology.html",
     "insights/planning-leads.html",
     "insights/designing-for-participation.html",
     "insights/events-and-permanent-spaces.html",
@@ -43,6 +44,7 @@
     "insights/booth-game-rounds-and-queues.html",
     "insights/template-vs-custom-event-games.html",
     "insights/small-booth-game-layout.html",
+    "insights/offline-event-game-backup.html",
     "partner-with-us.html",
     "contact.html"
   ],
@@ -75,6 +77,7 @@
     "th/insights/event-booth-games.html",
     "th/insights/touchscreens-kiosks.html",
     "th/insights/led-projection-immersive.html",
+    "th/insights/sensors-technology.html",
     "th/insights/planning-leads.html",
     "th/insights/designing-for-participation.html",
     "th/insights/events-and-permanent-spaces.html",
@@ -89,13 +92,12 @@
     "th/insights/booth-game-rounds-and-queues.html",
     "th/insights/template-vs-custom-event-games.html",
     "th/insights/small-booth-game-layout.html",
+    "th/insights/offline-event-game-backup.html",
     "th/partner-with-us.html",
     "th/contact.html"
   ],
   "noindexRoutes": [
-    "insights/sensors-technology.html",
     "thank-you.html",
-    "th/insights/sensors-technology.html",
     "th/thank-you.html"
   ]
 }
