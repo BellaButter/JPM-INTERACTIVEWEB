@@ -45,6 +45,7 @@
     "insights/template-vs-custom-event-games.html",
     "insights/small-booth-game-layout.html",
     "insights/offline-event-game-backup.html",
+    "insights/booth-game-measurement.html",
     "partner-with-us.html",
     "contact.html"
   ],
@@ -93,6 +94,7 @@
     "th/insights/template-vs-custom-event-games.html",
     "th/insights/small-booth-game-layout.html",
     "th/insights/offline-event-game-backup.html",
+    "th/insights/booth-game-measurement.html",
     "th/partner-with-us.html",
     "th/contact.html"
   ],
