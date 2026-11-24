@@ -18,7 +18,7 @@ if(sections.length>1){
  let current=-1;
  function pauseIn(section){
   section.querySelectorAll('#game-pause,#builder-pause,#match-pause').forEach(button=>{if(!button.disabled&&button.textContent===button.dataset.pauseLabel)button.click();});
-  const quizStop=section.querySelector('#quiz-stop');if(quizStop&&!quizStop.disabled)quizStop.click();
+  section.querySelectorAll('#quiz-stop,#shape-stop').forEach(button=>{if(!button.disabled)button.click();});
  }
  function label(button,index,text){const name=names.get(sections[index].id);button.textContent=`${text} · ${name}`;button.setAttribute('aria-label',`${text}: ${name}`);}
  function activate(index,{scroll=false,focus=false}={}){
