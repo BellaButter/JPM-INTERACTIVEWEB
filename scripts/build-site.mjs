@@ -201,6 +201,8 @@ pages.push({path:'thank-you.html',active:'contact',noindex:true,title:'Thank You
 // In-text links: article and guide copy may contain [anchor](page.html#id), with the path from the site root.
 // The marker stays in the text until after Thai localization (which translates whole paragraphs), then becomes a link.
 const inlineLinks = (html, prefix) => html.replace(/\[([^\]<>]+)\]\(([a-z0-9/-]+\.html(?:#[a-z0-9-]+)?)\)/g, (_, text, href) => `<a href="${prefix}${href}">${text}</a>`);
+// The Thai dictionary is written before the pages so its content hash in each page URL is current.
+await writeFile(new URL('../site-i18n.js',import.meta.url),`/* Generated from content/th/site.mjs. */\n(()=>{const copy=new Map(${JSON.stringify([...thaiCopy])});const thai=document.documentElement.lang==='th';const translate=${translateThai.toString().replaceAll('thaiCopy','copy')};window.JPMI18n={thai,t:text=>thai?translate(text):text};})();\n`);
 for (const page of pages) {
   await mkdir(new URL(`../${page.path.includes('/') ? page.path.slice(0,page.path.lastIndexOf('/')+1) : ''}`, import.meta.url), {recursive:true});
   const html=layout({...page,prefix:page.prefix||''}).replace('</head>',pageSchema(page,x=>x,'en')+'</head>');
@@ -253,4 +255,3 @@ if (process.env.SITE_ORIGIN) {
 }
 console.log(`Built ${pages.length*2} static pages from shared components and English content. ${process.env.SITE_ORIGIN ? 'Release canonicals enabled.' : 'Preview pages are noindex; release origin is not set.'}`);
 
-await writeFile(new URL('../site-i18n.js',import.meta.url),`/* Generated from content/th/site.mjs. */\n(()=>{const copy=new Map(${JSON.stringify([...thaiCopy])});const thai=document.documentElement.lang==='th';const translate=${translateThai.toString().replaceAll('thaiCopy','copy')};window.JPMI18n={thai,t:text=>thai?translate(text):text};})();\n`);
