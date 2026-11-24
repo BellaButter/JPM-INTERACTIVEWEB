@@ -335,5 +335,18 @@ export const demoCopy = {
  'Wrong shape. −5 points.':'แตะผิดอัน หัก 5 คะแนน',
  '{boards} boards cleared · {wrong} wrong taps':'เคลียร์ {boards} ด่าน · แตะผิด {wrong} ครั้ง',
  'Best this visit: {best}':'คะแนนสูงสุดรอบนี้: {best}',
- 'Round ended. You can change the settings now.':'จบรอบแล้ว ปรับแต่งเกมได้เลย'
+ 'Round ended. You can change the settings now.':'จบรอบแล้ว ปรับแต่งเกมได้เลย',
+ 'Play with your hand (camera)':'เล่นด้วยมือ (เปิดกล้อง)',
+ 'Play by tapping':'เล่นด้วยการแตะจอ',
+ 'Play again with your hand':'เล่นอีกครั้งด้วยมือ',
+ 'Play again by tapping':'เล่นอีกครั้งด้วยการแตะจอ',
+ 'Camera images stay on this device. Nothing is recorded or sent.':'ภาพจากกล้องประมวลผลในเครื่องนี้เท่านั้น ไม่มีการบันทึกหรือส่งออกไปไหน',
+ 'Hand mode: point at a shape with your index finger and hold for a moment. Your camera image stays on your device.':'เล่นด้วยมือ: ชี้นิ้วชี้ไปที่รูป ค้างไว้แป๊บเดียวก็นับว่าแตะ ภาพจากกล้องไม่ออกจากเครื่องของคุณ',
+ 'Starting the camera…':'กำลังเปิดกล้อง…',
+ 'Allow camera access when your browser asks.':'กดอนุญาตให้ใช้กล้องเมื่อเบราว์เซอร์ถาม',
+ 'Loading hand tracking…':'กำลังโหลดระบบจับมือ…',
+ 'This takes a few seconds the first time.':'ครั้งแรกอาจใช้เวลาสักครู่',
+ 'Camera unavailable. Playing by tapping instead.':'เปิดกล้องไม่ได้ เปลี่ยนเป็นเล่นด้วยการแตะจอแทน',
+ 'Show your hand to the camera.':'ยกมือให้กล้องเห็น',
+ 'Board {n}: point at every {target}.':'ด่าน {n}: ชี้ไปที่{target}ให้ครบ'
 };
