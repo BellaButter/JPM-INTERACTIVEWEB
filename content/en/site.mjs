@@ -2,6 +2,9 @@
 export const studio = {
   name: 'JPM Media Space', email: 'jpmmediaspace@gmail.com', phone: '096-282-6224',
   line: 'https://line.me/R/ti/p/@328opglx?oat_content=qr',
+  // Official profiles listed in Organization sameAs (schema only, not shown on the page).
+  facebook: 'https://www.facebook.com/p/JPM-Media-Space-61591203591000/',
+  googleMaps: 'https://maps.google.com/?cid=8096623963810198788',
   heroIntroduction: 'Interactive games and content for touchscreens, LED walls, projectors, and sensors, designed for event booths. We test every system before show day, and the team that built it stays on site until the event ends.',
   introduction: 'We are a creative technology studio that takes your experience from first idea to after-sales care. Concept, content, software, installation, and support are handled by one team.',
   overview: 'Our work spans across Exhibition spaces, Corporate Showrooms, Event Activation, Brand Experience Centers, reception areas (Lobbies), and permanent exhibition installations.',
