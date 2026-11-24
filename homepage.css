@@ -1638,7 +1638,9 @@ html[lang="th"] .service-hero h1 { font-size: clamp(32px, 3.8vw, 52px); line-hei
 
 /* Contact page map (2026-11-24): address, directions link and a lazy Google Maps embed under the contact details. */
 .contact-visit { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; align-items: center; padding-top: 0; }
-.contact-visit address { font-style: normal; display: flex; flex-direction: column; gap: 4px; margin: 18px 0 26px; font-size: 17px; line-height: 1.6; color: var(--ink, #16161c); }
+.contact-visit address { font-style: normal; display: flex; flex-direction: column; gap: 6px; margin: 0 0 28px; font-size: 18px; line-height: 1.6; color: var(--ink, #16161c); }
+.contact-visit address span:first-child { font-weight: 600; }
+.contact-visit .button { margin-top: 0; }
 .contact-map { border-radius: 28px; overflow: hidden; background: #fff; box-shadow: 0 18px 50px rgba(22,22,28,.08); aspect-ratio: 16 / 10; }
 .contact-map iframe { display: block; width: 100%; height: 100%; border: 0; }
 @media (max-width: 900px) {

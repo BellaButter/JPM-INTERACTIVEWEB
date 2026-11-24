@@ -631,8 +631,7 @@ Object.entries({
 Object.entries({
  "Say hello.":'ติดต่อเราได้เลย',
  // Contact page map (2026-11-24)
- 'VISIT US':'แวะมาหาเรา',
- 'Visit the studio.':'แวะมาที่ออฟฟิศเราได้',
+ 'Studio address and map':'ที่อยู่และแผนที่ออฟฟิศ',
  '17th Floor, Room 1702, Serm-Mit Tower':'ชั้น 17 ห้อง 1702 อาคารเสริมมิตร ทาวเวอร์',
  'Sukhumvit 21 (Asok), Khlong Toei Nuea, Watthana, Bangkok 10110':'ซอยสุขุมวิท 21 (อโศก) แขวงคลองเตยเหนือ เขตวัฒนา กรุงเทพฯ 10110',
  'Get directions':'ดูเส้นทาง',
