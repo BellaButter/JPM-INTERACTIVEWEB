@@ -4,7 +4,7 @@ import {overlayMascot,pop,shake,confetti,lowTime,sound} from './game-kit.js';
 // clearing them all gives a bonus and deals a new board. +10 per right shape, +20 per cleared board, -5 per wrong tap
 // (never below zero). The first board always asks for pink circles. The timer pauses while the tab is hidden.
 // Hand mode (owner request 2026-11-24): the camera feed fills the board, MediaPipe Hand Landmarker finds index fingertips
-// on this device, and holding a fingertip on a shape for DWELL ms taps it. Nothing from the camera leaves the browser.
+// on this device (files in vendor/mediapipe), and holding a fingertip on a shape for DWELL ms taps it. Nothing from the camera leaves the browser.
 // If the camera or the tracker is unavailable the round continues in tap mode.
 const COLORS={pink:'#ff5fa2',blue:'#4fa8ff',yellow:'#ffd23f',green:'#3ddc84'};
 const COLOR_NAMES={pink:'Pink',blue:'Blue',yellow:'Yellow',green:'Green'};
@@ -19,8 +19,9 @@ const SHAPE_NAMES={circle:'circle',square:'square',triangle:'triangle',star:'sta
 const LEVELS={easy:{items:8,targets:3,near:.5},normal:{items:12,targets:4,near:.75},hard:{items:16,targets:5,near:1}};
 const HAND_LEVELS={easy:{items:6,targets:2,near:.5},normal:{items:8,targets:3,near:.75},hard:{items:10,targets:4,near:1}};
 const DWELL=220;
-const VISION='https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14';
-const HAND_MODEL='https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task';
+// Hand tracking files live on our own site (vendor/mediapipe, Apache 2.0) and load only when hand mode starts.
+const VISION=new URL('./vendor/mediapipe/tasks-vision-0.10.14',import.meta.url).href;
+const HAND_MODEL=new URL('./vendor/mediapipe/hand_landmarker.task',import.meta.url).href;
 const pick=list=>list[Math.floor(Math.random()*list.length)];
 const shuffle=list=>{for(let i=list.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[list[i],list[j]]=[list[j],list[i]];}return list;};
 
@@ -39,7 +40,7 @@ export function setupShapeHunt(t){
  const video=document.createElement('video');video.className='shape-video';video.muted=true;video.playsInline=true;video.setAttribute('aria-hidden','true');
  const cursors=[0,1].map(()=>{const dot=document.createElement('span');dot.className='shape-cursor';dot.hidden=true;return dot;});
  const hint=document.createElement('p');hint.className='shape-hand-hint';hint.hidden=true;
- let play='hand',stream=null,landmarker=null,loop=0,lastSeen=0,aim=new Map(),testPoints=null;
+ let play='hand',stream=null,landmarker=null,loop=0,lastSeen=0,aim=new Map();
 
  function svg(c,s){return `<svg viewBox="-50 -50 100 100" aria-hidden="true" focusable="false">${SHAPES[s](COLORS[c])}</svg>`;}
  function preview(){$('#shape-brand-preview').textContent=brand.value.trim()||t('Your brand');stage.dataset.color=color.value;}
@@ -131,11 +132,9 @@ export function setupShapeHunt(t){
  }
  function track(now){
   loop=requestAnimationFrame(track);
-  let points=testPoints;
-  if(!points){
-   if(!landmarker||video.readyState<2)return;
-   try{points=landmarker.detectForVideo(video,now).landmarks.map(hand=>toBoard(hand[8]));}catch{return;}
-  }
+  if(!landmarker||video.readyState<2)return;
+  let points;
+  try{points=landmarker.detectForVideo(video,now).landmarks.map(hand=>toBoard(hand[8]));}catch{return;}
   cursors.forEach((dot,i)=>{const p=points[i];dot.hidden=!p;if(p){dot.style.left=p[0]+'px';dot.style.top=p[1]+'px';}});
   if(points.length)lastSeen=now;
   hint.hidden=state!=='playing'||now-lastSeen<1200;
@@ -196,7 +195,5 @@ export function setupShapeHunt(t){
  [brand,color].forEach(control=>control.addEventListener('input',preview));
  duration.addEventListener('change',()=>{remaining=Number(duration.value);hud();});
  resetButton.addEventListener('click',()=>{brand.value='';color.value='violet';duration.value='30';level.value='normal';mode.value='change';preview();reset();});
- // Test hook for browser checks without a camera: shapeHuntTest([[x,y],...]) feeds fingertip positions in board pixels.
- window.shapeHuntTest=points=>{testPoints=points;if(points&&!loop){board.classList.add('is-camera');loop=requestAnimationFrame(track);}};
  preview();reset();
 }

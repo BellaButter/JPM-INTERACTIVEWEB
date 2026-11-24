@@ -18,7 +18,7 @@ const DEMOS = [
   ['matching-game', '.matching-preview', `document.querySelector('#match-start').click(); await wait(300); const cards=[...document.querySelectorAll('#match-cards button')]; cards[0]?.click(); cards[3]?.click(); await wait(250);`],
   ['lucky-wheel', '.wheel-stage', `const box=document.querySelector('#wheel-signup'); box.checked=false; box.dispatchEvent(new Event('change')); await wait(200);`],
   ['quiz-game', '.quiz-stage', `document.querySelector('#quiz-start').click(); await wait(2500);`],
-  ['shape-hunt', '.shape-stage', `document.querySelector('#shape-start').click(); await wait(900); const hit=[...document.querySelectorAll('#shape-board .shape-item')].find(b=>/pink circle|วงกลมสีชมพู/.test(b.getAttribute('aria-label'))); hit?.click(); await wait(700);`],
+  ['shape-hunt', '.shape-stage', `document.querySelector('#shape-start-tap').click(); await wait(900); const hit=[...document.querySelectorAll('#shape-board .shape-item')].find(b=>/pink circle|วงกลมสีชมพู/.test(b.getAttribute('aria-label'))); hit?.click(); await wait(700);`],
   ['scratch-reveal', '.scratch-stage', `document.querySelector('#scratch-reveal-button')?.click(); await wait(1400);`],
   ['product-explorer', '#product-explorer .catalog-carousel', `await wait(600);`],
   ['atmosphere-room', '.atmosphere-scene', `await wait(1500);`],

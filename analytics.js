@@ -74,7 +74,7 @@
     });
   }
 
-  const demos = new Set(['catch-game', 'tap-game', 'memory-match', 'lucky-wheel', 'quick-quiz',
+  const demos = new Set(['catch-game', 'tap-game', 'memory-match', 'lucky-wheel', 'quick-quiz', 'shape-hunt',
     'scratch-reveal', 'product-explorer', 'atmosphere-room', 'sensor-trigger', 'light-canvas']);
   document.addEventListener('jpm:demo-start', event => {
     if (demos.has(event.detail?.demo_id)) send('demo_start', { demo_id: event.detail.demo_id });
