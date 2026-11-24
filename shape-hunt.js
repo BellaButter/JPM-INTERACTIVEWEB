@@ -101,11 +101,24 @@ export function setupShapeHunt(t){
  }
  async function loadTracker(){
   if(landmarker)return;
-  const {FilesetResolver,HandLandmarker}=await import(VISION+'/vision_bundle.mjs');
+  let vision;try{vision=await import(VISION+'/vision_bundle.mjs');}catch(error){stage.dataset.tracker='failed';throw error;}
+  const {FilesetResolver,HandLandmarker}=vision;
   const files=await FilesetResolver.forVisionTasks(VISION+'/wasm');
   const options=delegate=>({baseOptions:{modelAssetPath:HAND_MODEL,delegate},runningMode:'VIDEO',numHands:2});
+  stage.dataset.tracker='loading';
   try{landmarker=await HandLandmarker.createFromOptions(files,options('GPU'));}
-  catch{landmarker=await HandLandmarker.createFromOptions(files,options('CPU'));}
+  catch{try{landmarker=await HandLandmarker.createFromOptions(files,options('CPU'));}catch(error){stage.dataset.tracker='failed';throw error;}}
+  stage.dataset.tracker='ready';
+ }
+ // Why the camera did not start, in words the player can act on.
+ function cameraMessage(error){
+  const name=error?.name||'';
+  if(!window.isSecureContext||!navigator.mediaDevices?.getUserMedia)return t('This browser window cannot use the camera. Open the page in Chrome or Safari.');
+  if(name==='NotAllowedError'||name==='SecurityError')return t('Camera access was blocked. Allow the camera in the address bar, then try again.');
+  if(name==='NotFoundError'||name==='OverconstrainedError')return t('No camera was found on this device.');
+  if(name==='NotReadableError')return t('The camera is in use by another app. Close it and try again.');
+  if(stage.dataset.tracker==='failed')return t('Hand tracking could not load. Check the internet connection and try again.');
+  return t('Camera unavailable. Playing by tapping instead.');
  }
  function closeCamera(){
   cancelAnimationFrame(loop);loop=0;stream?.getTracks().forEach(track=>track.stop());stream=null;video.srcObject=null;
@@ -152,7 +165,7 @@ export function setupShapeHunt(t){
  }
  async function begin(choice){
   demoStarted('shape-hunt');
-  clearTimeout(nextBoard);play=choice;
+  clearTimeout(nextBoard);play=choice;let fallback='';
   if(choice==='hand'){
    setState('loading');$('#shape-result').textContent=t('Starting the camera…');$('#shape-result-copy').textContent=t('Allow camera access when your browser asks.');best.hidden=true;
    try{
@@ -160,14 +173,14 @@ export function setupShapeHunt(t){
     $('#shape-result').textContent=t('Loading hand tracking…');$('#shape-result-copy').textContent=t('This takes a few seconds the first time.');
     await loadTracker();
     board.classList.add('is-camera');lastSeen=performance.now();cancelAnimationFrame(loop);loop=requestAnimationFrame(track);
-   }catch{
-    closeCamera();play='tap';status.textContent=t('Camera unavailable. Playing by tapping instead.');
+   }catch(error){
+    closeCamera();play='tap';fallback=cameraMessage(error);
    }
    if(state!=='loading'){closeCamera();return;}
   }
   score=0;boards=0;wrong=0;boardNumber=0;remaining=Number(duration.value);overlay.hidden=true;setState('playing');
   deal();deadline=performance.now()+remaining*1000;run();
-  if(play==='tap'){board.querySelector('.shape-item')?.focus({preventScroll:true});if(choice==='hand')status.textContent=t('Camera unavailable. Playing by tapping instead.');}
+  if(play==='tap'){board.querySelector('.shape-item')?.focus({preventScroll:true});if(fallback)status.textContent=fallback+' '+t('Playing by tapping for now.');}
   else status.textContent=fill('Board {n}: point at every {target}.',{n:boardNumber,target:name(target.c,target.s)});
  }
  function reset(message){

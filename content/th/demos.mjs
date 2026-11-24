@@ -348,5 +348,11 @@ export const demoCopy = {
  'This takes a few seconds the first time.':'ครั้งแรกอาจใช้เวลาสักครู่',
  'Camera unavailable. Playing by tapping instead.':'เปิดกล้องไม่ได้ เปลี่ยนเป็นเล่นด้วยการแตะจอแทน',
  'Show your hand to the camera.':'ยกมือให้กล้องเห็น',
- 'Board {n}: point at every {target}.':'ด่าน {n}: ชี้ไปที่{target}ให้ครบ'
+ 'Board {n}: point at every {target}.':'ด่าน {n}: ชี้ไปที่{target}ให้ครบ',
+ 'This browser window cannot use the camera. Open the page in Chrome or Safari.':'หน้าต่างนี้ใช้กล้องไม่ได้ ลองเปิดหน้านี้ใน Chrome หรือ Safari',
+ 'Camera access was blocked. Allow the camera in the address bar, then try again.':'กล้องถูกปิดกั้นอยู่ กดอนุญาตกล้องที่แถบที่อยู่ด้านบน แล้วลองใหม่',
+ 'No camera was found on this device.':'ไม่พบกล้องในเครื่องนี้',
+ 'The camera is in use by another app. Close it and try again.':'มีแอปอื่นใช้กล้องอยู่ ปิดแอปนั้นแล้วลองใหม่',
+ 'Hand tracking could not load. Check the internet connection and try again.':'โหลดระบบจับมือไม่สำเร็จ ตรวจอินเทอร์เน็ตแล้วลองใหม่',
+ 'Playing by tapping for now.':'ตอนนี้เปลี่ยนเป็นเล่นด้วยการแตะจอไปก่อน'
 };
