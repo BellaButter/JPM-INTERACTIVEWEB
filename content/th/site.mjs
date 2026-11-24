@@ -630,6 +630,13 @@ Object.entries({
 // English keys or built in code. Applied last so they take precedence.
 Object.entries({
  "Say hello.":'ติดต่อเราได้เลย',
+ // Contact page map (2026-11-24)
+ 'VISIT US':'แวะมาหาเรา',
+ 'Visit the studio.':'แวะมาที่ออฟฟิศเราได้',
+ '17th Floor, Room 1702, Serm-Mit Tower':'ชั้น 17 ห้อง 1702 อาคารเสริมมิตร ทาวเวอร์',
+ 'Sukhumvit 21 (Asok), Khlong Toei Nuea, Watthana, Bangkok 10110':'ซอยสุขุมวิท 21 (อโศก) แขวงคลองเตยเหนือ เขตวัฒนา กรุงเทพฯ 10110',
+ 'Get directions':'ดูเส้นทาง',
+ 'Map showing the JPM Media Space studio at Serm-Mit Tower':'แผนที่ออฟฟิศ JPM Media Space ที่อาคารเสริมมิตร ทาวเวอร์',
  "Your next idea.":'ไอเดียใหม่ของคุณ',
  "Our next conversation.":'เริ่มได้แค่ลองคุยกับเรา'
 }).forEach(([en,th])=>add(en,th));

@@ -15,7 +15,8 @@ export function localizeThai(html, pagePath) {
       if (/^<(script|style|svg)\b/i.test(token)) skip=token.match(/^<(\w+)/)[1];
       else if (skip && token.startsWith(`</${skip}`)) skip='';
       if (skip || /^<\//.test(token)) return token;
-      return token.replace(/\b(alt|aria-label|placeholder|content|value)="([^"]*)"/g,(match,attribute,value) => {
+      return token.replace(/\b(alt|aria-label|placeholder|content|value|title)="([^"]*)"/g,(match,attribute,value) => {
+        if (attribute==='title' && !/^<iframe\b/i.test(token)) return match;
         if (attribute==='content' && !/name="description"|property="og:(title|description|image:alt)"|name="twitter:(title|description)"/.test(token)) return match;
         if (attribute==='value' && (!/^<option\b/i.test(token) || token.includes('data-stable-value'))) return match;
         return `${attribute}="${escape(translateThai(decode(value)))}"`;
