@@ -611,6 +611,45 @@ const thaiBoothGuide = {
 ['title','description','lead'].forEach(key=>add(boothGuide[key],thaiBoothGuide[key]));
 boothGuide.sections.forEach(([title,paras,rows],i)=>{const [th,thParas,thRows]=thaiBoothGuide.sections[i];add(title,th);paras.forEach((p,j)=>add(p,thParas[j]));(rows||[]).forEach((row,r)=>[0,1,2].forEach(c=>add(row[c],thRows[r][c])));});
 boothGuide.faqs.forEach(([q,a],i)=>{add(q,thaiBoothGuide.faqs[i][0]);add(a,thaiBoothGuide.faqs[i][1]);});
+// Planning & Lead Capture topic guide (P3): owner-reviewed Thai copy, 2026-11-25.
+const planningGuide = topicGuides['planning-leads'];
+const thaiPlanningGuide = {
+ title:'วางแผนกิจกรรมเกมในบูธ คู่มือตั้งแต่บรีฟถึงหลังจบงาน',
+ description:'วางแผนเกมบูธครบทุกช่วง บรีฟ งบ เวลา การเลือกผู้ให้บริการ วันงาน การเก็บ lead และสรุปผล พร้อมบทความเจาะลึกทุกหัวข้อ',
+ lead:'กิจกรรมเกมในบูธที่ประสบความสำเร็จ เริ่มตั้งแต่ก่อนวันงานหลายสัปดาห์ และไม่จบที่ปิดบูธ คู่มือนี้พาคุณไล่ทุกช่วง แต่ละช่วงมีบทความเจาะลึกให้อ่านต่อ',
+ cover:{alt:'ทีมงานสี่คนนั่งประชุมวางแผนร่วมกัน โดยมีเอกสารและกราฟบนโต๊ะ',caption:'ภาพประกอบการประชุมวางแผนงาน โดย Yan Krukau จาก Pexels'},
+ tableHead:['ช่วง','สิ่งที่ต้องตัดสินใจ','อ่านต่อ'],
+ sections:[
+  ['เส้นทางตั้งแต่บรีฟถึงหลังงาน',[],[
+   ['เตรียมบรีฟ','เป้าหมาย ผู้เล่น พื้นที่ จอ','เช็กลิสต์บรีฟ'],
+   ['ตั้งงบ','ส่วนไหนตั้งงบกับใคร','งบทำเกม'],
+   ['เลือกผู้ให้บริการ','เทียบใบเสนอราคาให้แฟร์','เทียบใบเสนอราคา'],
+   ['วางตาราง','prototype ทดสอบ วันปิดรับเนื้อหา','ระยะเวลาทำเกม'],
+   ['เตรียมหน้างาน','เน็ต ไฟ แผนสำรอง','เน็ตไม่เสถียร'],
+   ['หลังจบงาน','นับอะไร เก็บ lead อย่างไร','วัดผลเกมบูธ']
+  ]],
+  ['ก่อนเริ่ม: เห็นก่อนตัดสินใจ',['เราตรวจความเป็นไปได้ และทำ prototype หนึ่งเวอร์ชันให้คุณลองก่อนตัดสินใจ เกมบูธใช้เวลาทำอย่างน้อย 1 สัปดาห์ แจ้งวันงานมาเร็วเท่าไร คุณยิ่งมีเวลาลองและปรับมากขึ้น']],
+  ['วันงาน: หน้างานสมูธ ไม่มีสะดุด',['เราทดสอบระบบทั้งหมดก่อนเปิดงาน และทีมที่เขียนโปรแกรมเองอยู่หน้างานตั้งแต่เปิดจนปิด ซ้อมกับทีมบูธของคุณด้วยว่าใครเชิญคนเล่น ใครแจกรางวัล และใครคุยต่อกับคนที่สนใจ คำพูดของทีมบูธกับกติกาบนจอควรพูดเรื่องเดียวกัน ดู[วิธีที่เราทำเกมออกบูธ](interactive-event-games.html)']],
+  ['หลังจบงาน: ได้มากกว่าคนเดินผ่าน',['ถ้าคุณเก็บรายชื่อผ่านการลงทะเบียนหรือ QR พร้อมความยินยอม PDPA หลังจบงานคุณจะได้สรุปจำนวนผู้เล่นและการมีส่วนร่วม ระบบที่เราส่งมอบยังอัปเดต ย้ายงาน หรือต่อยอดในงานถัดไปได้ ลงทุนครั้งเดียวแล้วใช้ต่อ']]
+ ],
+ faqs:[
+  ['คนเล่นเกมเยอะถือว่างานสำเร็จไหม?','ดูที่เป้าหมายที่ตั้งไว้ ถ้าเป้าหมายคือเก็บ lead ต้องนับจำนวนคนที่ลงทะเบียน ไม่ใช่จำนวนรอบเล่น'],
+  ['ควรซ้อมอะไรกับทีมบูธ?','วิธีเชิญคนเล่น การอธิบายกติกาสั้น ๆ และการแจกรางวัล'],
+  ['ใช้เกมเดิมกับงานใหม่ได้เลยไหม?','ได้ ระบบย้ายงานและอัปเดตเนื้อหาได้ แต่ควรตรวจจอและพื้นที่ใหม่ก่อนทุกครั้ง']
+ ],
+ actions:['ส่งบรีฟให้เรา','ดูแพ็กเกจ']
+};
+['title','description','lead'].forEach(key=>add(planningGuide[key],thaiPlanningGuide[key]));
+add(planningGuide.cover.alt,thaiPlanningGuide.cover.alt);add(planningGuide.cover.caption,thaiPlanningGuide.cover.caption);
+planningGuide.tableHead.forEach((h,i)=>add(h,thaiPlanningGuide.tableHead[i]));
+planningGuide.sections.forEach(([title,paras,rows],i)=>{const [th,thParas,thRows]=thaiPlanningGuide.sections[i];add(title,th);paras.forEach((p,j)=>add(p,thParas[j]));(rows||[]).forEach((row,r)=>[0,1,2].forEach(c=>add(row[c],thRows[r][c])));});
+planningGuide.faqs.forEach(([q,a],i)=>{add(q,thaiPlanningGuide.faqs[i][0]);add(a,thaiPlanningGuide.faqs[i][1]);});
+planningGuide.actions.forEach(([label],i)=>add(label,thaiPlanningGuide.actions[i]));
+Object.entries({
+ 'Planning a booth game activity:':'วางแผนกิจกรรมเกมในบูธ',
+ 'from brief to post-event summary.':'ตั้งแต่บรีฟจนถึงสรุปผลหลังงาน'
+}).forEach(([en,th])=>add(en,th));
+
 Object.entries({
  'Event booth games:':'เกมบูธอีเวนต์:',
  'a guide to choosing the right game.':'คู่มือเลือกเกมให้เข้ากับแบรนด์และพื้นที่',

@@ -364,6 +364,34 @@ export const topicGuides = {
       ['Do we need our own screen?', 'Yes. Packages do not include screens or projectors, but our games run on the screens you or the organizer already have.'],
       ['Can the game collect player details?', 'Yes, with a sign-up form or QR scan before play and a PDPA consent step.']
     ]
+  },
+  'planning-leads': {
+    // P3 (owner-reviewed 2026-11-25). Cover: Mina, Pexels photo by Yan Krukau (2026-11-25).
+    title: 'Planning a Booth Game: A Guide From Brief to After the Event',
+    description: 'Plan every stage of a booth game: brief, budget, timing, choosing a supplier, show day, lead capture, and the post-event summary, with an in-depth article for each.',
+    heading: 'Planning a booth game activity:<br><span class="gradient-text">from brief to post-event summary.</span>',
+    lead: 'A successful booth game starts weeks before the event and does not end when the booth closes. This guide walks you through every stage, with an in-depth article to read for each one.',
+    cover: { image: 'booth-game-planning-cover.webp', alt: 'Four colleagues seated around a table discussing plans with printed charts and documents.', caption: 'Stock photo of a planning meeting by Yan Krukau on Pexels.' },
+    tableHead: ['Planning stage', 'What to decide', 'Read in depth'],
+    sections: [
+      ['The path from brief to after the event', [], [
+        ['Prepare the brief', 'Goal, players, space, screens', 'Booth game brief checklist', 'insights/event-game-brief-checklist.html'],
+        ['Set the budget', 'What to budget for, and with whom', 'What a booth game budget includes', 'insights/event-game-budget.html'],
+        ['Choose a supplier', 'Compare quotes fairly', 'Comparing booth game quotes', 'insights/compare-event-game-quotes.html'],
+        ['Plan the schedule', 'Prototype, testing, content deadline', 'How long a booth game takes', 'insights/event-game-development-timeline.html'],
+        ['Prepare the site', 'Internet, power, backup plan', 'When the internet is unreliable', 'insights/offline-event-game-backup.html'],
+        ['Once the event is over', 'What to count, how to collect leads', 'Measuring a booth game', 'insights/booth-game-measurement.html']
+      ]],
+      ['Before you start: see it before you decide', ['We check feasibility and build one prototype version for you to try before you decide. A booth game takes at least one week to build, so the earlier you tell us your event date, the more time you have to try it and make changes.']],
+      ['Show day: smooth on site, no surprises', ['We test the whole system before the event opens, and the team who wrote the program is on site from opening to close. Rehearse with your booth team too: who invites people to play, who hands out prizes, and who follows up with interested visitors. What your booth team says and the rules on screen should tell the same story. See [how we build booth games](interactive-event-games.html).']],
+      ['After the event: more than footfall', ['If you collect names through a sign-up form or QR code with PDPA consent, after the event you get a summary of players and engagement. The system we hand over can also be updated, moved, or built on for your next event. Invest once and keep using it.'], null, ['insights/events-and-permanent-spaces.html', 'Read next: One moment or a lasting destination?']]
+    ],
+    faqs: [
+      ['Does a busy game mean the event was a success?', 'Look at the goal you set. If the goal was collecting leads, count how many people signed up, not how many rounds were played.'],
+      ['What should we rehearse with the booth team?', 'How to invite people to play, how to explain the rules briefly, and how to hand out prizes.'],
+      ['Can we use the same game at a new event?', 'Yes. The system can be moved and its content updated, but check the new screen and space every time.']
+    ],
+    actions: [['Send us your brief', 'contact.html?service=Interactive%20Games'], ['See packages', 'packages.html', true]]
   }
 };
 
