@@ -17,6 +17,7 @@ function harness(hostname = 'www.jpmmediaspace.com', options = {}) {
     },
     addEventListener: (name, callback) => listeners.set('window:' + name, callback)
   };
+  if (options.local) window.localStorage = { setItem: (k, v) => options.local.set(k, v), getItem: k => options.local.get(k) ?? null, removeItem: k => options.local.delete(k) };
   window.location.assign = url => followed.push(url);
   const document = {
     documentElement: { lang: 'th' },
@@ -46,6 +47,15 @@ for (const hostname of ['www.jpmmediaspace.com', 'jpmmediaspace.com', 'localhost
   });
 }
 
+test('team devices are tagged internal after ?jpm_team=on and untagged after off', () => {
+  const local = new Map();
+  const configOf = h => JSON.parse(JSON.stringify(Array.from(h.window.dataLayer[1])));
+  assert.deepEqual(configOf(harness('www.jpmmediaspace.com', { local })), ['config', 'G-YFTRX8QT22']);
+  assert.deepEqual(configOf(harness('www.jpmmediaspace.com', { local, path: '/th/index.html?jpm_team=on' })), ['config', 'G-YFTRX8QT22', { traffic_type: 'internal' }]);
+  assert.deepEqual(configOf(harness('www.jpmmediaspace.com', { local, path: '/insights.html' })), ['config', 'G-YFTRX8QT22', { traffic_type: 'internal' }]);
+  assert.deepEqual(configOf(harness('www.jpmmediaspace.com', { local, path: '/?jpm_team=off' })), ['config', 'G-YFTRX8QT22']);
+});
+
 test('shared shell includes analytics once on release EN/TH pages, absent on preview builds', () => {
   const previous = process.env.SITE_ORIGIN;
   try {
@@ -56,8 +66,8 @@ test('shared shell includes analytics once on release EN/TH pages, absent on pre
       const expected = origin === 'https://www.jpmmediaspace.com' ? 1 : 0;
       for (const html of [en, th]) assert.equal((html.match(/analytics\.js/g) || []).length, expected);
       if (expected) {
-        assert(en.includes('src="../analytics.js?v=4" defer'));
-        assert(th.includes('src="../../analytics.js?v=4" defer'));
+        assert(en.includes('src="../analytics.js?v=5" defer'));
+        assert(th.includes('src="../../analytics.js?v=5" defer'));
       }
     }
   } finally {

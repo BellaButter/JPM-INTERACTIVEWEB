@@ -4,7 +4,18 @@
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
   window.gtag('js', new Date());
-  window.gtag('config', 'G-YFTRX8QT22');
+  // Team devices: open any page once with ?jpm_team=on (?jpm_team=off undoes it).
+  // The device is then tagged traffic_type=internal, which the GA4 "Internal
+  // Traffic" data filter removes from reports. Storage holds no PII.
+  const teamKey = 'jpm_team_device_v1';
+  let team = false;
+  try {
+    const flag = new URL(window.location.href).searchParams.get('jpm_team');
+    if (flag === 'on') window.localStorage.setItem(teamKey, '1');
+    if (flag === 'off') window.localStorage.removeItem(teamKey);
+    team = window.localStorage.getItem(teamKey) === '1';
+  } catch { /* Storage may be blocked: count the visit normally. */ }
+  window.gtag('config', 'G-YFTRX8QT22', ...(team ? [{ traffic_type: 'internal' }] : []));
   const tag = document.createElement('script');
   tag.async = true;
   tag.src = 'https://www.googletagmanager.com/gtag/js?id=G-YFTRX8QT22';
